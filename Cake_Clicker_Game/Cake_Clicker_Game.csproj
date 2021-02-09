@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54EA72F0-EA4B-461F-9023-C0872C199281}</ProjectGuid>
+    <ProjectGuid>{F54541E3-9151-45D0-8FC2-2F9B13827393}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Cake_Clicker_Game</RootNamespace>
     <AssemblyName>Cake_Clicker_Game</AssemblyName>
