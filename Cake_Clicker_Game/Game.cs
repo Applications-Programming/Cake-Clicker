@@ -1,43 +1,51 @@
-﻿using System;
+﻿//Game Class which is the backend for the Cake Clicker Game
+//Created by Tyler, Yarra, Noah and Keagan
+//Authored: 2/9/2021
+using System;
 
-
-//Please don't touch to avoid corruption issues
-//Code will be contained to Cake branch 
 public class Game
 {
-	//Fields
+	///Class Fields
 	private String _playerName;
 	private int _amountOfCake;
 	private int _cakePerClick;
 	private double _multiplierOnCakeClick;
+	private CakeType _currentCakeTier;
 
-	//Enums
-	private enum CakeType 
+	///Enums
+	public enum CakeType 
 	{ 
 		Vanilla = 0, Chochlate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 5
 	}
 
-	//Constructor
+	///Constructor
 	public Game()
 	{
 	}
 
-	//Methods
+	/// <summary>
+    /// Game Methods
+    /// </summary>
+
+    //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
 	public void AddCake()
     {
 
     }
 
+	//This method returns the amount of cake stored in _amountOfCake
 	public int GetAmountOfCake()
 	{
 
 	}
 
+	//This method increments the multiplier to the next tier
 	public void IncrementMultiplier() 
 	{ 
 
 	}
 
+	//This method returns the current multiplier as a double
 	public double GetMultiplier()
 	{
 
@@ -49,28 +57,26 @@ public class Game
 		return "Cake Clicker";
     }
 
+	//This method resets the game state. This should set all game fields back to their starting values
 	public void ResetGame()
     {
 
     }
 
+	//This method does a simple save of the game settings to a text file
 	public bool SaveGameToFile() 
 	{ 
 
 	}
-
-	public double GetMultiplier() 
-	{ 
-
-	}
-
-
+	
+	//This changes the current cake type stored in _currentCakeTier
 	public void ChangeCakeType()
 	{
 
 	}
 
-	CakeType AccessCakeType() 
+	//This method returns the current CakeType stored in _currentCakeTier
+	public CakeType AccessCakeType() 
 	{ 
 	
 	}
