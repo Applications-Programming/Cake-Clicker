@@ -37,7 +37,7 @@ public class Game
 	//This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
 	public void AddCake()
 	{
-		_amountOfCake += (_cakePerClick * _multiplierOnCakeClick);
+		_amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
 	}
 
 	//This method returns the amount of cake stored in _amountOfCake
@@ -78,7 +78,7 @@ public class Game
 	public bool SaveGameToFile()
 	{
 		string text = _playerName + " " + _amountOfCake + " " + _cakePerClick + " " + _multiplierOnCakeClick + " " + _currentCakeTier;
-		string path = AppDomain.CurrentDomain.BaseDirectory + @"c:\CakeGameData.txt";
+		string path = AppDomain.CurrentDomain.BaseDirectory + @"\CakeGameData.txt";
 
 		File.WriteAllText(path, text);
 
