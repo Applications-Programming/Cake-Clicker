@@ -17,7 +17,7 @@ public class Game
 	///Enums
 	public enum CakeType
 	{
-		Vanilla = 0, Chochlate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 5
+		Vanilla = 0, Chochlate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 6
 	}
 
 	///Constructor
@@ -88,29 +88,33 @@ public class Game
 	//This changes the current cake type stored in _currentCakeTier
 	public void ChangeCakeType()
 	{
-		if (_amountOfCake >= 20)
-		{
-			_currentCakeTier = CakeType.Chochlate;
+		if(_amountOfCake > 120)
+        {
+			_currentCakeTier = CakeType.Cheese;
 		}
-		else if (_amountOfCake >= 40)
-		{
-			_currentCakeTier = CakeType.Strawberry;
-		}
-		else if (_amountOfCake >= 60)
-		{
-			_currentCakeTier = CakeType.Coffee;
-		}
-		else if (_amountOfCake >= 80)
-		{
-			_currentCakeTier = CakeType.Red_Velvet;
-		}
-		else if (_amountOfCake >= 100)
+		else if (_amountOfCake <= 120 && _amountOfCake > 100)
 		{
 			_currentCakeTier = CakeType.Carrot;
 		}
+		else if (_amountOfCake <= 100 && _amountOfCake > 80)
+		{
+			_currentCakeTier = CakeType.Red_Velvet;
+		}
+		else if (_amountOfCake <= 80 && _amountOfCake > 60)
+		{
+			_currentCakeTier = CakeType.Coffee;
+		}
+		else if (_amountOfCake <= 60 && _amountOfCake > 40)
+		{
+			_currentCakeTier = CakeType.Strawberry;
+		}
+		else if (_amountOfCake <= 40 && _amountOfCake > 20)
+		{
+			_currentCakeTier = CakeType.Chochlate;
+		}
 		else
 		{
-			_currentCakeTier = CakeType.Cheese;
+			_currentCakeTier = CakeType.Vanilla;
 		}
 	}
 
