@@ -134,6 +134,7 @@ public class Test
 			{
 				game.IncrementMultiplier();
 			}
+			game.ChangeCakeType();
 			Console.WriteLine("CURRENT CAKE TYPE: " + game.AccessCakeType());
 		}
 		Console.WriteLine("Testing game ToString...");
