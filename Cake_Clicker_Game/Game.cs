@@ -35,7 +35,7 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
 	public void AddCake()
     {
-		_amountOfCake += (_cakePerClick * _multiplierOnCakeClick);
+		//_amountOfCake += (_cakePerClick * _multiplierOnCakeClick);
     }
 
 	//This method returns the amount of cake stored in _amountOfCake
@@ -57,7 +57,9 @@ public class Game
 	}
 
 	//This is a ToString override which returns the name of the game
-	public String override ToString()
+	/**Modified to allow compilation 
+	 * OLD: public String overrise ToString()**/
+	public override String ToString()
     {
 		return "Cake Clicker";
     }
@@ -73,9 +75,11 @@ public class Game
 	}
 
 	//This method does a simple save of the game settings to a text file
+	/**Modified to allow compilation 
+	* OLD: missing return statement**/
 	public bool SaveGameToFile() 
-	{ 
-
+	{
+		return false;
 	}
 	
 	//This changes the current cake type stored in _currentCakeTier
