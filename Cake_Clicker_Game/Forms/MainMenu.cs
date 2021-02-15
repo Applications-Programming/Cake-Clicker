@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
@@ -19,9 +12,17 @@ namespace Cake_Clicker_Game
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            var gameWindow = new GameWindow();
-            this.Hide();
-            gameWindow.ShowDialog();
+            if (NameTextBox.Text.Length == 0)
+            {
+                CakeClicker.GetUserInterfaceManager().SendUserMessage("Please enter you name.");
+                return;
+            }
+            else
+            {
+                CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+                CakeClicker.GetUserInterfaceManager().ChangeWindows(this, CakeClicker.GetUserInterfaceManager().GetGameWindow());
+            }
+
         }
     }
 }

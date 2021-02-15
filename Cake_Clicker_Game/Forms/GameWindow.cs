@@ -1,64 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
 {
     public partial class GameWindow : Form
     {
-        int _score;
-        public GameWindow()
+
+        //cached Objects
+        UserInterfaceManager _userInterfaceManager;
+
+        public GameWindow(string playerName)
         {
             InitializeComponent();
-
-            _score = 0;
-            scoreLabel.Text = "0";
-            refreshTimer.Interval = 100;
-            refreshTimer.Start();
+            _userInterfaceManager = CakeClicker.GetUserInterfaceManager();
+            cakeLabel.Text = playerName + "'s Cake";
+            //refreshTimer.Interval = 100;
+            //refreshTimer.Start();
         }
+
+        public void UpdateScore(int score)
+        {
+            scoreLabel.Text = score.ToString();
+        }
+
+        public Button GetCakeButton() { return cakeButton; }
 
         private void cakeButton_Click(object sender, EventArgs e)
         {
-            _score++;
-            scoreLabel.Text = _score.ToString();
+           _userInterfaceManager.OnCakeClick();
             addPointsTimer.Interval = 1000;
             addPointsTimer.Start();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void upgradeButtonGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void upgrade1Button_Click(object sender, EventArgs e)
         {
-
+            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
         }
 
         private void upgrade2Button_Click(object sender, EventArgs e)
         {
-
+            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
         }
 
         private void upgrade3Button_Click(object sender, EventArgs e)
         {
-
+            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
         }
 
         private void upgrade4Button_Click(object sender, EventArgs e)
         {
-            
+            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
         }
 
         //Timer for adding points to the game
@@ -66,9 +57,5 @@ namespace Cake_Clicker_Game
         {
         }
 
-        private void RefreshTimer_Tick(object sender, EventArgs e)
-        {
-            //scoreLabel.Text = _score.ToString();
-        }
     }
 }

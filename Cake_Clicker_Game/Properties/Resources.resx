@@ -118,7 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Red_Velvet_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Red_Velvet_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vanilla_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Vanilla_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Carrot_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Carrot_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Strawberry_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Strawberry_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chocolate_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Chocolate_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cheese_Cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Cheese_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vanilla_Cake1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Vanilla_Cake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

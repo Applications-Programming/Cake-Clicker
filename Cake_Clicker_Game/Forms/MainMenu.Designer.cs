@@ -31,6 +31,8 @@ namespace Cake_Clicker_Game
         {
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.enterNameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -60,17 +62,38 @@ namespace Cake_Clicker_Game
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(17, 396);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(317, 20);
+            this.NameTextBox.TabIndex = 2;
+            // 
+            // enterNameLabel
+            // 
+            this.enterNameLabel.AutoSize = true;
+            this.enterNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.enterNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterNameLabel.Location = new System.Drawing.Point(12, 367);
+            this.enterNameLabel.Name = "enterNameLabel";
+            this.enterNameLabel.Size = new System.Drawing.Size(129, 26);
+            this.enterNameLabel.TabIndex = 3;
+            this.enterNameLabel.Text = "Enter Name";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.enterNameLabel);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -78,5 +101,7 @@ namespace Cake_Clicker_Game
 
         private System.Windows.Forms.Label welcomeLabel;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.Label enterNameLabel;
     }
 }
