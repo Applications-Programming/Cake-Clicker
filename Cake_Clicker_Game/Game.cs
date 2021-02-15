@@ -16,7 +16,7 @@ public class Game
     ///Enums
     public enum CakeType
     {
-        Vanilla = 0, Chochlate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 6
+        Vanilla = 0, Chocolate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 6
     }
 
     ///Constructor
@@ -109,7 +109,7 @@ public class Game
         }
         else if (_amountOfCake <= 40 && _amountOfCake > 20)
         {
-            _currentCakeTier = CakeType.Chochlate;
+            _currentCakeTier = CakeType.Chocolate;
         }
         else
         {
@@ -167,7 +167,7 @@ public class Test
             Console.WriteLine("The File Does NOT exist");
         }
 
-        Console.WriteLine("Tetsing Game Rest...");
+        Console.WriteLine("Testing Game Rest...");
         game.ResetGame();
         if (game.AccessCakeType() == 0)
         {

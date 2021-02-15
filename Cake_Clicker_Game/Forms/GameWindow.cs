@@ -16,6 +16,8 @@ namespace Cake_Clicker_Game
             cakeLabel.Text = playerName + "'s Cake";
             //refreshTimer.Interval = 100;
             //refreshTimer.Start();
+            cakeButton.MouseDown += new MouseEventHandler(Shrink);
+            cakeButton.MouseUp += new MouseEventHandler(Grow);
         }
 
         public void UpdateScore(int score)
@@ -50,6 +52,18 @@ namespace Cake_Clicker_Game
         private void upgrade4Button_Click(object sender, EventArgs e)
         {
             _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
+        }
+
+        private void Shrink(object sender, MouseEventArgs e)
+        {
+            cakeButton.Size = new System.Drawing.Size(500, 500);
+            cakeButton.Location = new System.Drawing.Point(223, 140);
+        }
+
+        private void Grow(object sender, MouseEventArgs e)
+        {
+            cakeButton.Size = new System.Drawing.Size(512,512);
+            cakeButton.Location = new System.Drawing.Point(217, 134);
         }
 
         //Timer for adding points to the game
