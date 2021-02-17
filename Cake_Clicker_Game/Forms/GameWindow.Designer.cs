@@ -50,12 +50,12 @@ namespace Cake_Clicker_Game
             // 
             this.scoreLabel.AutoSize = true;
             this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.scoreLabel.Font = new System.Drawing.Font("Rockwell", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.scoreLabel.Location = new System.Drawing.Point(821, 0);
+            this.scoreLabel.Location = new System.Drawing.Point(797, 0);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.scoreLabel.Size = new System.Drawing.Size(663, 60);
+            this.scoreLabel.Size = new System.Drawing.Size(687, 63);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "9999999999999999999999";
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -135,7 +135,7 @@ namespace Cake_Clicker_Game
             // 
             this.cakeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cakeButton.BackColor = System.Drawing.Color.Transparent;
-            this.cakeButton.Font = new System.Drawing.Font("Old English Text MT", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cakeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cakeButton.Image = global::Cake_Clicker_Game.Properties.Resources.Vanilla_Cake;
             this.cakeButton.Location = new System.Drawing.Point(216, 127);

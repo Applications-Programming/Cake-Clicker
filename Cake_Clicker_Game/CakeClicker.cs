@@ -20,10 +20,8 @@ namespace Cake_Clicker_Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainMenu mainMenu = new MainMenu();
-            _currWindow = mainMenu;
-            _userInterfaceManager = new UserInterfaceManager(mainMenu);
-            Application.Run(mainMenu);
+            _userInterfaceManager = new UserInterfaceManager();
+            Application.Run(_userInterfaceManager.GetMainMenu());
         }
     }
 }

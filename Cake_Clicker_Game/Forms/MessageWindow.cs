@@ -14,7 +14,9 @@ namespace Cake_Clicker_Game
             
         }
 
-
+        /// <summary>
+        /// Automatically calculates where the message window should be displayed
+        /// </summary>
         private void AutoSetLocation()
         {
             Form currWindow = CakeClicker.GetCurrentWindow();

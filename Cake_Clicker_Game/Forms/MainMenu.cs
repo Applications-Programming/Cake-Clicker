@@ -20,7 +20,9 @@ namespace Cake_Clicker_Game
             else
             {
                 CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
-                CakeClicker.GetUserInterfaceManager().ChangeWindows(this, CakeClicker.GetUserInterfaceManager().GetGameWindow());
+                Hide();
+                CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
+                this.Dispose();
             }
 
         }

@@ -20,6 +20,10 @@ namespace Cake_Clicker_Game
             cakeButton.MouseUp += new MouseEventHandler(Grow);
         }
 
+        /// <summary>
+        /// Updates the score
+        /// </summary>
+        /// <param name="score">The new score</param>
         public void UpdateScore(int score)
         {
             scoreLabel.Text = score.ToString();
