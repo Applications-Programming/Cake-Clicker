@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CakeIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -103,6 +106,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Cake.png" />
+    <Content Include="CakeIcon.ico" />
     <None Include="Assets\Vanilla_Cake.png" />
     <None Include="Assets\Strawberry_Cake.png" />
     <None Include="Assets\Red_Velvet_Cake.png" />
