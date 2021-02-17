@@ -27,6 +27,8 @@ namespace Cake_Clicker_Game
 
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore(_game.GetAmountOfCake());
+
+            _gameWindow.GetNewCake().Visible = false;
         }
 
         public void SaveAndClose()
@@ -47,6 +49,7 @@ namespace Cake_Clicker_Game
             if(_cakeType != _game.AccessCakeType())
             {
                 _cakeType = _game.AccessCakeType();
+                //_gameWindow.GetNewCake().Visible = true;
                 switch (_cakeType)
                 {
                     case 0:

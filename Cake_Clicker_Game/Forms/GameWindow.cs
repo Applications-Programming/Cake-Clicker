@@ -71,5 +71,14 @@ namespace Cake_Clicker_Game
         {
         }
 
+        private void newCake_Click(object sender, EventArgs e)
+        {
+            //nothing
+        }
+
+        public Label GetNewCake()
+        {
+            return newCake;
+        }
     }
 }
