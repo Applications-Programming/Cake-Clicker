@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
 {
@@ -53,7 +52,7 @@ namespace Cake_Clicker_Game
         {
             MessageWindow messageWindow = new MessageWindow(message);
             messageWindow.ShowDialog();
-            
+
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace Cake_Clicker_Game
         public void OnCakeClick()
         {
             _game.ChangeCakeType();
-            if(_cakeType != _game.AccessCakeType())
+            if (_cakeType != _game.AccessCakeType())
             {
                 _cakeType = _game.AccessCakeType();
                 //_gameWindow.GetNewCake().Visible = true;
@@ -113,6 +112,7 @@ namespace Cake_Clicker_Game
         public void OpenNewWindow(Form newWindow)
         {
             newWindow.ShowDialog();
+            CakeClicker.SetCurrentWindow(newWindow);
         }
 
         //Getter and setters
@@ -120,7 +120,7 @@ namespace Cake_Clicker_Game
         public Game GetGame() { return _game; }
         public MainMenu GetMainMenu()
         {
-            if(_mainMenu == null)
+            if (_mainMenu == null)
             {
                 _mainMenu = new MainMenu();
             }

@@ -33,7 +33,7 @@ namespace Cake_Clicker_Game
 
         private void cakeButton_Click(object sender, EventArgs e)
         {
-           _userInterfaceManager.OnCakeClick();
+            _userInterfaceManager.OnCakeClick();
             addPointsTimer.Interval = 1000;
             addPointsTimer.Start();
         }
@@ -66,7 +66,7 @@ namespace Cake_Clicker_Game
 
         private void Grow(object sender, MouseEventArgs e)
         {
-            cakeButton.Size = new System.Drawing.Size(512,512);
+            cakeButton.Size = new System.Drawing.Size(512, 512);
             cakeButton.Location = new System.Drawing.Point(217, 134);
         }
 

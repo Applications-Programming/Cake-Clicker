@@ -11,7 +11,7 @@ namespace Cake_Clicker_Game
             InitializeComponent();
             AutoSetLocation();
             this.messageLabel.Text = message;
-            
+
         }
 
         /// <summary>
