@@ -84,6 +84,54 @@ public class Game
         return true;
     }
 
+    //This takes in a parameter CakeType which is what type of cake is being added to the clicking system.
+    //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
+    public bool AddCakeUpgrade(CakeType addedCake) {
+        if (addedCake == CakeType.Vanilla && _amountOfCake >= 50)
+        {
+            _cakePerClick += 5;
+            _amountOfCake -= 50;
+            return true;
+        }
+        else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250) 
+        {
+            _cakePerClick += 10;
+            _amountOfCake -= 250;
+            return true;
+        } 
+        else if(addedCake == CakeType.Strawberry && _amountOfCake >= 500)
+        {
+            _cakePerClick += 25;
+            _amountOfCake -= 500;
+            return true;
+        }
+        else if (addedCake == CakeType.Coffee && _amountOfCake >= 1000)
+        {
+            _cakePerClick += 50;
+            _amountOfCake -= 1000;
+            return true;
+        }
+        else if (addedCake == CakeType.Red_Velvet && _amountOfCake >= 4500)
+        {
+            _cakePerClick += 150;
+            _amountOfCake -= 4500;
+            return true;
+        }
+        else if (addedCake == CakeType.Carrot && _amountOfCake >= 20000)
+        {
+            _cakePerClick += 250;
+            _amountOfCake -= 20000;
+            return true;
+        }
+        else if (addedCake == CakeType.Cheese && _amountOfCake >= 80000)
+        {
+            _cakePerClick += 400;
+            _amountOfCake -= 80000;
+            return true;
+        }
+        return false;
+    }
+
     //This changes the current cake type stored in _currentCakeTier
     public void ChangeCakeType()
     {
@@ -129,7 +177,10 @@ public class Game
         _playerName = playerName;
     }
 
-    public string GetPlayerName() { return _playerName; }
+    //Returns the player name
+    public string GetPlayerName() { 
+        return _playerName; 
+    }
 }
 
 public class Test
