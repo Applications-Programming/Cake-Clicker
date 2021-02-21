@@ -74,15 +74,44 @@ public class Game
     }
 
     //This method does a simple save of the game settings to a text file
+    //This method does a simple save of the game settings to a text file
     public bool SaveGameToFile()
     {
-        string text = _playerName + " " + _amountOfCake + " " + _cakePerClick + " " + _multiplierOnCakeClick + " " + _currentCakeTier;
+        DateTime now = DateTime.Now;
+        string text = _playerName + '\n' + _amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + _currentCakeTier + '\n' + now.ToString("F");
         string path = AppDomain.CurrentDomain.BaseDirectory + @"\CakeGameData.txt";
 
         File.WriteAllText(path, text);
 
         return true;
     }
+
+    public bool LoadFile()
+    {
+        try
+        {
+            File.Exists("CakeGameData.txt");
+            string[] text = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\CakeGameData.txt");
+            _playerName = text[0];
+            _amountOfCake = Int32.Parse(text[1]);
+            _cakePerClick = Int32.Parse(text[2]);
+            _multiplierOnCakeClick = Int32.Parse(text[3]);
+            _currentCakeTier = (CakeType)Int32.Parse(text[4]);
+
+            return false;
+        }
+        catch (Exception e)
+        {
+            _playerName = "null";
+            _amountOfCake = 0;
+            _cakePerClick = 1;
+            _multiplierOnCakeClick = 1.0;
+            _currentCakeTier = 0;
+
+            return true;
+        }
+    }
+
 
     //This takes in a parameter CakeType which is what type of cake is being added to the clicking system.
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
@@ -135,35 +164,43 @@ public class Game
     //This changes the current cake type stored in _currentCakeTier
     public void ChangeCakeType()
     {
-        if (_amountOfCake > 120)
+        if (_amountOfCake > 80000)
         {
             _currentCakeTier = CakeType.Cheese;
+            _cakePerClick = 400;
         }
-        else if (_amountOfCake <= 120 && _amountOfCake > 100)
+        else if (_amountOfCake <= 80000 && _amountOfCake > 20000)
         {
             _currentCakeTier = CakeType.Carrot;
+            _cakePerClick = 250;
         }
-        else if (_amountOfCake <= 100 && _amountOfCake > 80)
+        else if (_amountOfCake <= 20000 && _amountOfCake > 1000)
         {
             _currentCakeTier = CakeType.Red_Velvet;
+            _cakePerClick = 150;
         }
-        else if (_amountOfCake <= 80 && _amountOfCake > 60)
+        else if (_amountOfCake <= 1000 && _amountOfCake > 500)
         {
             _currentCakeTier = CakeType.Coffee;
+            _cakePerClick = 50;
         }
-        else if (_amountOfCake <= 60 && _amountOfCake > 40)
+        else if (_amountOfCake <= 500 && _amountOfCake > 250)
         {
             _currentCakeTier = CakeType.Strawberry;
+            _cakePerClick = 25;
         }
-        else if (_amountOfCake <= 40 && _amountOfCake > 20)
+        else if (_amountOfCake <= 250 && _amountOfCake > 50)
         {
             _currentCakeTier = CakeType.Chocolate;
+            _cakePerClick = 10;
         }
         else
         {
             _currentCakeTier = CakeType.Vanilla;
+            _cakePerClick = 5;
         }
     }
+
 
     //This method returns the current CakeType stored in _currentCakeTier
     public CakeType AccessCakeType()
