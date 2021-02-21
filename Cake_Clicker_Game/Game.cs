@@ -79,7 +79,7 @@ public class Game
     {
         DateTime now = DateTime.Now;
         string text = _playerName + '\n' + _amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + _currentCakeTier + '\n' + now.ToString("F");
-        string path = AppDomain.CurrentDomain.BaseDirectory + @"\CakeGameData.txt";
+        string path = AppDomain.CurrentDomain.BaseDirectory + @"CakeGameData.txt";
 
         File.WriteAllText(path, text);
 
@@ -91,14 +91,43 @@ public class Game
         try
         {
             File.Exists("CakeGameData.txt");
-            string[] text = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\CakeGameData.txt");
+            string[] text = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"CakeGameData.txt");
             _playerName = text[0];
             _amountOfCake = Int32.Parse(text[1]);
             _cakePerClick = Int32.Parse(text[2]);
-            _multiplierOnCakeClick = Int32.Parse(text[3]);
-            _currentCakeTier = (CakeType)Int32.Parse(text[4]);
+            _multiplierOnCakeClick = double.Parse(text[3]);
 
-            return false;
+            string cc = text[4];
+            if (cc == "Vanilla")
+            {
+                _currentCakeTier = CakeType.Vanilla;
+            }
+            else if (cc == "Chocolate")
+            {
+                _currentCakeTier = CakeType.Chocolate;
+            }
+            else if (cc == "Strawberry")
+            {
+                _currentCakeTier = CakeType.Strawberry;
+            }
+            else if (cc == "Coffee")
+            {
+                _currentCakeTier = CakeType.Coffee;
+            }
+            else if (cc == "Red_Velvet")
+            {
+                _currentCakeTier = CakeType.Red_Velvet;
+            }
+            else if (cc == "Carrot")
+            {
+                _currentCakeTier = CakeType.Carrot;
+            }
+            else if (cc == "Cheese")
+            {
+                _currentCakeTier = CakeType.Cheese;
+            }
+
+            return true;
         }
         catch (Exception e)
         {
@@ -108,27 +137,28 @@ public class Game
             _multiplierOnCakeClick = 1.0;
             _currentCakeTier = 0;
 
-            return true;
+            return false;
         }
     }
 
 
     //This takes in a parameter CakeType which is what type of cake is being added to the clicking system.
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
-    public bool AddCakeUpgrade(CakeType addedCake) {
+    public bool AddCakeUpgrade(CakeType addedCake)
+    {
         if (addedCake == CakeType.Vanilla && _amountOfCake >= 50)
         {
             _cakePerClick += 5;
             _amountOfCake -= 50;
             return true;
         }
-        else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250) 
+        else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250)
         {
             _cakePerClick += 10;
             _amountOfCake -= 250;
             return true;
-        } 
-        else if(addedCake == CakeType.Strawberry && _amountOfCake >= 500)
+        }
+        else if (addedCake == CakeType.Strawberry && _amountOfCake >= 500)
         {
             _cakePerClick += 25;
             _amountOfCake -= 500;
@@ -215,18 +245,19 @@ public class Game
     }
 
     //Returns the player name
-    public string GetPlayerName() { 
-        return _playerName; 
+    public string GetPlayerName()
+    {
+        return _playerName;
     }
 }
 
 public class Test
 {
-    static void MainTest()
+    static void MainTesting()
     {
         Console.WriteLine("Testing game clicks, multiplier, and caketype...");
         Game game = new Game();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 200; i++)
         {
             game.AddCake();
             if (i % 20 == 0)
@@ -234,7 +265,7 @@ public class Test
                 game.IncrementMultiplier();
             }
             game.ChangeCakeType();
-            Console.WriteLine("CURRENT CAKE TYPE: " + game.AccessCakeType());
+            //Console.WriteLine("CURRENT CAKE TYPE: " + game.AccessCakeType());
         }
         Console.WriteLine("Testing game ToString...");
         Console.WriteLine(game.ToString());
@@ -245,7 +276,14 @@ public class Test
 
         Console.WriteLine("Testing SaveGameToFile...");
         game.SaveGameToFile();
-        try
+        game.ResetGame();
+        Console.WriteLine("Clicks" + game.GetAmountOfCake());
+        game.LoadFile();
+        Console.WriteLine("Clicks Loaded" + game.GetAmountOfCake());
+
+        /**
+         * 
+         * try
         {
             File.Exists("CakeGameData.txt");
             Console.WriteLine("The File Exists IN THIS DIRECTORY");
@@ -254,6 +292,7 @@ public class Test
         {
             Console.WriteLine("The File Does NOT exist");
         }
+         */
 
         Console.WriteLine("Testing Game Rest...");
         game.ResetGame();
