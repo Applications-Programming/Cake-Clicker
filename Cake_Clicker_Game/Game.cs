@@ -51,6 +51,11 @@ public class Game
         return _amountOfCake;
     }
 
+    public int[] GetUpgradeCount()
+    {
+        return _upgradeCount;
+    }
+
     //This method increments the multiplier to the next tier
     public void IncrementMultiplier()
     {
