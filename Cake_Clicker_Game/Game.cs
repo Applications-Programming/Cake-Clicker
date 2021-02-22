@@ -12,6 +12,8 @@ public class Game
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
     private CakeType _currentCakeTier;
+    //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
+    private int[] _upgradeCount = new int[7];
 
     ///Enums
     public enum CakeType
@@ -27,6 +29,10 @@ public class Game
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
         _currentCakeTier = 0;
+        for (int i = 0; i<7; i++)
+        {
+            _upgradeCount[i] = 0;
+        }
     }
 
     /// <summary>
@@ -150,42 +156,49 @@ public class Game
         {
             _cakePerClick += 5;
             _amountOfCake -= 50;
+            _upgradeCount[0] += 1;
             return true;
         }
         else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250)
         {
             _cakePerClick += 10;
             _amountOfCake -= 250;
+            _upgradeCount[1] += 1;
             return true;
         }
         else if (addedCake == CakeType.Strawberry && _amountOfCake >= 500)
         {
             _cakePerClick += 25;
             _amountOfCake -= 500;
+            _upgradeCount[2] += 1;
             return true;
         }
         else if (addedCake == CakeType.Coffee && _amountOfCake >= 1000)
         {
             _cakePerClick += 50;
             _amountOfCake -= 1000;
+            _upgradeCount[3] += 1;
             return true;
         }
         else if (addedCake == CakeType.Red_Velvet && _amountOfCake >= 4500)
         {
             _cakePerClick += 150;
             _amountOfCake -= 4500;
+            _upgradeCount[4] += 1;
             return true;
         }
         else if (addedCake == CakeType.Carrot && _amountOfCake >= 20000)
         {
             _cakePerClick += 250;
             _amountOfCake -= 20000;
+            _upgradeCount[5] += 1;
             return true;
         }
         else if (addedCake == CakeType.Cheese && _amountOfCake >= 80000)
         {
             _cakePerClick += 400;
             _amountOfCake -= 80000;
+            _upgradeCount[6] += 1;
             return true;
         }
         return false;
