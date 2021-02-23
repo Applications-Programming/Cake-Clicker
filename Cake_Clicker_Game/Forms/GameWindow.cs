@@ -56,14 +56,14 @@ namespace Cake_Clicker_Game
 
         private void Shrink(object sender, MouseEventArgs e)
         {
-            cakeButton.Size = new System.Drawing.Size(500, 500);
-            cakeButton.Location = new System.Drawing.Point(488, 127);
+            cakeButton.Size = new Size(500, 500);
+            cakeButton.Location = new Point(cakeButton.Location.X + 6, cakeButton.Location.Y + 6);
         }
 
         private void Grow(object sender, MouseEventArgs e)
         {
-            cakeButton.Size = new System.Drawing.Size(512, 512);
-            cakeButton.Location = new System.Drawing.Point(488, 127);
+            cakeButton.Size = new Size(512, 512);
+            cakeButton.Location = new Point(cakeButton.Location.X - 6, cakeButton.Location.Y - 6);
         }
 
         //Timer for adding points to the game
@@ -73,7 +73,7 @@ namespace Cake_Clicker_Game
 
         private void optionsButton_Click(object sender, EventArgs e)
         {
-
+            _userInterfaceManager.OpenOptions();
         }
 
         #region AddCakeTypeButtons

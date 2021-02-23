@@ -37,5 +37,30 @@ namespace Cake_Clicker_Game.Forms
         {
             this.Dispose();
         }
+
+        private void lightmodeButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _userInterfaceManager.GetGameWindow().BackColor = Color.LightGray;
+        }
+
+        private void darkmodeButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _userInterfaceManager.GetGameWindow().BackColor = Color.Black;
+        }
+
+        private void greymodeButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _userInterfaceManager.GetGameWindow().BackColor = Color.Gray;
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.Save();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            //_userInterfaceManager.Reset();
+        }
     }
 }

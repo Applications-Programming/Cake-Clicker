@@ -31,10 +31,10 @@ namespace Cake_Clicker_Game.Forms
         {
             this.resetButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.lightmodeButton = new System.Windows.Forms.RadioButton();
-            this.darkmodeButton = new System.Windows.Forms.RadioButton();
             this.greymodeButton = new System.Windows.Forms.RadioButton();
+            this.darkmodeButton = new System.Windows.Forms.RadioButton();
+            this.lightmodeButton = new System.Windows.Forms.RadioButton();
+            this.saveButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@ namespace Cake_Clicker_Game.Forms
             this.resetButton.TabIndex = 0;
             this.resetButton.Text = "Reset Game";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // groupBox2
             // 
@@ -59,25 +60,19 @@ namespace Cake_Clicker_Game.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Theme";
             // 
-            // saveButton
+            // greymodeButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(75, 130);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Save Game";
-            this.saveButton.UseVisualStyleBackColor = true;
-            // 
-            // lightmodeButton
-            // 
-            this.lightmodeButton.AutoSize = true;
-            this.lightmodeButton.Location = new System.Drawing.Point(27, 19);
-            this.lightmodeButton.Name = "lightmodeButton";
-            this.lightmodeButton.Size = new System.Drawing.Size(48, 17);
-            this.lightmodeButton.TabIndex = 0;
-            this.lightmodeButton.TabStop = true;
-            this.lightmodeButton.Text = "Light";
-            this.lightmodeButton.UseVisualStyleBackColor = true;
+            this.greymodeButton.AutoSize = true;
+            this.greymodeButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.greymodeButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.greymodeButton.Location = new System.Drawing.Point(26, 65);
+            this.greymodeButton.Name = "greymodeButton";
+            this.greymodeButton.Size = new System.Drawing.Size(59, 17);
+            this.greymodeButton.TabIndex = 2;
+            this.greymodeButton.TabStop = true;
+            this.greymodeButton.Text = "Default";
+            this.greymodeButton.UseVisualStyleBackColor = false;
+            this.greymodeButton.CheckedChanged += new System.EventHandler(this.greymodeButton_CheckedChanged);
             // 
             // darkmodeButton
             // 
@@ -91,24 +86,36 @@ namespace Cake_Clicker_Game.Forms
             this.darkmodeButton.TabStop = true;
             this.darkmodeButton.Text = "Dark";
             this.darkmodeButton.UseVisualStyleBackColor = false;
+            this.darkmodeButton.CheckedChanged += new System.EventHandler(this.darkmodeButton_CheckedChanged);
             // 
-            // greymodeButton
+            // lightmodeButton
             // 
-            this.greymodeButton.AutoSize = true;
-            this.greymodeButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.greymodeButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.greymodeButton.Location = new System.Drawing.Point(27, 65);
-            this.greymodeButton.Name = "greymodeButton";
-            this.greymodeButton.Size = new System.Drawing.Size(47, 17);
-            this.greymodeButton.TabIndex = 2;
-            this.greymodeButton.TabStop = true;
-            this.greymodeButton.Text = "Grey";
-            this.greymodeButton.UseVisualStyleBackColor = false;
+            this.lightmodeButton.AutoSize = true;
+            this.lightmodeButton.BackColor = System.Drawing.Color.White;
+            this.lightmodeButton.Location = new System.Drawing.Point(26, 19);
+            this.lightmodeButton.Name = "lightmodeButton";
+            this.lightmodeButton.Size = new System.Drawing.Size(48, 17);
+            this.lightmodeButton.TabIndex = 0;
+            this.lightmodeButton.TabStop = true;
+            this.lightmodeButton.Text = "Light";
+            this.lightmodeButton.UseVisualStyleBackColor = false;
+            this.lightmodeButton.CheckedChanged += new System.EventHandler(this.lightmodeButton_CheckedChanged);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(75, 130);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Save Game";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(234, 258);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox2);

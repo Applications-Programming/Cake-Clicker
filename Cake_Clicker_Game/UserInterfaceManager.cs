@@ -14,6 +14,7 @@ namespace Cake_Clicker_Game
         //Cached Windows
         MainMenu _mainMenu;
         GameWindow _gameWindow;
+        
 
         #endregion
 
@@ -53,6 +54,15 @@ namespace Cake_Clicker_Game
             MessageWindow messageWindow = new MessageWindow(message);
             messageWindow.ShowDialog();
 
+        }
+
+        /// <summary>
+        /// Opens the options menu
+        /// </summary>
+        public void OpenOptions()
+        {
+            Forms.Options options = new Forms.Options();
+            options.Visible = true;
         }
 
         /// <summary>

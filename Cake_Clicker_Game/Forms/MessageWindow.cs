@@ -29,6 +29,5 @@ namespace Cake_Clicker_Game
         {
             this.Dispose();
         }
-
     }
 }
