@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
 {
     public partial class GameWindow : Form
     {
+
+        Image[] images = new Image[7];
 
         //cached Objects
         UserInterfaceManager _userInterfaceManager;
@@ -13,7 +16,7 @@ namespace Cake_Clicker_Game
         {
             InitializeComponent();
             _userInterfaceManager = CakeClicker.GetUserInterfaceManager();
-            cakeLabel.Text = playerName + "'s Cake";
+            cakeLabel.Text = playerName + "'s Bakery";
             //refreshTimer.Interval = 100;
             //refreshTimer.Start();
             cakeButton.MouseDown += new MouseEventHandler(Shrink);
@@ -29,45 +32,38 @@ namespace Cake_Clicker_Game
             scoreLabel.Text = score.ToString();
         }
 
-        public Button GetCakeButton() { return cakeButton; }
+        public void UpdateCakeCounts()
+        {
+            int[] cakeCounts = _userInterfaceManager.GetGame().GetUpgradeCount();
 
+            vanillaCakeInfoBox.Text = "Count: " + cakeCounts[0].ToString();
+            ChocolateCakeInfoBox.Text = "Count: " + cakeCounts[1].ToString();
+            strawberryCakeInfoBox.Text = "Count: " + cakeCounts[2].ToString();
+            CoffeeCakeInfoBox.Text = "Count: " + cakeCounts[3].ToString();
+            redVelvetCakeInfoBox.Text = "Count: " + cakeCounts[4].ToString();
+            carrotCakeInfoBox.Text = "Count: " + cakeCounts[5].ToString();
+            cheeseCakeInfoBox.Text = "Count: " + cakeCounts[6].ToString();
+
+        }
+
+        public Button GetCakeButton() { return cakeButton; }
         private void cakeButton_Click(object sender, EventArgs e)
         {
             _userInterfaceManager.OnCakeClick();
-            addPointsTimer.Interval = 1000;
-            addPointsTimer.Start();
-        }
-
-        private void upgrade1Button_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
-        }
-
-        private void upgrade2Button_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
-        }
-
-        private void upgrade3Button_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
-        }
-
-        private void upgrade4Button_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.SendUserMessage("Unimplemented Control: Please wait for future update");
+            //addPointsTimer.Interval = 1000;
+            //addPointsTimer.Start();
         }
 
         private void Shrink(object sender, MouseEventArgs e)
         {
             cakeButton.Size = new System.Drawing.Size(500, 500);
-            cakeButton.Location = new System.Drawing.Point(223, 140);
+            cakeButton.Location = new System.Drawing.Point(488, 127);
         }
 
         private void Grow(object sender, MouseEventArgs e)
         {
             cakeButton.Size = new System.Drawing.Size(512, 512);
-            cakeButton.Location = new System.Drawing.Point(217, 134);
+            cakeButton.Location = new System.Drawing.Point(488, 127);
         }
 
         //Timer for adding points to the game
@@ -79,5 +75,55 @@ namespace Cake_Clicker_Game
         {
 
         }
+
+        #region AddCakeTypeButtons
+        private void addVanillaCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Vanilla);
+        }
+
+        private void addChocolateCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Chocolate);
+        }
+
+        private void addStrawberryCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Strawberry);
+        }
+
+        private void addCoffeeCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Coffee);
+
+        }
+
+        private void addRedVelvetCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Red_Velvet);
+
+        }
+
+        private void addCarrotCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Carrot);
+
+        }
+
+        private void addCheeseCakeButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.AddCake(Game.CakeType.Cheese);
+
+        }
+
+        #endregion
+
+        private void SaveAndQuitButton_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.GetGame().SaveGameToFile();
+            Application.Exit();
+        }
+
+
     }
 }
