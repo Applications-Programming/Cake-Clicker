@@ -30,8 +30,6 @@ namespace Cake_Clicker_Game
 
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore(_game.GetAmountOfCake());
-
-            _gameWindow.GetNewCake().Visible = false;
         }
 
         //Create InitializeGameFromSaveFile

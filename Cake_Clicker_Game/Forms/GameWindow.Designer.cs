@@ -42,7 +42,7 @@ namespace Cake_Clicker_Game
             this.addPointsTimer = new System.Windows.Forms.Timer(this.components);
             this.cakeButton = new System.Windows.Forms.Button();
             this.cakeLabel = new System.Windows.Forms.Label();
-            this.newCake = new System.Windows.Forms.Label();
+            this.optionsButton = new System.Windows.Forms.Button();
             this.upgradeButtonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,19 +157,16 @@ namespace Cake_Clicker_Game
             this.cakeLabel.TabIndex = 3;
             this.cakeLabel.Text = "[enterName]\'s CAKE";
             // 
-            // newCake
+            // optionsButton
             // 
-            this.newCake.AutoSize = true;
-            this.newCake.Font = new System.Drawing.Font("Yu Gothic UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newCake.ForeColor = System.Drawing.Color.Crimson;
-            this.newCake.Location = new System.Drawing.Point(823, 272);
-            this.newCake.Name = "newCake";
-            this.newCake.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.newCake.Size = new System.Drawing.Size(184, 47);
-            this.newCake.TabIndex = 4;
-            this.newCake.Text = "New Cake!";
-            this.newCake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.newCake.Click += new System.EventHandler(this.newCake_Click);
+            this.optionsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.optionsButton.Location = new System.Drawing.Point(1397, 127);
+            this.optionsButton.Name = "optionsButton";
+            this.optionsButton.Size = new System.Drawing.Size(75, 23);
+            this.optionsButton.TabIndex = 4;
+            this.optionsButton.Text = "Settings";
+            this.optionsButton.UseVisualStyleBackColor = true;
+            this.optionsButton.Click += new System.EventHandler(this.optionsButton_Click);
             // 
             // GameWindow
             // 
@@ -177,7 +174,7 @@ namespace Cake_Clicker_Game
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1484, 785);
-            this.Controls.Add(this.newCake);
+            this.Controls.Add(this.optionsButton);
             this.Controls.Add(this.cakeLabel);
             this.Controls.Add(this.upgradeButtonGroupBox);
             this.Controls.Add(this.scoreLabel);
@@ -204,7 +201,7 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.Button upgrade2Button;
         private System.Windows.Forms.Timer addPointsTimer;
         private System.Windows.Forms.Label cakeLabel;
-        private System.Windows.Forms.Label newCake;
+        private System.Windows.Forms.Button optionsButton;
     }
 }
 
