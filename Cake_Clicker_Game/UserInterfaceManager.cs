@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
 {
@@ -7,11 +8,12 @@ namespace Cake_Clicker_Game
         #region Fields
 
         Game _game;
-        Game.CakeType _cakeType;
+        GridData[] gridData;
 
         //Cached Windows
         MainMenu _mainMenu;
         GameWindow _gameWindow;
+
 
         #endregion
 
@@ -26,12 +28,11 @@ namespace Cake_Clicker_Game
         {
             _game = new Game();
             _game.SetPlayerName(playerName);
-            _cakeType = _game.AccessCakeType();
 
             _gameWindow = new GameWindow(playerName);
-            _gameWindow.UpdateScore(_game.GetAmountOfCake());
+            _gameWindow.UpdateScore();
+            _gameWindow.UpdateCakeCounts();
 
-            _gameWindow.GetNewCake().Visible = false;
         }
 
         //Create InitializeGameFromSaveFile
@@ -56,42 +57,34 @@ namespace Cake_Clicker_Game
         }
 
         /// <summary>
+        /// Opens the options menu
+        /// </summary>
+        public void OpenOptions()
+        {
+            Forms.Options options = new Forms.Options();
+            options.ShowDialog();
+        }
+
+        /// <summary>
         /// Runs whenever the cake button is clicked
         /// </summary>
         public void OnCakeClick()
         {
-            _game.ChangeCakeType();
-            if (_cakeType != _game.AccessCakeType())
-            {
-                _cakeType = _game.AccessCakeType();
-                //_gameWindow.GetNewCake().Visible = true;
-                switch (_cakeType)
-                {
-                    case 0:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Vanilla_Cake;
-                        break;
-                    case (Game.CakeType)1:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Chocolate_Cake;
-                        break;
-                    case (Game.CakeType)2:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Strawberry_Cake;
-                        break;
-                    case (Game.CakeType)3:
-                        //_gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Coffee_Cake;
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Vanilla_Cake;
-                        break;
-                    case (Game.CakeType)4:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Red_Velvet_Cake;
-                        break;
-                    case (Game.CakeType)5:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Carrot_Cake;
-                        break;
-                    case (Game.CakeType)6:
-                        _gameWindow.GetCakeButton().Image = global::Cake_Clicker_Game.Properties.Resources.Cheese_Cake;
-                        break;
-                }
-            }
             AddToScore();
+        }
+
+        public void AddCake(Game.CakeType type)
+        {
+            _game.AddCakeUpgrade(type);
+            _gameWindow.UpdateCakeCounts();
+            _gameWindow.UpdateScore();
+        }
+
+        public void Reset()
+        {
+            _game.ResetGame();
+            _gameWindow.UpdateCakeCounts();
+            _gameWindow.UpdateScore();
         }
 
         /// <summary>
@@ -100,7 +93,7 @@ namespace Cake_Clicker_Game
         public void AddToScore()
         {
             _game.AddCake();
-            _gameWindow.UpdateScore(_game.GetAmountOfCake());
+            _gameWindow.UpdateScore();
         }
 
         //Create AddSpecificScore function
@@ -128,5 +121,20 @@ namespace Cake_Clicker_Game
         }
 
         #endregion
+        private struct GridData
+        {
+            public Image image;
+            public Game.CakeType cakeType;
+            public int count;
+
+            public GridData(Image image, Game.CakeType cakeType, int count)
+            {
+                this.image = image;
+                this.cakeType = cakeType;
+                this.count = count;
+            }
+        }
     }
+
+
 }

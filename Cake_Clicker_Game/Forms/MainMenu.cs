@@ -14,16 +14,17 @@ namespace Cake_Clicker_Game
         {
             if (NameTextBox.Text.Length == 0)
             {
-                CakeClicker.GetUserInterfaceManager().SendUserMessage("Please enter you name.");
-                return;
+                CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
             }
             else
             {
                 CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
-                Hide();
-                CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
-                this.Dispose();
+
             }
+
+            Hide();
+            CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
+            this.Dispose();
 
         }
     }
