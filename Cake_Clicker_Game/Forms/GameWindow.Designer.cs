@@ -572,6 +572,7 @@ namespace Cake_Clicker_Game
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1484, 785);
+            this.ControlBox = false;
             this.Controls.Add(this.saveAndQuitButton);
             this.Controls.Add(this.CakeDataBox);
             this.Controls.Add(this.optionsButton);
