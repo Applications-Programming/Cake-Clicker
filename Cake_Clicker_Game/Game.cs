@@ -209,53 +209,6 @@ public class Game
         return false;
     }
 
-    //This changes the current cake type stored in _currentCakeTier
-    public void ChangeCakeType()
-    {
-        if (_amountOfCake > 80000)
-        {
-            _currentCakeTier = CakeType.Cheese;
-            _cakePerClick = 400;
-        }
-        else if (_amountOfCake <= 80000 && _amountOfCake > 20000)
-        {
-            _currentCakeTier = CakeType.Carrot;
-            _cakePerClick = 250;
-        }
-        else if (_amountOfCake <= 20000 && _amountOfCake > 1000)
-        {
-            _currentCakeTier = CakeType.Red_Velvet;
-            _cakePerClick = 150;
-        }
-        else if (_amountOfCake <= 1000 && _amountOfCake > 500)
-        {
-            _currentCakeTier = CakeType.Coffee;
-            _cakePerClick = 50;
-        }
-        else if (_amountOfCake <= 500 && _amountOfCake > 250)
-        {
-            _currentCakeTier = CakeType.Strawberry;
-            _cakePerClick = 25;
-        }
-        else if (_amountOfCake <= 250 && _amountOfCake > 50)
-        {
-            _currentCakeTier = CakeType.Chocolate;
-            _cakePerClick = 10;
-        }
-        else
-        {
-            _currentCakeTier = CakeType.Vanilla;
-            _cakePerClick = 5;
-        }
-    }
-
-
-    //This method returns the current CakeType stored in _currentCakeTier
-    public CakeType AccessCakeType()
-    {
-        return _currentCakeTier;
-    }
-
     //Sets the player name
     public void SetPlayerName(string playerName)
     {
@@ -282,7 +235,7 @@ public class Test
             {
                 game.IncrementMultiplier();
             }
-            game.ChangeCakeType();
+            //game.ChangeCakeType();
             //Console.WriteLine("CURRENT CAKE TYPE: " + game.AccessCakeType());
         }
         Console.WriteLine("Testing game ToString...");
@@ -312,9 +265,10 @@ public class Test
         }
          */
 
-        Console.WriteLine("Testing Game Rest...");
+        Console.WriteLine("Testing Game Reset...");
         game.ResetGame();
-        if (game.AccessCakeType() == 0)
+//****Changed this test case, please double check****
+        if (game.GetAmountOfCake() == 0)
         {
             Console.WriteLine("All tests passed!");
         }
