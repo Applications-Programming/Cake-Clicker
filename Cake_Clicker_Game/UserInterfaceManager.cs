@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
@@ -14,7 +13,7 @@ namespace Cake_Clicker_Game
         //Cached Windows
         MainMenu _mainMenu;
         GameWindow _gameWindow;
-        
+
 
         #endregion
 
@@ -31,7 +30,8 @@ namespace Cake_Clicker_Game
             _game.SetPlayerName(playerName);
 
             _gameWindow = new GameWindow(playerName);
-            _gameWindow.UpdateScore(_game.GetAmountOfCake());
+            _gameWindow.UpdateScore();
+            _gameWindow.UpdateCakeCounts();
 
         }
 
@@ -62,7 +62,7 @@ namespace Cake_Clicker_Game
         public void OpenOptions()
         {
             Forms.Options options = new Forms.Options();
-            options.Visible = true;
+            options.ShowDialog();
         }
 
         /// <summary>
@@ -77,7 +77,14 @@ namespace Cake_Clicker_Game
         {
             _game.AddCakeUpgrade(type);
             _gameWindow.UpdateCakeCounts();
-            _gameWindow.UpdateScore(_game.GetAmountOfCake());
+            _gameWindow.UpdateScore();
+        }
+
+        public void Reset()
+        {
+            _game.ResetGame();
+            _gameWindow.UpdateCakeCounts();
+            _gameWindow.UpdateScore();
         }
 
         /// <summary>
@@ -86,7 +93,7 @@ namespace Cake_Clicker_Game
         public void AddToScore()
         {
             _game.AddCake();
-            _gameWindow.UpdateScore(_game.GetAmountOfCake());
+            _gameWindow.UpdateScore();
         }
 
         //Create AddSpecificScore function
@@ -129,5 +136,5 @@ namespace Cake_Clicker_Game
         }
     }
 
-    
+
 }

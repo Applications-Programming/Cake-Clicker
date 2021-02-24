@@ -13,7 +13,7 @@ namespace Cake_Clicker_Game
         static public Form GetCurrentWindow() { return _currWindow; }
         static public void SetCurrentWindow(Form currWindow)
         {
-            if(currWindow == null)
+            if (currWindow == null)
             {
                 return;
             }

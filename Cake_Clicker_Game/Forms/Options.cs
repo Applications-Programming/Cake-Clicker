@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cake_Clicker_Game.Forms
@@ -60,7 +54,7 @@ namespace Cake_Clicker_Game.Forms
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            //_userInterfaceManager.Reset();
+            _userInterfaceManager.Reset();
         }
     }
 }

@@ -27,8 +27,9 @@ namespace Cake_Clicker_Game
         /// Updates the score
         /// </summary>
         /// <param name="score">The new score</param>
-        public void UpdateScore(int score)
+        public void UpdateScore()
         {
+            int score = _userInterfaceManager.GetGame().GetAmountOfCake();
             scoreLabel.Text = score.ToString();
         }
 

@@ -19,7 +19,7 @@ namespace Cake_Clicker_Game
             else
             {
                 CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
-                
+
             }
 
             Hide();

@@ -29,7 +29,7 @@ public class Game
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
         _currentCakeTier = 0;
-        for (int i = 0; i<7; i++)
+        for (int i = 0; i < 7; i++)
         {
             _upgradeCount[i] = 0;
         }
@@ -82,6 +82,11 @@ public class Game
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
         _currentCakeTier = 0;
+
+        for (int i = 0; i < _upgradeCount.Length; i++)
+        {
+            _upgradeCount[i] = 0;
+        }
     }
 
     //This method does a simple save of the game settings to a text file
@@ -267,7 +272,7 @@ public class Test
 
         Console.WriteLine("Testing Game Reset...");
         game.ResetGame();
-//****Changed this test case, please double check****
+        //****Changed this test case, please double check****
         if (game.GetAmountOfCake() == 0)
         {
             Console.WriteLine("All tests passed!");
