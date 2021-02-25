@@ -30,7 +30,7 @@ namespace Cake_Clicker_Game
         public void UpdateScore()
         {
             int score = _userInterfaceManager.GetGame().GetAmountOfCake();
-            scoreLabel.Text = score.ToString();
+            scoreLabel.Text = score + " Cake";
         }
 
         public void UpdateCakeCounts()
