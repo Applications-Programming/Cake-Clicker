@@ -8,7 +8,6 @@ namespace Cake_Clicker_Game
         #region Fields
 
         Game _game;
-        GridData[] gridData;
 
         //Cached Windows
         MainMenu _mainMenu;
@@ -121,19 +120,7 @@ namespace Cake_Clicker_Game
         }
 
         #endregion
-        private struct GridData
-        {
-            public Image image;
-            public Game.CakeType cakeType;
-            public int count;
 
-            public GridData(Image image, Game.CakeType cakeType, int count)
-            {
-                this.image = image;
-                this.cakeType = cakeType;
-                this.count = count;
-            }
-        }
     }
 
 
