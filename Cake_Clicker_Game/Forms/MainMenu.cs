@@ -18,7 +18,14 @@ namespace Cake_Clicker_Game
             }
             else
             {
-                CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+                //Prevents excessively user input
+                if (NameTextBox.Text.Length < 15)
+                {
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+
+                } else {
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                }
 
             }
 
