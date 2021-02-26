@@ -119,19 +119,25 @@ public class DatabaseManager
         return false;
     }
 
+    /// <summary>
+    /// Gets the GameData of the given user
+    /// </summary>
+    /// <param name="uuid">The Users uuid</param>
+    /// <returns></returns>
     public Game.GameData GetAccountInfo(string uuid)
     {
         return new Game.GameData();
     }
 
+    /// <summary>
+    /// Gets the GameData of the specified Id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public Game.GameData GetAccountInfo(int id)
     {
         return new Game.GameData();
     }
 
-
-
-
-
-
+    //Database Clear should be done manually
 }
