@@ -225,6 +225,24 @@ public class Game
     {
         return _playerName;
     }
+
+    public struct GameData
+    {
+        public int Id;
+        public string PlayerName;
+        public int _amountOfCake;
+        public int[] _upgradeCount;
+
+        public GameData(int id, string playerName, int amountOfCake, int[] upgradeCount)
+        {
+            Id = id;
+            PlayerName = playerName;
+            _amountOfCake = amountOfCake;
+            _upgradeCount = upgradeCount;
+        }
+
+
+    }
 }
 
 public class Test
@@ -279,4 +297,9 @@ public class Test
         }
 
     }
+
+
+    
+
 }
+

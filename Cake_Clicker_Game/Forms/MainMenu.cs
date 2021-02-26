@@ -23,7 +23,9 @@ namespace Cake_Clicker_Game
                 {
                     CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
 
-                } else {
+                }
+                else
+                {
                     CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
                 }
 
