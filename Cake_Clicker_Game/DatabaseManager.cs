@@ -1,11 +1,16 @@
-﻿using System;
+﻿using Cake_Clicker_Game;
+using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+
 
 
 public class DatabaseManager
 {
 
     SqlConnection _connection;
+    ConnectionInfo _connectionInfo;
+
 
     /// <summary>
     /// Creates a DatabaseManager with a connection to the database provided
@@ -15,14 +20,13 @@ public class DatabaseManager
     /// <param name="UserId">SQL login ID</param>
     /// <param name="password">SQL login password</param>
     /// <returns>The created Database or null if connection failed</returns>
-    public static DatabaseManager CreateDatabaseManager(string dataSource, string database, string UserId, string password)
+    public static DatabaseManager CreateDatabaseManager(ConnectionInfo connectionInfo)
     {
-
-        Console.WriteLine("Getting Connection...");
+        Console.WriteLine("Getting Database Connection:");
 
         //your connection string 
-        string connString = @"Data Source=" + dataSource + ";Initial Catalog="
-                    + database + ";Persist Security Info=True;User ID=" + UserId + ";Password=" + password;
+        string connString = @"Data Source=" + connectionInfo._dataSource + ";Initial Catalog="
+                    + connectionInfo._database + ";Persist Security Info=True;User ID=" + connectionInfo._userId + ";Password=" + connectionInfo._password;
 
         //create instanace of database connection
         SqlConnection connection = new SqlConnection(connString);
@@ -30,27 +34,28 @@ public class DatabaseManager
 
         try
         {
-            Console.WriteLine("Openning Connection ...");
-
             //open connection
             connection.Open();
-            Console.WriteLine("Connection successful!");
+            Console.WriteLine("Connection successful!\n");
         }
         catch (Exception e)
         {
-            Console.WriteLine("Error: " + e.Message);
+            Console.WriteLine("Error: " + e.Message + "\n");
+            MessageBox.Show("Couldn't Load Database.\n" +
+                            "Check Log for more info");
             return null;
         }
-
-        return new DatabaseManager(connection);
+        Console.Out.Flush();
+        return new DatabaseManager(connection, connectionInfo);
     }
 
     /// <summary>
     /// Constructor that takes in an existing connection
     /// </summary>
-    DatabaseManager(SqlConnection connection)
+    DatabaseManager(SqlConnection connection, ConnectionInfo connectionInfo)
     {
         _connection = connection;
+        _connectionInfo = connectionInfo;
     }
 
     /// <summary>
@@ -139,5 +144,24 @@ public class DatabaseManager
         return new Game.GameData();
     }
 
+    public ConnectionInfo GetConnectionInfo() { return _connectionInfo; }
+
     //Database Clear should be done manually
+
+    public struct ConnectionInfo{
+        public string _dataSource;
+        public string _database;
+        public string _userId;
+        public string _password;
+
+        public ConnectionInfo(string dataSource, string database, string userId, string password)
+        {
+            _dataSource = dataSource;
+            _database = database;
+            _userId = userId;
+            _password = password;
+        }
+    }
+
+
 }

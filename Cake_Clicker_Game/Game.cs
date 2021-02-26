@@ -15,6 +15,8 @@ public class Game
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
     private int[] _upgradeCount = new int[7];
 
+    private DatabaseManager _databaseManager;
+
     ///Enums
     public enum CakeType
     {
@@ -24,6 +26,13 @@ public class Game
     ///Constructor
     public Game()
     {
+        DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
+            "cake-clicker-server.database.windows.net",
+            "CakeClicker",
+            "DefaultUser",
+            "CakeClicker123");
+        _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo);
+
         _playerName = "null";
         _amountOfCake = 0;
         _cakePerClick = 1;

@@ -12,6 +12,8 @@ namespace Cake_Clicker_Game
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            startButton.Text = "Loading...";
+            this.Update();
             if (NameTextBox.Text.Length == 0)
             {
                 CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");

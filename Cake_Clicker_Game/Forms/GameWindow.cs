@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace Cake_Clicker_Game
 {
     public partial class GameWindow : Form
