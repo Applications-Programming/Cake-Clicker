@@ -52,7 +52,7 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
-        _amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+        _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
     }
 
     //This method returns the amount of cake stored in _amountOfCake
@@ -172,49 +172,50 @@ public class Game
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
     public bool AddCakeUpgrade(CakeType addedCake)
     {
-        if (addedCake == CakeType.Vanilla && _amountOfCake >= 50)
+
+        if (addedCake == CakeType.Vanilla && _gameInfo.amountOfCake >= 50)
         {
             _cakePerClick += 5;
             _gameInfo.amountOfCake -= 50;
             _gameInfo.upgradeCount[0] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250)
+        else if (addedCake == CakeType.Chocolate && _gameInfo.amountOfCake >= 250)
         {
             _cakePerClick += 10;
             _gameInfo.amountOfCake -= 250;
             _gameInfo.upgradeCount[1] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Strawberry && _amountOfCake >= 500)
+        else if (addedCake == CakeType.Strawberry && _gameInfo.amountOfCake >= 500)
         {
             _cakePerClick += 25;
             _gameInfo.amountOfCake -= 500;
             _gameInfo.upgradeCount[2] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Coffee && _amountOfCake >= 1000)
+        else if (addedCake == CakeType.Coffee && _gameInfo.amountOfCake >= 1000)
         {
             _cakePerClick += 50;
             _gameInfo.amountOfCake -= 1000;
             _gameInfo.upgradeCount[3] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Red_Velvet && _amountOfCake >= 4500)
+        else if (addedCake == CakeType.Red_Velvet && _gameInfo.amountOfCake >= 4500)
         {
             _cakePerClick += 150;
             _gameInfo.amountOfCake -= 4500;
             _gameInfo.upgradeCount[4] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Carrot && _amountOfCake >= 20000)
+        else if (addedCake == CakeType.Carrot && _gameInfo.amountOfCake >= 20000)
         {
             _cakePerClick += 250;
             _gameInfo.amountOfCake -= 20000;
             _gameInfo.upgradeCount[5] += 1;
             return true;
         }
-        else if (addedCake == CakeType.Cheese && _amountOfCake >= 80000)
+        else if (addedCake == CakeType.Cheese && _gameInfo.amountOfCake >= 80000)
         {
             _cakePerClick += 400;
             _gameInfo.amountOfCake -= 80000;
