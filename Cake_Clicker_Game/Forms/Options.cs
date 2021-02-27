@@ -56,5 +56,6 @@ namespace Cake_Clicker_Game.Forms
         {
             _userInterfaceManager.Reset();
         }
+
     }
 }
