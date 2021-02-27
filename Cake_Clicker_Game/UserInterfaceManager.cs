@@ -71,6 +71,11 @@ namespace Cake_Clicker_Game
             AddToScore();
         }
 
+        //Force updates cake score
+        public void RefreshScore() 
+        {
+            _gameWindow.UpdateScore();
+        }
         public void AddCake(Game.CakeType type)
         {
             _game.AddCakeUpgrade(type);
@@ -104,6 +109,12 @@ namespace Cake_Clicker_Game
         {
             newWindow.ShowDialog();
             CakeClicker.SetCurrentWindow(newWindow);
+        }
+
+        //Manually adds cookies to game
+        public void AddCakeManuallyToGame(int amount) 
+        {
+            _game.AddCakeManually(amount);
         }
 
         //Getter and setters

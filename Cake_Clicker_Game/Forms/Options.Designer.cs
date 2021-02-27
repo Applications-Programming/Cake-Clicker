@@ -76,6 +76,7 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.greymodeButton.AutoSize = true;
             this.greymodeButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.greymodeButton.Checked = true;
             this.greymodeButton.ForeColor = System.Drawing.SystemColors.Control;
             this.greymodeButton.Location = new System.Drawing.Point(39, 100);
             this.greymodeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -188,6 +189,7 @@ namespace Cake_Clicker_Game.Forms
             this.addCookies.TabIndex = 1;
             this.addCookies.Text = "Add Cookies";
             this.addCookies.UseVisualStyleBackColor = true;
+            this.addCookies.Click += new System.EventHandler(this.addCookies_Click);
             // 
             // developerAddCookieLabel
             // 

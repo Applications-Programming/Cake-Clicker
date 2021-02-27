@@ -55,6 +55,12 @@ public class Game
         _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
     }
 
+    //This method adds a specified amount of cake manually
+    public void AddCakeManually(int cakeAmount)
+    {
+        _gameInfo.amountOfCake += cakeAmount;
+    }
+
     //This method returns the amount of cake stored in _amountOfCake
     public int GetAmountOfCake()
     {
