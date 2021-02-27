@@ -76,14 +76,12 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.greymodeButton.AutoSize = true;
             this.greymodeButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.greymodeButton.Checked = true;
             this.greymodeButton.ForeColor = System.Drawing.SystemColors.Control;
             this.greymodeButton.Location = new System.Drawing.Point(39, 100);
             this.greymodeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.greymodeButton.Name = "greymodeButton";
             this.greymodeButton.Size = new System.Drawing.Size(86, 24);
             this.greymodeButton.TabIndex = 2;
-            this.greymodeButton.TabStop = true;
             this.greymodeButton.Text = "Default";
             this.greymodeButton.UseVisualStyleBackColor = false;
             this.greymodeButton.CheckedChanged += new System.EventHandler(this.greymodeButton_CheckedChanged);
