@@ -12,7 +12,6 @@ public class Game
 
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
-    private CakeType _currentCakeTier;
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
 
     private DatabaseManager _databaseManager;
@@ -42,7 +41,6 @@ public class Game
         _gameInfo = new GameData(-1, "null", 0, temp);
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
-        _currentCakeTier = 0;
     }
 
     /// <summary>
@@ -97,7 +95,6 @@ public class Game
         _gameInfo.amountOfCake = 0;
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
-        _currentCakeTier = 0;
 
         int[] temp = new int[7];
 
@@ -114,7 +111,7 @@ public class Game
     public bool SaveGameToFile()
     {
         DateTime now = DateTime.Now;
-        string text = _gameInfo.PlayerName + '\n' + _gameInfo.amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + _currentCakeTier + '\n' + now.ToString("F");
+        string text = _gameInfo.PlayerName + '\n' + _gameInfo.amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + now.ToString("F");
         string path = AppDomain.CurrentDomain.BaseDirectory + @"CakeGameData.txt";
 
         File.WriteAllText(path, text);
@@ -132,36 +129,6 @@ public class Game
             _gameInfo.amountOfCake = Int32.Parse(text[1]);
             _cakePerClick = Int32.Parse(text[2]);
             _multiplierOnCakeClick = double.Parse(text[3]);
-
-            string cc = text[4];
-            if (cc == "Vanilla")
-            {
-                _currentCakeTier = CakeType.Vanilla;
-            }
-            else if (cc == "Chocolate")
-            {
-                _currentCakeTier = CakeType.Chocolate;
-            }
-            else if (cc == "Strawberry")
-            {
-                _currentCakeTier = CakeType.Strawberry;
-            }
-            else if (cc == "Coffee")
-            {
-                _currentCakeTier = CakeType.Coffee;
-            }
-            else if (cc == "Red_Velvet")
-            {
-                _currentCakeTier = CakeType.Red_Velvet;
-            }
-            else if (cc == "Carrot")
-            {
-                _currentCakeTier = CakeType.Carrot;
-            }
-            else if (cc == "Cheese")
-            {
-                _currentCakeTier = CakeType.Cheese;
-            }
 
             return true;
         }
@@ -257,8 +224,6 @@ public class Game
             this.amountOfCake = amountOfCake;
             this.upgradeCount = upgradeCount;
         }
-
-
     }
 }
 
@@ -314,9 +279,6 @@ public class Test
         }
 
     }
-
-
-    
 
 }
 
