@@ -39,6 +39,9 @@ namespace Cake_Clicker_Game.Forms
             this.datebaseWipeConfirm = new System.Windows.Forms.CheckBox();
             this.wipeDatabase = new System.Windows.Forms.Button();
             this.developerControls = new System.Windows.Forms.GroupBox();
+            this.loadGameUserInput = new System.Windows.Forms.TextBox();
+            this.loadGameButton = new System.Windows.Forms.Button();
+            this.loadGameLabel = new System.Windows.Forms.Label();
             this.developerAddCookieLabel = new System.Windows.Forms.Label();
             this.addCookies = new System.Windows.Forms.Button();
             this.addCookieUserInput = new System.Windows.Forms.TextBox();
@@ -49,7 +52,7 @@ namespace Cake_Clicker_Game.Forms
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(166, 29);
+            this.resetButton.Location = new System.Drawing.Point(166, 38);
             this.resetButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(112, 35);
@@ -117,7 +120,7 @@ namespace Cake_Clicker_Game.Forms
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(17, 29);
+            this.saveButton.Location = new System.Drawing.Point(17, 41);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 35);
@@ -160,6 +163,9 @@ namespace Cake_Clicker_Game.Forms
             // 
             // developerControls
             // 
+            this.developerControls.Controls.Add(this.loadGameUserInput);
+            this.developerControls.Controls.Add(this.loadGameButton);
+            this.developerControls.Controls.Add(this.loadGameLabel);
             this.developerControls.Controls.Add(this.developerAddCookieLabel);
             this.developerControls.Controls.Add(this.addCookies);
             this.developerControls.Controls.Add(this.addCookieUserInput);
@@ -167,16 +173,44 @@ namespace Cake_Clicker_Game.Forms
             this.developerControls.Controls.Add(this.resetButton);
             this.developerControls.Location = new System.Drawing.Point(456, 18);
             this.developerControls.Name = "developerControls";
-            this.developerControls.Size = new System.Drawing.Size(321, 154);
+            this.developerControls.Size = new System.Drawing.Size(321, 250);
             this.developerControls.TabIndex = 4;
             this.developerControls.TabStop = false;
             this.developerControls.Text = "Developer Controls";
+            // 
+            // loadGameUserInput
+            // 
+            this.loadGameUserInput.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.loadGameUserInput.Location = new System.Drawing.Point(11, 135);
+            this.loadGameUserInput.Name = "loadGameUserInput";
+            this.loadGameUserInput.Size = new System.Drawing.Size(181, 26);
+            this.loadGameUserInput.TabIndex = 6;
+            this.loadGameUserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loadGameUserInput_KeyPress);
+            // 
+            // loadGameButton
+            // 
+            this.loadGameButton.Location = new System.Drawing.Point(206, 130);
+            this.loadGameButton.Name = "loadGameButton";
+            this.loadGameButton.Size = new System.Drawing.Size(109, 36);
+            this.loadGameButton.TabIndex = 5;
+            this.loadGameButton.Text = "Load Profile";
+            this.loadGameButton.UseVisualStyleBackColor = true;
+            this.loadGameButton.Click += new System.EventHandler(this.loadGameButton_Click);
+            // 
+            // loadGameLabel
+            // 
+            this.loadGameLabel.AutoSize = true;
+            this.loadGameLabel.Location = new System.Drawing.Point(7, 102);
+            this.loadGameLabel.Name = "loadGameLabel";
+            this.loadGameLabel.Size = new System.Drawing.Size(248, 20);
+            this.loadGameLabel.TabIndex = 4;
+            this.loadGameLabel.Text = "Load Profile (UUID or Username):";
             // 
             // developerAddCookieLabel
             // 
             this.developerAddCookieLabel.AutoSize = true;
             this.developerAddCookieLabel.ForeColor = System.Drawing.Color.Black;
-            this.developerAddCookieLabel.Location = new System.Drawing.Point(6, 87);
+            this.developerAddCookieLabel.Location = new System.Drawing.Point(7, 168);
             this.developerAddCookieLabel.Name = "developerAddCookieLabel";
             this.developerAddCookieLabel.Size = new System.Drawing.Size(122, 20);
             this.developerAddCookieLabel.TabIndex = 3;
@@ -184,7 +218,7 @@ namespace Cake_Clicker_Game.Forms
             // 
             // addCookies
             // 
-            this.addCookies.Location = new System.Drawing.Point(206, 104);
+            this.addCookies.Location = new System.Drawing.Point(206, 197);
             this.addCookies.Name = "addCookies";
             this.addCookies.Size = new System.Drawing.Size(109, 38);
             this.addCookies.TabIndex = 1;
@@ -195,9 +229,9 @@ namespace Cake_Clicker_Game.Forms
             // addCookieUserInput
             // 
             this.addCookieUserInput.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.addCookieUserInput.Location = new System.Drawing.Point(6, 110);
+            this.addCookieUserInput.Location = new System.Drawing.Point(11, 203);
             this.addCookieUserInput.Name = "addCookieUserInput";
-            this.addCookieUserInput.Size = new System.Drawing.Size(193, 26);
+            this.addCookieUserInput.Size = new System.Drawing.Size(181, 26);
             this.addCookieUserInput.TabIndex = 0;
             this.addCookieUserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addCookieUserInput_KeyPress);
             // 
@@ -238,5 +272,8 @@ namespace Cake_Clicker_Game.Forms
         private System.Windows.Forms.Label developerAddCookieLabel;
         private System.Windows.Forms.Button addCookies;
         private System.Windows.Forms.TextBox addCookieUserInput;
+        private System.Windows.Forms.Label loadGameLabel;
+        private System.Windows.Forms.TextBox loadGameUserInput;
+        private System.Windows.Forms.Button loadGameButton;
     }
 }

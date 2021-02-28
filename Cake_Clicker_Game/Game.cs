@@ -107,7 +107,6 @@ public class Game
     }
 
     //This method does a simple save of the game settings to a text file
-    //This method does a simple save of the game settings to a text file
     public bool SaveGameToFile()
     {
         DateTime now = DateTime.Now;

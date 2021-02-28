@@ -112,5 +112,37 @@ namespace Cake_Clicker_Game.Forms
                 }
             }
         }
+
+
+        private void loadGameUserInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                //Checks to make sure username is valid length
+                if (loadGameUserInput.Text.Length < 15 && loadGameUserInput.Text.Length > 0) 
+                {
+                    _userInterfaceManager.loadGame(loadGameUserInput.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Name/UUID");
+                    loadGameUserInput.Text = "";
+                }
+            }
+        }
+
+        private void loadGameButton_Click(object sender, EventArgs e)
+        {
+            //Checks to make sure username is valid length
+            if (loadGameUserInput.Text.Length < 15 && loadGameUserInput.Text.Length > 0)
+            {
+                _userInterfaceManager.loadGame(loadGameUserInput.Text);
+            } 
+            else 
+            {
+                MessageBox.Show("Invalid Name/UUID");
+                loadGameUserInput.Text = "";
+            }
+        }
     }
 }

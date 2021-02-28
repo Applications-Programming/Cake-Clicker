@@ -43,6 +43,16 @@ namespace Cake_Clicker_Game
             _game.SaveGameToFile();
         }
 
+        //Loads the game using the name or UUID of the profile being passed in by the parameter
+        //If load is successful then it will return true, otherwise it will return false
+        public bool loadGame(string name)
+        {
+            //This method still needs to call according game class method for loading from DB
+
+            //bool returnVal = _game.LoadFile(name);
+            return false;
+        }
+
         /// <summary>
         /// Creates a message window and displays it to the user
         /// </summary>
