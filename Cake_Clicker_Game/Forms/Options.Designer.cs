@@ -36,12 +36,12 @@ namespace Cake_Clicker_Game.Forms
             this.lightmodeButton = new System.Windows.Forms.RadioButton();
             this.saveButton = new System.Windows.Forms.Button();
             this.databaseControlBox = new System.Windows.Forms.GroupBox();
+            this.datebaseWipeConfirm = new System.Windows.Forms.CheckBox();
             this.wipeDatabase = new System.Windows.Forms.Button();
             this.developerControls = new System.Windows.Forms.GroupBox();
-            this.datebaseWipeConfirm = new System.Windows.Forms.CheckBox();
-            this.addCookieUserInput = new System.Windows.Forms.TextBox();
-            this.addCookies = new System.Windows.Forms.Button();
             this.developerAddCookieLabel = new System.Windows.Forms.Label();
+            this.addCookies = new System.Windows.Forms.Button();
+            this.addCookieUserInput = new System.Windows.Forms.TextBox();
             this.colorThemeBox.SuspendLayout();
             this.databaseControlBox.SuspendLayout();
             this.developerControls.SuspendLayout();
@@ -137,6 +137,17 @@ namespace Cake_Clicker_Game.Forms
             this.databaseControlBox.TabStop = false;
             this.databaseControlBox.Text = "Database Controls";
             // 
+            // datebaseWipeConfirm
+            // 
+            this.datebaseWipeConfirm.AutoSize = true;
+            this.datebaseWipeConfirm.ForeColor = System.Drawing.Color.Maroon;
+            this.datebaseWipeConfirm.Location = new System.Drawing.Point(21, 100);
+            this.datebaseWipeConfirm.Name = "datebaseWipeConfirm";
+            this.datebaseWipeConfirm.Size = new System.Drawing.Size(137, 24);
+            this.datebaseWipeConfirm.TabIndex = 1;
+            this.datebaseWipeConfirm.Text = "Confirm Reset";
+            this.datebaseWipeConfirm.UseVisualStyleBackColor = true;
+            // 
             // wipeDatabase
             // 
             this.wipeDatabase.BackColor = System.Drawing.Color.IndianRed;
@@ -161,23 +172,15 @@ namespace Cake_Clicker_Game.Forms
             this.developerControls.TabStop = false;
             this.developerControls.Text = "Developer Controls";
             // 
-            // datebaseWipeConfirm
+            // developerAddCookieLabel
             // 
-            this.datebaseWipeConfirm.AutoSize = true;
-            this.datebaseWipeConfirm.ForeColor = System.Drawing.Color.Maroon;
-            this.datebaseWipeConfirm.Location = new System.Drawing.Point(21, 100);
-            this.datebaseWipeConfirm.Name = "datebaseWipeConfirm";
-            this.datebaseWipeConfirm.Size = new System.Drawing.Size(137, 24);
-            this.datebaseWipeConfirm.TabIndex = 1;
-            this.datebaseWipeConfirm.Text = "Confirm Reset";
-            this.datebaseWipeConfirm.UseVisualStyleBackColor = true;
-            // 
-            // addCookieUserInput
-            // 
-            this.addCookieUserInput.Location = new System.Drawing.Point(6, 110);
-            this.addCookieUserInput.Name = "addCookieUserInput";
-            this.addCookieUserInput.Size = new System.Drawing.Size(193, 26);
-            this.addCookieUserInput.TabIndex = 0;
+            this.developerAddCookieLabel.AutoSize = true;
+            this.developerAddCookieLabel.ForeColor = System.Drawing.Color.Black;
+            this.developerAddCookieLabel.Location = new System.Drawing.Point(6, 87);
+            this.developerAddCookieLabel.Name = "developerAddCookieLabel";
+            this.developerAddCookieLabel.Size = new System.Drawing.Size(122, 20);
+            this.developerAddCookieLabel.TabIndex = 3;
+            this.developerAddCookieLabel.Text = "Generate Cake:";
             // 
             // addCookies
             // 
@@ -189,15 +192,14 @@ namespace Cake_Clicker_Game.Forms
             this.addCookies.UseVisualStyleBackColor = true;
             this.addCookies.Click += new System.EventHandler(this.addCookies_Click);
             // 
-            // developerAddCookieLabel
+            // addCookieUserInput
             // 
-            this.developerAddCookieLabel.AutoSize = true;
-            this.developerAddCookieLabel.ForeColor = System.Drawing.Color.Black;
-            this.developerAddCookieLabel.Location = new System.Drawing.Point(6, 87);
-            this.developerAddCookieLabel.Name = "developerAddCookieLabel";
-            this.developerAddCookieLabel.Size = new System.Drawing.Size(122, 20);
-            this.developerAddCookieLabel.TabIndex = 3;
-            this.developerAddCookieLabel.Text = "Generate Cake:";
+            this.addCookieUserInput.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.addCookieUserInput.Location = new System.Drawing.Point(6, 110);
+            this.addCookieUserInput.Name = "addCookieUserInput";
+            this.addCookieUserInput.Size = new System.Drawing.Size(193, 26);
+            this.addCookieUserInput.TabIndex = 0;
+            this.addCookieUserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addCookieUserInput_KeyPress);
             // 
             // Options
             // 

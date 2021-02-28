@@ -38,5 +38,37 @@ namespace Cake_Clicker_Game
             this.Dispose();
 
         }
+
+        //Adds functionality to begin the game by hitting enter in the name box
+        private void NameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                startButton.Text = "Loading...";
+                this.Update();
+                if (NameTextBox.Text.Length == 0)
+                {
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                }
+                else
+                {
+                    //Prevents excessively user input
+                    if (NameTextBox.Text.Length < 15)
+                    {
+                        CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+
+                    }
+                    else
+                    {
+                        CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                    }
+
+                }
+
+                Hide();
+                CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
+                this.Dispose();
+            }
+        }
     }
 }

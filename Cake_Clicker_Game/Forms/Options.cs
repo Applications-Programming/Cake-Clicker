@@ -82,5 +82,35 @@ namespace Cake_Clicker_Game.Forms
             }
            
         }
+
+        private void addCookieUserInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r') {
+                //Checks to make sure excessively large values aren't being put in to prevent overflow issues
+                if (addCookieUserInput.Text.Length > 0 && addCookieUserInput.Text.Length < 10)
+                {
+                    string text = addCookieUserInput.Text;
+                    int cake = 0;
+                    bool validInput = Int32.TryParse(text, out cake);
+
+                    //If the input is valid then it will add the cake otherwise it will give an error to the user
+                    if (validInput)
+                    {
+                        cake = int.Parse(text);
+                        _userInterfaceManager.AddCakeManuallyToGame(cake);
+                        _userInterfaceManager.RefreshScore();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: invalid amount of cake added or invalid user input" + "\n");
+                        MessageBox.Show("Couldn't add cake, make sure input is valid.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Unable to add that much cake, sorry!");
+                }
+            }
+        }
     }
 }
