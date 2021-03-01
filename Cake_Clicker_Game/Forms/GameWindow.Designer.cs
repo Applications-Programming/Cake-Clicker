@@ -807,7 +807,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Four_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.BackgroundImage")));
             this.Achievement_Four_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.Image")));
-            this.Achievement_Four_Star.Location = new System.Drawing.Point(22, 29);
+            this.Achievement_Four_Star.Location = new System.Drawing.Point(22, 32);
             this.Achievement_Four_Star.Name = "Achievement_Four_Star";
             this.Achievement_Four_Star.Size = new System.Drawing.Size(90, 81);
             this.Achievement_Four_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -833,7 +833,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Two_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.BackgroundImage")));
             this.Achievement_Two_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.Image")));
-            this.Achievement_Two_Star.Location = new System.Drawing.Point(22, 29);
+            this.Achievement_Two_Star.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Two_Star.Name = "Achievement_Two_Star";
             this.Achievement_Two_Star.Size = new System.Drawing.Size(90, 81);
             this.Achievement_Two_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-
 namespace Cake_Clicker_Game
 {
     public partial class GameWindow : Form
@@ -140,9 +139,10 @@ namespace Cake_Clicker_Game
         //For example, when the user buys an upgrade or clicks to get more cake
         private void CheckAchievements() 
         {
-            bool[] values = null;
             //Calls game class method to get the array of achievement status's
-            /*
+            bool[] values = _userInterfaceManager.CheckAcheivements();
+
+            //If an achievement is true then it makes the achievement known to the user
             if (values[0] == true) 
             {
                 Achievement_One_Groupbox.Text = "Cake Novice";
@@ -151,30 +151,30 @@ namespace Cake_Clicker_Game
                 Achievement_One_Question_Mark.Visible = false;
                 Achievement_One_Star.Visible = true;
             } 
-            else if (values[1] == true)
+            if (values[1] == true)
             {
-                Achievement_Two_Groupbox.Text = "Cake Novice";
+                Achievement_Two_Groupbox.Text = "Cake Master";
                 Achievement_Two_Description.Text = "Reached 1000 Cakes!";
                 Achievement_Two_Description.ForeColor = Color.Gold;
                 Achievement_Two_Question_Mark.Visible = false;
                 Achievement_Two_Star.Visible = true;
             }
-            else if (values[2] == true)
+            if (values[2] == true)
             {
-                Achievement_Three_Groupbox.Text = "Cake Novice";
+                Achievement_Three_Groupbox.Text = "Bakery Legend";
                 Achievement_Three_Description.Text = "Reached 10000 Cakes!";
                 Achievement_Three_Description.ForeColor = Color.Gold;
                 Achievement_Three_Question_Mark.Visible = false;
                 Achievement_Three_Star.Visible = true;
             }
-            else if (values[3] == true)
+            if (values[3] == true)
             {
-                Achievement_Four_Groupbox.Text = "Cake Novice";
+                Achievement_Four_Groupbox.Text = "Recipe Book";
                 Achievement_Four_Description.Text = "Unlocked all upgrades!";
                 Achievement_Four_Description.ForeColor = Color.Gold;
                 Achievement_Four_Question_Mark.Visible = false;
                 Achievement_Four_Star.Visible = true;
-            }*/
+            }
         }
 
     }
