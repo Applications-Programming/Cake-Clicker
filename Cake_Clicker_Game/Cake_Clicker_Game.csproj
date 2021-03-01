@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achievment.cs" />
     <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
     </Compile>
