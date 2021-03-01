@@ -283,7 +283,7 @@ public class Achievement
             achievements[2].Active = true;
         }
 
-        if (achievements[3].Active = false)
+        if (achievements[3].Active == false)
         {
             for(int i = 0; i < 7; i++)
             {
