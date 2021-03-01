@@ -12,6 +12,7 @@ public class Game
 
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
+    private Achievement achievements;
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
 
     private DatabaseManager _databaseManager;
@@ -51,6 +52,7 @@ public class Game
     public void AddCake()
     {
         _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+        this.CheckAchivements();
     }
 
     //This method adds a specified amount of cake manually
@@ -150,6 +152,7 @@ public class Game
             _cakePerClick += 5;
             _gameInfo.amountOfCake -= 50;
             _gameInfo.upgradeCount[0] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Chocolate && _gameInfo.amountOfCake >= 250)
@@ -157,6 +160,7 @@ public class Game
             _cakePerClick += 10;
             _gameInfo.amountOfCake -= 250;
             _gameInfo.upgradeCount[1] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Strawberry && _gameInfo.amountOfCake >= 500)
@@ -164,6 +168,7 @@ public class Game
             _cakePerClick += 25;
             _gameInfo.amountOfCake -= 500;
             _gameInfo.upgradeCount[2] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Coffee && _gameInfo.amountOfCake >= 1000)
@@ -171,6 +176,7 @@ public class Game
             _cakePerClick += 50;
             _gameInfo.amountOfCake -= 1000;
             _gameInfo.upgradeCount[3] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Red_Velvet && _gameInfo.amountOfCake >= 4500)
@@ -178,6 +184,7 @@ public class Game
             _cakePerClick += 150;
             _gameInfo.amountOfCake -= 4500;
             _gameInfo.upgradeCount[4] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Carrot && _gameInfo.amountOfCake >= 20000)
@@ -185,6 +192,7 @@ public class Game
             _cakePerClick += 250;
             _gameInfo.amountOfCake -= 20000;
             _gameInfo.upgradeCount[5] += 1;
+            this.CheckAchivements();
             return true;
         }
         else if (addedCake == CakeType.Cheese && _gameInfo.amountOfCake >= 80000)
@@ -192,9 +200,15 @@ public class Game
             _cakePerClick += 400;
             _gameInfo.amountOfCake -= 80000;
             _gameInfo.upgradeCount[6] += 1;
+            this.CheckAchivements();
             return true;
         }
         return false;
+    }
+
+    public void CheckAchivements()
+    {
+        achievements.GetGameData(_gameInfo);
     }
 
     //Sets the player name
@@ -222,6 +236,92 @@ public class Game
             PlayerName = playerName;
             this.amountOfCake = amountOfCake;
             this.upgradeCount = upgradeCount;
+        }
+    }
+}
+
+public class Achievement
+{
+    public struct AchievementInfo
+    {
+        public string Name;
+        public bool Active; 
+    }
+
+    static private int achievementCount = 4;
+    public AchievementInfo[] achievements = new AchievementInfo[achievementCount];
+
+    public Achievement()
+    {
+        achievements[0].Name = "Cake Novice";
+        achievements[0].Active = false;
+
+        achievements[1].Name = "Cake Master";
+        achievements[1].Active = false;
+
+        achievements[2].Name = "Bakery Legend";
+        achievements[2].Active = false;
+
+        achievements[3].Name = "Recipe Book";
+        achievements[3].Active = false;
+    }
+
+    public void GetGameData(Game.GameData data)
+    {
+        if(data.amountOfCake == 100)
+        {
+            achievements[0].Active = true;
+        }
+
+        if (data.amountOfCake == 1000)
+        {
+            achievements[1].Active = true;
+        }
+
+        if (data.amountOfCake == 10000)
+        {
+            achievements[2].Active = true;
+        }
+
+        if (achievements[3].Active = false)
+        {
+            for(int i = 0; i < 7; i++)
+            {
+                if(data.upgradeCount[i] == 0)
+                {
+                    achievements[3].Active = false;
+                    break;
+                }
+                achievements[3].Active = true;
+            }
+        }
+    }
+
+    public bool IsAchievementActive(string achievementName)
+    {
+        for (int i = 0; i < achievementCount; i++)
+        {
+            if(achievements[i].Name == achievementName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void ResetAchievements()
+    {
+        for (int i = 0; i < achievementCount; i++)
+        {
+            achievements[i].Active = false;
+        }
+    }
+
+    public void ActivateAll()
+    {
+        for (int i = 0; i < achievementCount; i++)
+        {
+            achievements[i].Active = true;
         }
     }
 }
