@@ -75,6 +75,23 @@ namespace Cake_Clicker_Game
             this.vanillaCakeInfoBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveAndQuitButton = new System.Windows.Forms.Button();
+            this.achievementsGroup = new System.Windows.Forms.GroupBox();
+            this.Achievement_One_Groupbox = new System.Windows.Forms.GroupBox();
+            this.Achievement_One_Description = new System.Windows.Forms.Label();
+            this.Achievement_One_Question_Mark = new System.Windows.Forms.PictureBox();
+            this.Achievement_Two_Groupbox = new System.Windows.Forms.GroupBox();
+            this.Achievement_Two_Question_Mark = new System.Windows.Forms.PictureBox();
+            this.Achievement_Two_Description = new System.Windows.Forms.Label();
+            this.Achievement_Three_Groupbox = new System.Windows.Forms.GroupBox();
+            this.Achievement_Three_Question_Mark = new System.Windows.Forms.PictureBox();
+            this.Achievement_Three_Description = new System.Windows.Forms.Label();
+            this.Achievement_Four_Groupbox = new System.Windows.Forms.GroupBox();
+            this.Achievement_Four_Question_Mark = new System.Windows.Forms.PictureBox();
+            this.Achievement_Four_Description = new System.Windows.Forms.Label();
+            this.Achievement_Four_Star = new System.Windows.Forms.PictureBox();
+            this.Achievement_Three_Star = new System.Windows.Forms.PictureBox();
+            this.Achievement_Two_Star = new System.Windows.Forms.PictureBox();
+            this.Achievement_One_Star = new System.Windows.Forms.PictureBox();
             this.CakeDataBox.SuspendLayout();
             this.cheeseGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -90,6 +107,19 @@ namespace Cake_Clicker_Game
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.VanillaCake.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.achievementsGroup.SuspendLayout();
+            this.Achievement_One_Groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_One_Question_Mark)).BeginInit();
+            this.Achievement_Two_Groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Two_Question_Mark)).BeginInit();
+            this.Achievement_Three_Groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Three_Question_Mark)).BeginInit();
+            this.Achievement_Four_Groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Four_Question_Mark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Four_Star)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Three_Star)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Two_Star)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_One_Star)).BeginInit();
             this.SuspendLayout();
             // 
             // scoreLabel
@@ -615,6 +645,215 @@ namespace Cake_Clicker_Game
             this.saveAndQuitButton.UseVisualStyleBackColor = true;
             this.saveAndQuitButton.Click += new System.EventHandler(this.SaveAndQuitButton_Click);
             // 
+            // achievementsGroup
+            // 
+            this.achievementsGroup.AccessibleDescription = "";
+            this.achievementsGroup.Controls.Add(this.Achievement_Four_Groupbox);
+            this.achievementsGroup.Controls.Add(this.Achievement_Three_Groupbox);
+            this.achievementsGroup.Controls.Add(this.Achievement_Two_Groupbox);
+            this.achievementsGroup.Controls.Add(this.Achievement_One_Groupbox);
+            this.achievementsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.achievementsGroup.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.achievementsGroup.Location = new System.Drawing.Point(1693, 297);
+            this.achievementsGroup.Name = "achievementsGroup";
+            this.achievementsGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.achievementsGroup.Size = new System.Drawing.Size(515, 592);
+            this.achievementsGroup.TabIndex = 8;
+            this.achievementsGroup.TabStop = false;
+            this.achievementsGroup.Text = "Bakers Showcase";
+            // 
+            // Achievement_One_Groupbox
+            // 
+            this.Achievement_One_Groupbox.Controls.Add(this.Achievement_One_Star);
+            this.Achievement_One_Groupbox.Controls.Add(this.Achievement_One_Question_Mark);
+            this.Achievement_One_Groupbox.Controls.Add(this.Achievement_One_Description);
+            this.Achievement_One_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achievement_One_Groupbox.ForeColor = System.Drawing.Color.Gold;
+            this.Achievement_One_Groupbox.Location = new System.Drawing.Point(30, 48);
+            this.Achievement_One_Groupbox.Name = "Achievement_One_Groupbox";
+            this.Achievement_One_Groupbox.Size = new System.Drawing.Size(469, 121);
+            this.Achievement_One_Groupbox.TabIndex = 1;
+            this.Achievement_One_Groupbox.TabStop = false;
+            this.Achievement_One_Groupbox.Text = "Unknown Achievement";
+            // 
+            // Achievement_One_Description
+            // 
+            this.Achievement_One_Description.AutoSize = true;
+            this.Achievement_One_Description.ForeColor = System.Drawing.Color.Brown;
+            this.Achievement_One_Description.Location = new System.Drawing.Point(118, 52);
+            this.Achievement_One_Description.Name = "Achievement_One_Description";
+            this.Achievement_One_Description.Size = new System.Drawing.Size(345, 29);
+            this.Achievement_One_Description.TabIndex = 0;
+            this.Achievement_One_Description.Text = "Achievement_One_Description";
+            // 
+            // Achievement_One_Question_Mark
+            // 
+            this.Achievement_One_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_One_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Question_Mark.Image")));
+            this.Achievement_One_Question_Mark.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_One_Question_Mark.Name = "Achievement_One_Question_Mark";
+            this.Achievement_One_Question_Mark.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_One_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_One_Question_Mark.TabIndex = 1;
+            this.Achievement_One_Question_Mark.TabStop = false;
+            // 
+            // Achievement_Two_Groupbox
+            // 
+            this.Achievement_Two_Groupbox.Controls.Add(this.Achievement_Two_Star);
+            this.Achievement_Two_Groupbox.Controls.Add(this.Achievement_Two_Question_Mark);
+            this.Achievement_Two_Groupbox.Controls.Add(this.Achievement_Two_Description);
+            this.Achievement_Two_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achievement_Two_Groupbox.ForeColor = System.Drawing.Color.Gold;
+            this.Achievement_Two_Groupbox.Location = new System.Drawing.Point(30, 185);
+            this.Achievement_Two_Groupbox.Name = "Achievement_Two_Groupbox";
+            this.Achievement_Two_Groupbox.Size = new System.Drawing.Size(469, 121);
+            this.Achievement_Two_Groupbox.TabIndex = 2;
+            this.Achievement_Two_Groupbox.TabStop = false;
+            this.Achievement_Two_Groupbox.Text = "Unknown Achievement";
+            // 
+            // Achievement_Two_Question_Mark
+            // 
+            this.Achievement_Two_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Two_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Question_Mark.Image")));
+            this.Achievement_Two_Question_Mark.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_Two_Question_Mark.Name = "Achievement_Two_Question_Mark";
+            this.Achievement_Two_Question_Mark.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Two_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Two_Question_Mark.TabIndex = 1;
+            this.Achievement_Two_Question_Mark.TabStop = false;
+            // 
+            // Achievement_Two_Description
+            // 
+            this.Achievement_Two_Description.AutoSize = true;
+            this.Achievement_Two_Description.ForeColor = System.Drawing.Color.Brown;
+            this.Achievement_Two_Description.Location = new System.Drawing.Point(118, 52);
+            this.Achievement_Two_Description.Name = "Achievement_Two_Description";
+            this.Achievement_Two_Description.Size = new System.Drawing.Size(347, 29);
+            this.Achievement_Two_Description.TabIndex = 0;
+            this.Achievement_Two_Description.Text = "Achievement_Two_Description";
+            // 
+            // Achievement_Three_Groupbox
+            // 
+            this.Achievement_Three_Groupbox.Controls.Add(this.Achievement_Three_Star);
+            this.Achievement_Three_Groupbox.Controls.Add(this.Achievement_Three_Question_Mark);
+            this.Achievement_Three_Groupbox.Controls.Add(this.Achievement_Three_Description);
+            this.Achievement_Three_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achievement_Three_Groupbox.ForeColor = System.Drawing.Color.Gold;
+            this.Achievement_Three_Groupbox.Location = new System.Drawing.Point(30, 312);
+            this.Achievement_Three_Groupbox.Name = "Achievement_Three_Groupbox";
+            this.Achievement_Three_Groupbox.Size = new System.Drawing.Size(469, 121);
+            this.Achievement_Three_Groupbox.TabIndex = 3;
+            this.Achievement_Three_Groupbox.TabStop = false;
+            this.Achievement_Three_Groupbox.Text = "Unknown Achievement";
+            // 
+            // Achievement_Three_Question_Mark
+            // 
+            this.Achievement_Three_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Three_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Question_Mark.Image")));
+            this.Achievement_Three_Question_Mark.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_Three_Question_Mark.Name = "Achievement_Three_Question_Mark";
+            this.Achievement_Three_Question_Mark.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Three_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Three_Question_Mark.TabIndex = 1;
+            this.Achievement_Three_Question_Mark.TabStop = false;
+            // 
+            // Achievement_Three_Description
+            // 
+            this.Achievement_Three_Description.AutoSize = true;
+            this.Achievement_Three_Description.ForeColor = System.Drawing.Color.Brown;
+            this.Achievement_Three_Description.Location = new System.Drawing.Point(118, 52);
+            this.Achievement_Three_Description.Name = "Achievement_Three_Description";
+            this.Achievement_Three_Description.Size = new System.Drawing.Size(312, 29);
+            this.Achievement_Three_Description.TabIndex = 0;
+            this.Achievement_Three_Description.Text = "Achievement_3_Description";
+            // 
+            // Achievement_Four_Groupbox
+            // 
+            this.Achievement_Four_Groupbox.Controls.Add(this.Achievement_Four_Star);
+            this.Achievement_Four_Groupbox.Controls.Add(this.Achievement_Four_Question_Mark);
+            this.Achievement_Four_Groupbox.Controls.Add(this.Achievement_Four_Description);
+            this.Achievement_Four_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achievement_Four_Groupbox.ForeColor = System.Drawing.Color.Gold;
+            this.Achievement_Four_Groupbox.Location = new System.Drawing.Point(30, 449);
+            this.Achievement_Four_Groupbox.Name = "Achievement_Four_Groupbox";
+            this.Achievement_Four_Groupbox.Size = new System.Drawing.Size(469, 121);
+            this.Achievement_Four_Groupbox.TabIndex = 4;
+            this.Achievement_Four_Groupbox.TabStop = false;
+            this.Achievement_Four_Groupbox.Text = "Unknown Achievement";
+            // 
+            // Achievement_Four_Question_Mark
+            // 
+            this.Achievement_Four_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Four_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Question_Mark.Image")));
+            this.Achievement_Four_Question_Mark.Location = new System.Drawing.Point(22, 32);
+            this.Achievement_Four_Question_Mark.Name = "Achievement_Four_Question_Mark";
+            this.Achievement_Four_Question_Mark.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Four_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Four_Question_Mark.TabIndex = 1;
+            this.Achievement_Four_Question_Mark.TabStop = false;
+            // 
+            // Achievement_Four_Description
+            // 
+            this.Achievement_Four_Description.AutoSize = true;
+            this.Achievement_Four_Description.ForeColor = System.Drawing.Color.Brown;
+            this.Achievement_Four_Description.Location = new System.Drawing.Point(118, 52);
+            this.Achievement_Four_Description.Name = "Achievement_Four_Description";
+            this.Achievement_Four_Description.Size = new System.Drawing.Size(340, 29);
+            this.Achievement_Four_Description.TabIndex = 0;
+            this.Achievement_Four_Description.Text = "Achievement_four_Description";
+            // 
+            // Achievement_Four_Star
+            // 
+            this.Achievement_Four_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Four_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.BackgroundImage")));
+            this.Achievement_Four_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.Image")));
+            this.Achievement_Four_Star.Location = new System.Drawing.Point(22, 32);
+            this.Achievement_Four_Star.Name = "Achievement_Four_Star";
+            this.Achievement_Four_Star.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Four_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Four_Star.TabIndex = 2;
+            this.Achievement_Four_Star.TabStop = false;
+            this.Achievement_Four_Star.Visible = false;
+            // 
+            // Achievement_Three_Star
+            // 
+            this.Achievement_Three_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Three_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.BackgroundImage")));
+            this.Achievement_Three_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.Image")));
+            this.Achievement_Three_Star.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_Three_Star.Name = "Achievement_Three_Star";
+            this.Achievement_Three_Star.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Three_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Three_Star.TabIndex = 3;
+            this.Achievement_Three_Star.TabStop = false;
+            this.Achievement_Three_Star.Visible = false;
+            // 
+            // Achievement_Two_Star
+            // 
+            this.Achievement_Two_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Two_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.BackgroundImage")));
+            this.Achievement_Two_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.Image")));
+            this.Achievement_Two_Star.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_Two_Star.Name = "Achievement_Two_Star";
+            this.Achievement_Two_Star.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_Two_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_Two_Star.TabIndex = 9;
+            this.Achievement_Two_Star.TabStop = false;
+            this.Achievement_Two_Star.Visible = false;
+            // 
+            // Achievement_One_Star
+            // 
+            this.Achievement_One_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_One_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.BackgroundImage")));
+            this.Achievement_One_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.Image")));
+            this.Achievement_One_Star.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_One_Star.Name = "Achievement_One_Star";
+            this.Achievement_One_Star.Size = new System.Drawing.Size(90, 81);
+            this.Achievement_One_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Achievement_One_Star.TabIndex = 10;
+            this.Achievement_One_Star.TabStop = false;
+            this.Achievement_One_Star.Visible = false;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -622,6 +861,7 @@ namespace Cake_Clicker_Game
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(2226, 1208);
             this.ControlBox = false;
+            this.Controls.Add(this.achievementsGroup);
             this.Controls.Add(this.saveAndQuitButton);
             this.Controls.Add(this.CakeDataBox);
             this.Controls.Add(this.optionsButton);
@@ -655,6 +895,23 @@ namespace Cake_Clicker_Game
             this.VanillaCake.ResumeLayout(false);
             this.VanillaCake.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.achievementsGroup.ResumeLayout(false);
+            this.Achievement_One_Groupbox.ResumeLayout(false);
+            this.Achievement_One_Groupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_One_Question_Mark)).EndInit();
+            this.Achievement_Two_Groupbox.ResumeLayout(false);
+            this.Achievement_Two_Groupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Two_Question_Mark)).EndInit();
+            this.Achievement_Three_Groupbox.ResumeLayout(false);
+            this.Achievement_Three_Groupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Three_Question_Mark)).EndInit();
+            this.Achievement_Four_Groupbox.ResumeLayout(false);
+            this.Achievement_Four_Groupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Four_Question_Mark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Four_Star)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Three_Star)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_Two_Star)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Achievement_One_Star)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -704,6 +961,23 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox achievementsGroup;
+        private System.Windows.Forms.GroupBox Achievement_Four_Groupbox;
+        private System.Windows.Forms.PictureBox Achievement_Four_Question_Mark;
+        private System.Windows.Forms.Label Achievement_Four_Description;
+        private System.Windows.Forms.GroupBox Achievement_Three_Groupbox;
+        private System.Windows.Forms.PictureBox Achievement_Three_Question_Mark;
+        private System.Windows.Forms.Label Achievement_Three_Description;
+        private System.Windows.Forms.GroupBox Achievement_Two_Groupbox;
+        private System.Windows.Forms.PictureBox Achievement_Two_Question_Mark;
+        private System.Windows.Forms.Label Achievement_Two_Description;
+        private System.Windows.Forms.GroupBox Achievement_One_Groupbox;
+        private System.Windows.Forms.PictureBox Achievement_One_Question_Mark;
+        private System.Windows.Forms.Label Achievement_One_Description;
+        private System.Windows.Forms.PictureBox Achievement_Four_Star;
+        private System.Windows.Forms.PictureBox Achievement_Three_Star;
+        private System.Windows.Forms.PictureBox Achievement_Two_Star;
+        private System.Windows.Forms.PictureBox Achievement_One_Star;
     }
 }
 

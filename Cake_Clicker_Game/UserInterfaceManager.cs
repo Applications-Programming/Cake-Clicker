@@ -76,6 +76,12 @@ namespace Cake_Clicker_Game
             options.ShowDialog();
         }
 
+        //Gets the bool array of achievement status from the game class
+        public bool[] CheckAcheivements() 
+        {
+            return _game.GetAchivements();
+        }
+
         /// <summary>
         /// Runs whenever the cake button is clicked
         /// </summary>

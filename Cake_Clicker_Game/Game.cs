@@ -14,6 +14,7 @@ public class Game
 
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
+    private Achievement achievements;
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
 
     private DatabaseManager _databaseManager;
@@ -39,6 +40,7 @@ public class Game
             isConnected = true;
         }
 
+        achievements = new Achievement();
         int[] temp = new int[7];
         for (int i = 0; i < 7; i++)
         {
@@ -58,12 +60,14 @@ public class Game
     public void AddCake()
     {
         _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+        achievements.GetGameData(_gameInfo);
     }
 
     //This method adds a specified amount of cake manually
     public void AddCakeManually(int cakeAmount)
     {
         _gameInfo.amountOfCake += cakeAmount;
+        achievements.GetGameData(_gameInfo);
     }
 
     //This method returns the amount of cake stored in _amountOfCake
@@ -162,6 +166,7 @@ public class Game
             _cakePerClick += 5;
             _gameInfo.amountOfCake -= 50;
             _gameInfo.upgradeCount[0] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Chocolate && _gameInfo.amountOfCake >= 250)
@@ -169,6 +174,7 @@ public class Game
             _cakePerClick += 10;
             _gameInfo.amountOfCake -= 250;
             _gameInfo.upgradeCount[1] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Strawberry && _gameInfo.amountOfCake >= 500)
@@ -176,6 +182,7 @@ public class Game
             _cakePerClick += 25;
             _gameInfo.amountOfCake -= 500;
             _gameInfo.upgradeCount[2] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Coffee && _gameInfo.amountOfCake >= 1000)
@@ -183,6 +190,7 @@ public class Game
             _cakePerClick += 50;
             _gameInfo.amountOfCake -= 1000;
             _gameInfo.upgradeCount[3] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Red_Velvet && _gameInfo.amountOfCake >= 4500)
@@ -190,6 +198,7 @@ public class Game
             _cakePerClick += 150;
             _gameInfo.amountOfCake -= 4500;
             _gameInfo.upgradeCount[4] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Carrot && _gameInfo.amountOfCake >= 20000)
@@ -197,6 +206,7 @@ public class Game
             _cakePerClick += 250;
             _gameInfo.amountOfCake -= 20000;
             _gameInfo.upgradeCount[5] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         else if (addedCake == CakeType.Cheese && _gameInfo.amountOfCake >= 80000)
@@ -204,9 +214,20 @@ public class Game
             _cakePerClick += 400;
             _gameInfo.amountOfCake -= 80000;
             _gameInfo.upgradeCount[6] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         return false;
+    }
+
+    public void CheckAchivements()
+    {
+        achievements.GetGameData(_gameInfo);
+    }
+
+    public bool[] GetAchivements()
+    {
+        return achievements.GetAchivementsInfo();
     }
 
     //Sets the player name
