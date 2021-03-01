@@ -274,17 +274,17 @@ public class Achievement
 
     public void GetGameData(Game.GameData data)
     {
-        if(data.amountOfCake == 100)
+        if(data.amountOfCake >= 100)
         {
             achievements[0].Active = true;
         }
 
-        if (data.amountOfCake == 1000)
+        if (data.amountOfCake >= 1000)
         {
             achievements[1].Active = true;
         }
 
-        if (data.amountOfCake == 10000)
+        if (data.amountOfCake >= 10000)
         {
             achievements[2].Active = true;
         }
