@@ -211,6 +211,11 @@ public class Game
         achievements.GetGameData(_gameInfo);
     }
 
+    public bool[] GetAchivements()
+    {
+        return achievements.GetAchivementsInfo();
+    }
+
     //Sets the player name
     public void SetPlayerName(string playerName)
     {
@@ -323,6 +328,16 @@ public class Achievement
         {
             achievements[i].Active = true;
         }
+    }
+
+    public bool[] GetAchivementsInfo()
+    {
+        bool[] achivementsStatus = new bool[4];
+        for (int i = 0; i < 4; ++i)
+        {
+            achivementsStatus[i] = achievements[i].Active;
+        }
+        return achivementsStatus;
     }
 }
 
