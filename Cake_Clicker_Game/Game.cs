@@ -32,7 +32,7 @@ public class Game
             "DefaultUser",
             "CakeClicker123");
         _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo);
-
+        achievements = new Achievement();
         int[] temp = new int[7];
         for (int i = 0; i < 7; i++)
         {

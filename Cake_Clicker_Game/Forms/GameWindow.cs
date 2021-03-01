@@ -142,6 +142,7 @@ namespace Cake_Clicker_Game
         {
             bool[] values = null;
             //Calls game class method to get the array of achievement status's
+            /*
             if (values[0] == true) 
             {
                 Achievement_One_Groupbox.Text = "Cake Novice";
@@ -173,7 +174,7 @@ namespace Cake_Clicker_Game
                 Achievement_Four_Description.ForeColor = Color.Gold;
                 Achievement_Four_Question_Mark.Visible = false;
                 Achievement_Four_Star.Visible = true;
-            }
+            }*/
         }
 
     }
