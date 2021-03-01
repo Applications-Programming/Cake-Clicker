@@ -40,7 +40,10 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void Save()
         {
-            _game.SaveGameToFile();
+            if (_game.isConnected)
+                _game.SaveGameToCloud();
+            else
+                _game.SaveGameToFile();
         }
 
         //Loads the game using the name or UUID of the profile being passed in by the parameter

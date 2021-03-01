@@ -3,6 +3,8 @@
 //Authored: 2/9/2021
 using System;
 using System.IO;
+using DataBaseManager;
+using Cake_Clicker_Game;
 
 public class Game
 {
@@ -15,6 +17,7 @@ public class Game
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
 
     private DatabaseManager _databaseManager;
+    public readonly bool isConnected = false;
 
     ///Enums
     public enum CakeType
@@ -30,7 +33,11 @@ public class Game
             "CakeClicker",
             "DefaultUser",
             "CakeClicker123");
-        _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo);
+        _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
+        if(_databaseManager != null)
+        {
+            isConnected = true;
+        }
 
         int[] temp = new int[7];
         for (int i = 0; i < 7; i++)
@@ -116,6 +123,11 @@ public class Game
         File.WriteAllText(path, text);
 
         return true;
+    }
+
+    public void SaveGameToCloud()
+    {
+        _databaseManager.SaveToDatabase(_gameInfo);
     }
 
     public bool LoadFile()
@@ -209,21 +221,7 @@ public class Game
         return _gameInfo.PlayerName;
     }
 
-    public struct GameData
-    {
-        public int Id;
-        public string PlayerName;
-        public int amountOfCake;
-        public int[] upgradeCount;
-
-        public GameData(int id, string playerName, int amountOfCake, int[] upgradeCount)
-        {
-            Id = id;
-            PlayerName = playerName;
-            this.amountOfCake = amountOfCake;
-            this.upgradeCount = upgradeCount;
-        }
-    }
+    
 }
 
 public class Test
