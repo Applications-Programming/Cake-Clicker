@@ -131,7 +131,7 @@ namespace Cake_Clicker_Game
 
         private void SaveAndQuitButton_Click(object sender, EventArgs e)
         {
-            _userInterfaceManager.GetGame().SaveGameToFile();
+            _userInterfaceManager.Save();
             Application.Exit();
         }
 

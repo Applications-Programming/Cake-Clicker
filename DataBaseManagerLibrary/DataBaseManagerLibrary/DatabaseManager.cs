@@ -29,6 +29,7 @@ namespace DataBaseManager
             string connString = @"Data Source=" + connectionInfo._dataSource + ";Initial Catalog="
                         + connectionInfo._database + ";Persist Security Info=True;User ID=" + connectionInfo._userId + ";Password=" + connectionInfo._password;
 
+
             //create instanace of database connection
             SqlConnection connection = new SqlConnection(connString);
 
@@ -47,6 +48,7 @@ namespace DataBaseManager
                 return null;
             }
             Console.Out.Flush();
+            connection.Close();
             return new DatabaseManager(connection, connectionInfo, displayError);
         }
 
@@ -87,7 +89,19 @@ namespace DataBaseManager
         /// <returns>the user ID</returns>
         public int SaveToDatabase(int id, string name, int ammountOfCake, int[] upgrades, bool newUser = false)
         {
-            if(newUser == true || id == -1)
+            try
+            {
+                _connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message + "\n");
+                DisplayError("Couldn't Load Database.\n" +
+                                "Check Log for more info");
+                return -1;
+            }
+
+            if (newUser == true || id == -1)
             {
                 StringBuilder strBuilder = new StringBuilder();
                 strBuilder.Append("INSERT INTO Users (Name, CakeAmount, Upgrades) output INSERTED.ID VALUES ");
@@ -131,6 +145,7 @@ namespace DataBaseManager
                     Console.WriteLine("\nQuery Executed - Saved Game to " + _connectionInfo._database);
                 }
             }
+            _connection.Close();
             return id;
         }
 
@@ -155,6 +170,18 @@ namespace DataBaseManager
         /// <returns></returns>
         public GameData GetUserInfo(int id)
         {
+            try
+            {
+                _connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message + "\n");
+                DisplayError("Couldn't Load Database.\n" +
+                                "Check Log for more info");
+                return null;
+            }
+
             GameData game = new GameData();
             SqlDataReader reader;
 
@@ -179,16 +206,17 @@ namespace DataBaseManager
                     {
                         game.upgradeCount[i] = int.Parse(upgrades[i]);
                     }
+                    Console.WriteLine("\nQuery Executed - Retrieved User" + _connectionInfo._database);
                 }
                 else 
                 { 
                     reader.Close();
-                    return game;
+                    Console.WriteLine("\nQuery Executed - UserID: " + id + " " + _connectionInfo._database);
                 }
                 
-                Console.WriteLine("\nQuery Executed - Retrieved User" + _connectionInfo._database);
-            }           
-
+                
+            }
+            _connection.Close();
             return game;
         }      
 

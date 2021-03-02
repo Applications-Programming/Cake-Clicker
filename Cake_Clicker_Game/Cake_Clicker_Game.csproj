@@ -39,9 +39,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataBaseManagerLibrary">
-      <HintPath>..\DataBaseManagerLibrary\DataBaseManagerLibrary\bin\Debug\DataBaseManagerLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -119,7 +116,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseManagerLibrary\DataBaseManagerLibrary\DataBaseManagerLibrary.csproj">
+      <Project>{811801f6-5505-411c-87ac-f834eec6c5b7}</Project>
+      <Name>DataBaseManagerLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Cake.png" />
     <Content Include="CakeIcon.ico" />
