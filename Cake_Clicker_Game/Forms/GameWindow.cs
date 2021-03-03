@@ -64,11 +64,11 @@ namespace Cake_Clicker_Game
             }
 
             int maxCPS = _userInterfaceManager.MaxCPSDetected();
-            if(maxCPS < 5) 
+            if(maxCPS < 8) 
             {
                 MaxCPSStatus.ForeColor = Color.Green;
                 MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            } else if (maxCPS < 10){
+            } else if (maxCPS < 15){
                 MaxCPSStatus.ForeColor = Color.Yellow;
                 MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
             } else
@@ -173,7 +173,7 @@ namespace Cake_Clicker_Game
         {
             //Calls game class method to get the array of achievement status's
             bool[] values = _userInterfaceManager.CheckAcheivements();
-
+            UpdateCheatStatus();
             //If an achievement is true then it makes the achievement known to the user
             if (values[0] == true) 
             {

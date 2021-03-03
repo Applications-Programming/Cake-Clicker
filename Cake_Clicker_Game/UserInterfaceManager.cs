@@ -188,21 +188,20 @@ namespace Cake_Clicker_Game
         //Autoclicker detection method which returns true if CPS threshhold is passed and false if the CPS is ok 
         public void checkCPS()
         {
-            if(DateTime.Now.Second != _currentSecond.Second)
+            if(DateTime.Now.Second == _currentSecond.Second)
             {
                 _clicksInSecond++;
-                if(_clicksInSecond > 50)
+                if(_clicksInSecond > 15)
                 {
                     _autoclickerDetected = true;
                 }
             } 
             else 
             {
-                if(_maxCPS < _clicksInSecond)
+                if (_maxCPS < _clicksInSecond)
                 {
                     _maxCPS = _clicksInSecond;
                 }
-                _maxCPS = 0;
                 _currentSecond = DateTime.Now;
                 _clicksInSecond = 0;
             }
