@@ -35,6 +35,7 @@ namespace Cake_Clicker_Game
         /// <param name="score">The new score</param>
         public void UpdateScore()
         {
+            UpdateCheatStatus();
             int score = _userInterfaceManager.GetGame().GetAmountOfCake();
             scoreLabel.Text = score + " Cake";
         }
@@ -42,7 +43,7 @@ namespace Cake_Clicker_Game
         public void UpdateCakeCounts()
         {
             int[] cakeCounts = _userInterfaceManager.GetGame().GetUpgradeCount();
-
+            UpdateCheatStatus();
             vanillaCakeInfoBox.Text = "Count: " + cakeCounts[0].ToString();
             ChocolateCakeInfoBox.Text = "Count: " + cakeCounts[1].ToString();
             strawberryCakeInfoBox.Text = "Count: " + cakeCounts[2].ToString();
@@ -53,6 +54,30 @@ namespace Cake_Clicker_Game
 
         }
 
+        public void UpdateCheatStatus()
+        {
+            bool autoclickerStatus = _userInterfaceManager.AutoclickerDetectionStatus();
+            if(autoclickerStatus == true)
+            {
+                CheatsDetectedStatus.Text = "An autoclicker has been detected";
+                CheatsDetectedStatus.Visible = true;
+            }
+
+            int maxCPS = _userInterfaceManager.MaxCPSDetected();
+            if(maxCPS < 5) 
+            {
+                MaxCPSStatus.ForeColor = Color.Green;
+                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
+            } else if (maxCPS < 10){
+                MaxCPSStatus.ForeColor = Color.Yellow;
+                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
+            } else
+            {
+                MaxCPSStatus.ForeColor = Color.Red;
+                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
+            }
+
+        }
         public void UpdateGameInfo()
         {
             UpdateScore();

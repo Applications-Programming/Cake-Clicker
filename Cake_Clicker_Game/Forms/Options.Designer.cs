@@ -54,9 +54,10 @@ namespace Cake_Clicker_Game.Forms
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(111, 25);
+            this.resetButton.Location = new System.Drawing.Point(166, 38);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.Size = new System.Drawing.Size(112, 35);
             this.resetButton.TabIndex = 0;
             this.resetButton.Text = "Reset Game";
             this.resetButton.UseVisualStyleBackColor = true;
@@ -67,9 +68,11 @@ namespace Cake_Clicker_Game.Forms
             this.colorThemeBox.Controls.Add(this.greymodeButton);
             this.colorThemeBox.Controls.Add(this.darkmodeButton);
             this.colorThemeBox.Controls.Add(this.lightmodeButton);
-            this.colorThemeBox.Location = new System.Drawing.Point(65, 12);
+            this.colorThemeBox.Location = new System.Drawing.Point(98, 18);
+            this.colorThemeBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.colorThemeBox.Name = "colorThemeBox";
-            this.colorThemeBox.Size = new System.Drawing.Size(100, 100);
+            this.colorThemeBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.colorThemeBox.Size = new System.Drawing.Size(150, 154);
             this.colorThemeBox.TabIndex = 1;
             this.colorThemeBox.TabStop = false;
             this.colorThemeBox.Text = "Theme";
@@ -79,9 +82,10 @@ namespace Cake_Clicker_Game.Forms
             this.greymodeButton.AutoSize = true;
             this.greymodeButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.greymodeButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.greymodeButton.Location = new System.Drawing.Point(26, 65);
+            this.greymodeButton.Location = new System.Drawing.Point(39, 100);
+            this.greymodeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.greymodeButton.Name = "greymodeButton";
-            this.greymodeButton.Size = new System.Drawing.Size(59, 17);
+            this.greymodeButton.Size = new System.Drawing.Size(86, 24);
             this.greymodeButton.TabIndex = 2;
             this.greymodeButton.Text = "Default";
             this.greymodeButton.UseVisualStyleBackColor = false;
@@ -92,9 +96,10 @@ namespace Cake_Clicker_Game.Forms
             this.darkmodeButton.AutoSize = true;
             this.darkmodeButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.darkmodeButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.darkmodeButton.Location = new System.Drawing.Point(27, 42);
+            this.darkmodeButton.Location = new System.Drawing.Point(40, 65);
+            this.darkmodeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.darkmodeButton.Name = "darkmodeButton";
-            this.darkmodeButton.Size = new System.Drawing.Size(48, 17);
+            this.darkmodeButton.Size = new System.Drawing.Size(68, 24);
             this.darkmodeButton.TabIndex = 1;
             this.darkmodeButton.TabStop = true;
             this.darkmodeButton.Text = "Dark";
@@ -105,9 +110,10 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.lightmodeButton.AutoSize = true;
             this.lightmodeButton.BackColor = System.Drawing.Color.White;
-            this.lightmodeButton.Location = new System.Drawing.Point(26, 19);
+            this.lightmodeButton.Location = new System.Drawing.Point(39, 29);
+            this.lightmodeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lightmodeButton.Name = "lightmodeButton";
-            this.lightmodeButton.Size = new System.Drawing.Size(48, 17);
+            this.lightmodeButton.Size = new System.Drawing.Size(69, 24);
             this.lightmodeButton.TabIndex = 0;
             this.lightmodeButton.TabStop = true;
             this.lightmodeButton.Text = "Light";
@@ -116,9 +122,10 @@ namespace Cake_Clicker_Game.Forms
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(11, 27);
+            this.saveButton.Location = new System.Drawing.Point(16, 42);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(112, 35);
             this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Save Game";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -128,11 +135,9 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.databaseControlBox.Controls.Add(this.datebaseWipeConfirm);
             this.databaseControlBox.Controls.Add(this.wipeDatabase);
-            this.databaseControlBox.Location = new System.Drawing.Point(182, 12);
-            this.databaseControlBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.databaseControlBox.Location = new System.Drawing.Point(273, 18);
             this.databaseControlBox.Name = "databaseControlBox";
-            this.databaseControlBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.databaseControlBox.Size = new System.Drawing.Size(112, 100);
+            this.databaseControlBox.Size = new System.Drawing.Size(168, 154);
             this.databaseControlBox.TabIndex = 3;
             this.databaseControlBox.TabStop = false;
             this.databaseControlBox.Text = "Database Controls";
@@ -141,10 +146,9 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.datebaseWipeConfirm.AutoSize = true;
             this.datebaseWipeConfirm.ForeColor = System.Drawing.Color.Maroon;
-            this.datebaseWipeConfirm.Location = new System.Drawing.Point(14, 65);
-            this.datebaseWipeConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datebaseWipeConfirm.Location = new System.Drawing.Point(21, 100);
             this.datebaseWipeConfirm.Name = "datebaseWipeConfirm";
-            this.datebaseWipeConfirm.Size = new System.Drawing.Size(92, 17);
+            this.datebaseWipeConfirm.Size = new System.Drawing.Size(137, 24);
             this.datebaseWipeConfirm.TabIndex = 1;
             this.datebaseWipeConfirm.Text = "Confirm Reset";
             this.datebaseWipeConfirm.UseVisualStyleBackColor = true;
@@ -152,10 +156,9 @@ namespace Cake_Clicker_Game.Forms
             // wipeDatabase
             // 
             this.wipeDatabase.BackColor = System.Drawing.Color.IndianRed;
-            this.wipeDatabase.Location = new System.Drawing.Point(11, 25);
-            this.wipeDatabase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wipeDatabase.Location = new System.Drawing.Point(16, 38);
             this.wipeDatabase.Name = "wipeDatabase";
-            this.wipeDatabase.Size = new System.Drawing.Size(94, 27);
+            this.wipeDatabase.Size = new System.Drawing.Size(141, 42);
             this.wipeDatabase.TabIndex = 0;
             this.wipeDatabase.Text = "Wipe Database";
             this.wipeDatabase.UseVisualStyleBackColor = false;
@@ -170,11 +173,9 @@ namespace Cake_Clicker_Game.Forms
             this.developerControls.Controls.Add(this.addCookieUserInput);
             this.developerControls.Controls.Add(this.saveButton);
             this.developerControls.Controls.Add(this.resetButton);
-            this.developerControls.Location = new System.Drawing.Point(304, 12);
-            this.developerControls.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.developerControls.Location = new System.Drawing.Point(456, 18);
             this.developerControls.Name = "developerControls";
-            this.developerControls.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.developerControls.Size = new System.Drawing.Size(214, 162);
+            this.developerControls.Size = new System.Drawing.Size(321, 249);
             this.developerControls.TabIndex = 4;
             this.developerControls.TabStop = false;
             this.developerControls.Text = "Developer Controls";
@@ -182,19 +183,17 @@ namespace Cake_Clicker_Game.Forms
             // loadGameUserInput
             // 
             this.loadGameUserInput.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.loadGameUserInput.Location = new System.Drawing.Point(7, 88);
-            this.loadGameUserInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loadGameUserInput.Location = new System.Drawing.Point(10, 135);
             this.loadGameUserInput.Name = "loadGameUserInput";
-            this.loadGameUserInput.Size = new System.Drawing.Size(122, 20);
+            this.loadGameUserInput.Size = new System.Drawing.Size(181, 26);
             this.loadGameUserInput.TabIndex = 6;
             this.loadGameUserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loadGameUserInput_KeyPress);
             // 
             // loadGameButton
             // 
-            this.loadGameButton.Location = new System.Drawing.Point(137, 84);
-            this.loadGameButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loadGameButton.Location = new System.Drawing.Point(206, 129);
             this.loadGameButton.Name = "loadGameButton";
-            this.loadGameButton.Size = new System.Drawing.Size(73, 23);
+            this.loadGameButton.Size = new System.Drawing.Size(110, 35);
             this.loadGameButton.TabIndex = 5;
             this.loadGameButton.Text = "Load Profile";
             this.loadGameButton.UseVisualStyleBackColor = true;
@@ -203,10 +202,9 @@ namespace Cake_Clicker_Game.Forms
             // loadGameLabel
             // 
             this.loadGameLabel.AutoSize = true;
-            this.loadGameLabel.Location = new System.Drawing.Point(5, 66);
-            this.loadGameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.loadGameLabel.Location = new System.Drawing.Point(8, 102);
             this.loadGameLabel.Name = "loadGameLabel";
-            this.loadGameLabel.Size = new System.Drawing.Size(165, 13);
+            this.loadGameLabel.Size = new System.Drawing.Size(248, 20);
             this.loadGameLabel.TabIndex = 4;
             this.loadGameLabel.Text = "Load Profile (UUID or Username):";
             // 
@@ -214,19 +212,17 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.developerAddCookieLabel.AutoSize = true;
             this.developerAddCookieLabel.ForeColor = System.Drawing.Color.Black;
-            this.developerAddCookieLabel.Location = new System.Drawing.Point(5, 109);
-            this.developerAddCookieLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.developerAddCookieLabel.Location = new System.Drawing.Point(8, 168);
             this.developerAddCookieLabel.Name = "developerAddCookieLabel";
-            this.developerAddCookieLabel.Size = new System.Drawing.Size(82, 13);
+            this.developerAddCookieLabel.Size = new System.Drawing.Size(122, 20);
             this.developerAddCookieLabel.TabIndex = 3;
             this.developerAddCookieLabel.Text = "Generate Cake:";
             // 
             // addCookies
             // 
-            this.addCookies.Location = new System.Drawing.Point(137, 128);
-            this.addCookies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCookies.Location = new System.Drawing.Point(206, 197);
             this.addCookies.Name = "addCookies";
-            this.addCookies.Size = new System.Drawing.Size(73, 25);
+            this.addCookies.Size = new System.Drawing.Size(110, 38);
             this.addCookies.TabIndex = 1;
             this.addCookies.Text = "Add Cookies";
             this.addCookies.UseVisualStyleBackColor = true;
@@ -235,18 +231,18 @@ namespace Cake_Clicker_Game.Forms
             // addCookieUserInput
             // 
             this.addCookieUserInput.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.addCookieUserInput.Location = new System.Drawing.Point(7, 132);
-            this.addCookieUserInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCookieUserInput.Location = new System.Drawing.Point(10, 203);
             this.addCookieUserInput.Name = "addCookieUserInput";
-            this.addCookieUserInput.Size = new System.Drawing.Size(122, 20);
+            this.addCookieUserInput.Size = new System.Drawing.Size(181, 26);
             this.addCookieUserInput.TabIndex = 0;
             this.addCookieUserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addCookieUserInput_KeyPress);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(447, 196);
+            this.exitButton.Location = new System.Drawing.Point(670, 302);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(112, 35);
             this.exitButton.TabIndex = 5;
             this.exitButton.Text = "Close";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -256,23 +252,25 @@ namespace Cake_Clicker_Game.Forms
             // 
             this.UUID_Label.AutoSize = true;
             this.UUID_Label.BackColor = System.Drawing.Color.White;
-            this.UUID_Label.Location = new System.Drawing.Point(12, 209);
+            this.UUID_Label.Location = new System.Drawing.Point(18, 322);
+            this.UUID_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UUID_Label.Name = "UUID_Label";
-            this.UUID_Label.Size = new System.Drawing.Size(0, 13);
+            this.UUID_Label.Size = new System.Drawing.Size(0, 20);
             this.UUID_Label.TabIndex = 6;
             // 
             // Options
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(534, 231);
+            this.ClientSize = new System.Drawing.Size(801, 355);
             this.ControlBox = false;
             this.Controls.Add(this.UUID_Label);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.developerControls);
             this.Controls.Add(this.databaseControlBox);
             this.Controls.Add(this.colorThemeBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Options";
             this.Text = " ";
             this.colorThemeBox.ResumeLayout(false);

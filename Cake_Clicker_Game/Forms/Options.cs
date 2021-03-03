@@ -17,7 +17,6 @@ namespace Cake_Clicker_Game.Forms
             _userInterfaceManager = CakeClicker.GetUserInterfaceManager();
 
             greymodeButton.Checked = true;
-
         }
 
         private void AutoSetLocation()
