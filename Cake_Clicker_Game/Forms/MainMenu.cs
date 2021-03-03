@@ -16,7 +16,7 @@ namespace Cake_Clicker_Game
             this.Update();
             if (NameTextBox.Text.Length == 0)
             {
-                CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex");
             }
             else
             {
@@ -28,7 +28,7 @@ namespace Cake_Clicker_Game
                 }
                 else
                 {
-                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex");
                 }
 
             }
