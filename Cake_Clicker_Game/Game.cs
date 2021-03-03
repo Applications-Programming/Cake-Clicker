@@ -164,13 +164,23 @@ public class Game
 
     public bool LoadFromCloud(int id)
     {
-        GameData gameData = _databaseManager.GetUserInfo(id);
-        if(gameData == null)
+        if(_databaseManager != null)
         {
+            //online mode is enabled
+            GameData gameData = _databaseManager.GetUserInfo(id);
+            if (gameData == null)
+            {
+                return false;
+            }
+
+            _gameInfo = gameData;
+        }
+        else
+        {
+            //returns false because offline mode is activated
             return false;
         }
 
-        _gameInfo = gameData;
         return true;
     }
 
