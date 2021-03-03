@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Cake_Clicker_Game
 {
@@ -12,6 +11,8 @@ namespace Cake_Clicker_Game
         //Cached Windows
         MainMenu _mainMenu;
         GameWindow _gameWindow;
+        Forms.Options _options;
+
 
 
         #endregion
@@ -31,6 +32,10 @@ namespace Cake_Clicker_Game
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
             _gameWindow.UpdateCakeCounts();
+            _gameWindow.BackColor = System.Drawing.Color.Gray;
+
+
+            _options = new Forms.Options();
 
         }
 
@@ -41,7 +46,28 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void Save()
         {
-            _game.SaveGameToFile();
+            if (!_game._offlineMode)
+                _game.SaveGameToCloud();
+            else
+                _game.SaveGameToFile();
+        }
+
+        //Loads the game using the name or UUID of the profile being passed in by the parameter
+        //If load is successful then it will return true, otherwise it will return false
+        public bool loadGame(string id)
+        {
+            int _id;
+            if (int.TryParse(id, out _id))
+            {
+                bool ret = _game.LoadFromCloud(_id);
+                _gameWindow.UpdateGameInfo();
+                return ret;
+            }
+            else
+            {
+                SendUserMessage("ID format invalid. (Make sure its just a number)");
+                return false;
+            }
         }
 
         /// <summary>
@@ -60,8 +86,14 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OpenOptions()
         {
-            Forms.Options options = new Forms.Options();
-            options.ShowDialog();
+            if(!_options.Visible)
+                _options.Show();
+        }
+
+        //Gets the bool array of achievement status from the game class
+        public bool[] CheckAcheivements() 
+        {
+            return _game.GetAchivements();
         }
 
         /// <summary>
@@ -72,6 +104,11 @@ namespace Cake_Clicker_Game
             AddToScore();
         }
 
+        //Force updates cake score
+        public void RefreshScore() 
+        {
+            _gameWindow.UpdateScore();
+        }
         public void AddCake(Game.CakeType type)
         {
             _game.AddCakeUpgrade(type);
@@ -105,6 +142,12 @@ namespace Cake_Clicker_Game
         {
             newWindow.ShowDialog();
             CakeClicker.SetCurrentWindow(newWindow);
+        }
+
+        //Manually adds cookies to game
+        public void AddCakeManuallyToGame(int amount) 
+        {
+            _game.AddCakeManually(amount);
         }
 
         //Getter and setters

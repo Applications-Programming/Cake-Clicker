@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake_Clicker_Game", "Cake_C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9F9C7BB-2888-4E0F-96C9-D0540FA871F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseManagerLibrary", "DataBaseManagerLibrary\DataBaseManagerLibrary\DataBaseManagerLibrary.csproj", "{811801F6-5505-411C-87AC-F834EEC6C5B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{F54541E3-9151-45D0-8FC2-2F9B13827393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54541E3-9151-45D0-8FC2-2F9B13827393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54541E3-9151-45D0-8FC2-2F9B13827393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{811801F6-5505-411C-87AC-F834EEC6C5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811801F6-5505-411C-87AC-F834EEC6C5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811801F6-5505-411C-87AC-F834EEC6C5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811801F6-5505-411C-87AC-F834EEC6C5B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

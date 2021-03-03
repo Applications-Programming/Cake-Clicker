@@ -3,17 +3,22 @@
 //Authored: 2/9/2021
 using System;
 using System.IO;
+using DataBaseManager;
+using Cake_Clicker_Game;
 
 public class Game
 {
     ///Class Fields
-    private String _playerName;
-    private int _amountOfCake;
+    //GameData object for holding game information
+    private GameData _gameInfo;
+
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
-    private CakeType _currentCakeTier;
+    private Achievement achievements;
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
-    private int[] _upgradeCount = new int[7];
+
+    private DatabaseManager _databaseManager;
+    public readonly bool _offlineMode = false;
 
     ///Enums
     public enum CakeType
@@ -24,15 +29,27 @@ public class Game
     ///Constructor
     public Game()
     {
-        _playerName = "null";
-        _amountOfCake = 0;
-        _cakePerClick = 1;
-        _multiplierOnCakeClick = 1.0;
-        _currentCakeTier = 0;
+        DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
+            "cake-clicker-server.database.windows.net",
+            "CakeClicker",
+            "DefaultUser",
+            "CakeClicker123");
+        _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
+        if(_databaseManager != null)
+        {
+            _offlineMode = false;
+        }
+
+        achievements = new Achievement();
+        int[] temp = new int[7];
         for (int i = 0; i < 7; i++)
         {
-            _upgradeCount[i] = 0;
+            temp[i] = 0;
         }
+        //GameData object for holding game information
+        _gameInfo = new GameData(-1, "null", 0, temp);
+        _cakePerClick = 1;
+        _multiplierOnCakeClick = 1.0;
     }
 
     /// <summary>
@@ -42,18 +59,26 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
-        _amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+        _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+        achievements.GetGameData(_gameInfo);
+    }
+
+    //This method adds a specified amount of cake manually
+    public void AddCakeManually(int cakeAmount)
+    {
+        _gameInfo.amountOfCake += cakeAmount;
+        achievements.GetGameData(_gameInfo);
     }
 
     //This method returns the amount of cake stored in _amountOfCake
     public int GetAmountOfCake()
     {
-        return _amountOfCake;
+        return _gameInfo.amountOfCake;
     }
 
     public int[] GetUpgradeCount()
     {
-        return _upgradeCount;
+        return _gameInfo.upgradeCount;
     }
 
     //This method increments the multiplier to the next tier
@@ -77,29 +102,43 @@ public class Game
     //This method resets the game state. This should set all game fields back to their starting values
     public void ResetGame()
     {
-        _playerName = "null";
-        _amountOfCake = 0;
+        _gameInfo.PlayerName = "null";
+        _gameInfo.amountOfCake = 0;
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
-        _currentCakeTier = 0;
 
-        for (int i = 0; i < _upgradeCount.Length; i++)
+        int[] temp = new int[7];
+
+        for (int i = 0; i < temp.Length; i++)
         {
-            _upgradeCount[i] = 0;
+            temp[i] = 0;
         }
+
+        _gameInfo.upgradeCount = temp;
     }
 
-    //This method does a simple save of the game settings to a text file
     //This method does a simple save of the game settings to a text file
     public bool SaveGameToFile()
     {
         DateTime now = DateTime.Now;
-        string text = _playerName + '\n' + _amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + _currentCakeTier + '\n' + now.ToString("F");
+        string text = _gameInfo.PlayerName + '\n' + _gameInfo.amountOfCake + '\n' + _cakePerClick + '\n' + _multiplierOnCakeClick + '\n' + now.ToString("F");
         string path = AppDomain.CurrentDomain.BaseDirectory + @"CakeGameData.txt";
 
         File.WriteAllText(path, text);
 
         return true;
+    }
+
+    public void SaveGameToCloud()
+    {
+        if(_databaseManager != null) 
+        {
+            _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
+        } 
+        else 
+        {
+            return;
+        }
     }
 
     public bool LoadFile()
@@ -108,53 +147,41 @@ public class Game
         {
             File.Exists("CakeGameData.txt");
             string[] text = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"CakeGameData.txt");
-            _playerName = text[0];
-            _amountOfCake = Int32.Parse(text[1]);
+            _gameInfo.PlayerName = text[0];
+            _gameInfo.amountOfCake = Int32.Parse(text[1]);
             _cakePerClick = Int32.Parse(text[2]);
             _multiplierOnCakeClick = double.Parse(text[3]);
-
-            string cc = text[4];
-            if (cc == "Vanilla")
-            {
-                _currentCakeTier = CakeType.Vanilla;
-            }
-            else if (cc == "Chocolate")
-            {
-                _currentCakeTier = CakeType.Chocolate;
-            }
-            else if (cc == "Strawberry")
-            {
-                _currentCakeTier = CakeType.Strawberry;
-            }
-            else if (cc == "Coffee")
-            {
-                _currentCakeTier = CakeType.Coffee;
-            }
-            else if (cc == "Red_Velvet")
-            {
-                _currentCakeTier = CakeType.Red_Velvet;
-            }
-            else if (cc == "Carrot")
-            {
-                _currentCakeTier = CakeType.Carrot;
-            }
-            else if (cc == "Cheese")
-            {
-                _currentCakeTier = CakeType.Cheese;
-            }
 
             return true;
         }
         catch (Exception e)
         {
-            _playerName = "null";
-            _amountOfCake = 0;
-            _cakePerClick = 1;
-            _multiplierOnCakeClick = 1.0;
-            _currentCakeTier = 0;
+            ResetGame();
 
             return false;
         }
+    }
+
+    public bool LoadFromCloud(int id)
+    {
+        if(_databaseManager != null)
+        {
+            //online mode is enabled
+            GameData gameData = _databaseManager.GetUserInfo(id);
+            if (gameData == null)
+            {
+                return false;
+            }
+
+            _gameInfo = gameData;
+        }
+        else
+        {
+            //returns false because offline mode is activated
+            return false;
+        }
+
+        return true;
     }
 
 
@@ -162,70 +189,95 @@ public class Game
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
     public bool AddCakeUpgrade(CakeType addedCake)
     {
-        if (addedCake == CakeType.Vanilla && _amountOfCake >= 50)
+
+        if (addedCake == CakeType.Vanilla && _gameInfo.amountOfCake >= 50)
         {
             _cakePerClick += 5;
-            _amountOfCake -= 50;
-            _upgradeCount[0] += 1;
+            _gameInfo.amountOfCake -= 50;
+            _gameInfo.upgradeCount[0] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Chocolate && _amountOfCake >= 250)
+        else if (addedCake == CakeType.Chocolate && _gameInfo.amountOfCake >= 250)
         {
             _cakePerClick += 10;
-            _amountOfCake -= 250;
-            _upgradeCount[1] += 1;
+            _gameInfo.amountOfCake -= 250;
+            _gameInfo.upgradeCount[1] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Strawberry && _amountOfCake >= 500)
+        else if (addedCake == CakeType.Strawberry && _gameInfo.amountOfCake >= 500)
         {
             _cakePerClick += 25;
-            _amountOfCake -= 500;
-            _upgradeCount[2] += 1;
+            _gameInfo.amountOfCake -= 500;
+            _gameInfo.upgradeCount[2] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Coffee && _amountOfCake >= 1000)
+        else if (addedCake == CakeType.Coffee && _gameInfo.amountOfCake >= 1000)
         {
             _cakePerClick += 50;
-            _amountOfCake -= 1000;
-            _upgradeCount[3] += 1;
+            _gameInfo.amountOfCake -= 1000;
+            _gameInfo.upgradeCount[3] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Red_Velvet && _amountOfCake >= 4500)
+        else if (addedCake == CakeType.Red_Velvet && _gameInfo.amountOfCake >= 4500)
         {
             _cakePerClick += 150;
-            _amountOfCake -= 4500;
-            _upgradeCount[4] += 1;
+            _gameInfo.amountOfCake -= 4500;
+            _gameInfo.upgradeCount[4] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Carrot && _amountOfCake >= 20000)
+        else if (addedCake == CakeType.Carrot && _gameInfo.amountOfCake >= 20000)
         {
             _cakePerClick += 250;
-            _amountOfCake -= 20000;
-            _upgradeCount[5] += 1;
+            _gameInfo.amountOfCake -= 20000;
+            _gameInfo.upgradeCount[5] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
-        else if (addedCake == CakeType.Cheese && _amountOfCake >= 80000)
+        else if (addedCake == CakeType.Cheese && _gameInfo.amountOfCake >= 80000)
         {
             _cakePerClick += 400;
-            _amountOfCake -= 80000;
-            _upgradeCount[6] += 1;
+            _gameInfo.amountOfCake -= 80000;
+            _gameInfo.upgradeCount[6] += 1;
+            achievements.GetGameData(_gameInfo);
             return true;
         }
         return false;
     }
 
+    public void CheckAchivements()
+    {
+        achievements.GetGameData(_gameInfo);
+    }
+
+    public bool[] GetAchivements()
+    {
+        return achievements.GetAchivementsInfo();
+    }
+
     //Sets the player name
     public void SetPlayerName(string playerName)
     {
-        _playerName = playerName;
+        _gameInfo.PlayerName = playerName;
     }
 
     //Returns the player name
     public string GetPlayerName()
     {
-        return _playerName;
+        return _gameInfo.PlayerName;
     }
-}
+
+    public int GetPlayerId()
+    {
+        return _gameInfo.Id;
+    }
+
+    
+    }
 
 public class Test
 {
@@ -279,4 +331,6 @@ public class Test
         }
 
     }
+
 }
+

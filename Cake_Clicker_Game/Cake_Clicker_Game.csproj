@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>CakeIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Achievment.cs" />
     <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +116,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseManagerLibrary\DataBaseManagerLibrary\DataBaseManagerLibrary.csproj">
+      <Project>{811801f6-5505-411c-87ac-f834eec6c5b7}</Project>
+      <Name>DataBaseManagerLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Cake.png" />
     <Content Include="CakeIcon.ico" />
