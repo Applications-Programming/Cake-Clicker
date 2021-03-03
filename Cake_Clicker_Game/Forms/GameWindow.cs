@@ -53,6 +53,13 @@ namespace Cake_Clicker_Game
 
         }
 
+        public void UpdateGameInfo()
+        {
+            UpdateScore();
+            UpdateCakeCounts();
+            cakeLabel.Text = _userInterfaceManager.GetGame().GetPlayerName() + "'s Bakery";
+        }
+
         public Button GetCakeButton() { return cakeButton; }
         private void cakeButton_Click(object sender, EventArgs e)
         {

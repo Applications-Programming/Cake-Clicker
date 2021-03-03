@@ -11,6 +11,8 @@ namespace Cake_Clicker_Game
         //Cached Windows
         MainMenu _mainMenu;
         GameWindow _gameWindow;
+        Forms.Options _options;
+
 
 
         #endregion
@@ -30,6 +32,10 @@ namespace Cake_Clicker_Game
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
             _gameWindow.UpdateCakeCounts();
+            _gameWindow.BackColor = System.Drawing.Color.Gray;
+
+
+            _options = new Forms.Options();
 
         }
 
@@ -40,7 +46,7 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void Save()
         {
-            if (_game.isConnected)
+            if (!_game._offlineMode)
                 _game.SaveGameToCloud();
             else
                 _game.SaveGameToFile();
@@ -48,12 +54,20 @@ namespace Cake_Clicker_Game
 
         //Loads the game using the name or UUID of the profile being passed in by the parameter
         //If load is successful then it will return true, otherwise it will return false
-        public bool loadGame(string name)
+        public bool loadGame(string id)
         {
-            //This method still needs to call according game class method for loading from DB
-
-            //bool returnVal = _game.LoadFile(name);
-            return false;
+            int _id;
+            if (int.TryParse(id, out _id))
+            {
+                bool ret = _game.LoadFromCloud(_id);
+                _gameWindow.UpdateGameInfo();
+                return ret;
+            }
+            else
+            {
+                SendUserMessage("ID format invalid. (Make sure its just a number)");
+                return false;
+            }
         }
 
         /// <summary>
@@ -72,8 +86,8 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OpenOptions()
         {
-            Forms.Options options = new Forms.Options();
-            options.ShowDialog();
+            if(!_options.Visible)
+                _options.Show();
         }
 
         //Gets the bool array of achievement status from the game class

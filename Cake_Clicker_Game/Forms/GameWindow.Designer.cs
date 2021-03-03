@@ -606,9 +606,9 @@ namespace Cake_Clicker_Game
             this.achievementsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.achievementsGroup.ForeColor = System.Drawing.Color.PaleTurquoise;
             this.achievementsGroup.Location = new System.Drawing.Point(1129, 193);
-            this.achievementsGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.achievementsGroup.Margin = new System.Windows.Forms.Padding(2);
             this.achievementsGroup.Name = "achievementsGroup";
-            this.achievementsGroup.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.achievementsGroup.Padding = new System.Windows.Forms.Padding(2);
             this.achievementsGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.achievementsGroup.Size = new System.Drawing.Size(343, 385);
             this.achievementsGroup.TabIndex = 8;
@@ -623,9 +623,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Four_Groupbox.ForeColor = System.Drawing.Color.Gold;
             this.Achievement_Four_Groupbox.Location = new System.Drawing.Point(20, 292);
-            this.Achievement_Four_Groupbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Four_Groupbox.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Four_Groupbox.Name = "Achievement_Four_Groupbox";
-            this.Achievement_Four_Groupbox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Four_Groupbox.Padding = new System.Windows.Forms.Padding(2);
             this.Achievement_Four_Groupbox.Size = new System.Drawing.Size(313, 79);
             this.Achievement_Four_Groupbox.TabIndex = 4;
             this.Achievement_Four_Groupbox.TabStop = false;
@@ -637,7 +637,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.BackgroundImage")));
             this.Achievement_Four_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.Image")));
             this.Achievement_Four_Star.Location = new System.Drawing.Point(15, 21);
-            this.Achievement_Four_Star.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Four_Star.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Four_Star.Name = "Achievement_Four_Star";
             this.Achievement_Four_Star.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Four_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -650,7 +650,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Four_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Question_Mark.Image")));
             this.Achievement_Four_Question_Mark.Location = new System.Drawing.Point(15, 21);
-            this.Achievement_Four_Question_Mark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Four_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Four_Question_Mark.Name = "Achievement_Four_Question_Mark";
             this.Achievement_Four_Question_Mark.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Four_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -676,9 +676,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Three_Groupbox.ForeColor = System.Drawing.Color.Gold;
             this.Achievement_Three_Groupbox.Location = new System.Drawing.Point(20, 203);
-            this.Achievement_Three_Groupbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Three_Groupbox.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Three_Groupbox.Name = "Achievement_Three_Groupbox";
-            this.Achievement_Three_Groupbox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Three_Groupbox.Padding = new System.Windows.Forms.Padding(2);
             this.Achievement_Three_Groupbox.Size = new System.Drawing.Size(313, 79);
             this.Achievement_Three_Groupbox.TabIndex = 3;
             this.Achievement_Three_Groupbox.TabStop = false;
@@ -690,7 +690,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.BackgroundImage")));
             this.Achievement_Three_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.Image")));
             this.Achievement_Three_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Three_Star.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Three_Star.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Three_Star.Name = "Achievement_Three_Star";
             this.Achievement_Three_Star.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Three_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -703,7 +703,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Three_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Question_Mark.Image")));
             this.Achievement_Three_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Three_Question_Mark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Three_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Three_Question_Mark.Name = "Achievement_Three_Question_Mark";
             this.Achievement_Three_Question_Mark.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Three_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -729,9 +729,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Two_Groupbox.ForeColor = System.Drawing.Color.Gold;
             this.Achievement_Two_Groupbox.Location = new System.Drawing.Point(20, 120);
-            this.Achievement_Two_Groupbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Two_Groupbox.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Two_Groupbox.Name = "Achievement_Two_Groupbox";
-            this.Achievement_Two_Groupbox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Two_Groupbox.Padding = new System.Windows.Forms.Padding(2);
             this.Achievement_Two_Groupbox.Size = new System.Drawing.Size(313, 79);
             this.Achievement_Two_Groupbox.TabIndex = 2;
             this.Achievement_Two_Groupbox.TabStop = false;
@@ -743,7 +743,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.BackgroundImage")));
             this.Achievement_Two_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.Image")));
             this.Achievement_Two_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Two_Star.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Two_Star.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Two_Star.Name = "Achievement_Two_Star";
             this.Achievement_Two_Star.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Two_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -756,7 +756,7 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Two_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Question_Mark.Image")));
             this.Achievement_Two_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Two_Question_Mark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_Two_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_Two_Question_Mark.Name = "Achievement_Two_Question_Mark";
             this.Achievement_Two_Question_Mark.Size = new System.Drawing.Size(60, 53);
             this.Achievement_Two_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -782,9 +782,9 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_One_Groupbox.ForeColor = System.Drawing.Color.Gold;
             this.Achievement_One_Groupbox.Location = new System.Drawing.Point(20, 31);
-            this.Achievement_One_Groupbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_One_Groupbox.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_One_Groupbox.Name = "Achievement_One_Groupbox";
-            this.Achievement_One_Groupbox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_One_Groupbox.Padding = new System.Windows.Forms.Padding(2);
             this.Achievement_One_Groupbox.Size = new System.Drawing.Size(313, 79);
             this.Achievement_One_Groupbox.TabIndex = 1;
             this.Achievement_One_Groupbox.TabStop = false;
@@ -796,7 +796,7 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.BackgroundImage")));
             this.Achievement_One_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.Image")));
             this.Achievement_One_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_One_Star.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_One_Star.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_One_Star.Name = "Achievement_One_Star";
             this.Achievement_One_Star.Size = new System.Drawing.Size(60, 53);
             this.Achievement_One_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -809,7 +809,7 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_One_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Question_Mark.Image")));
             this.Achievement_One_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_One_Question_Mark.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Achievement_One_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
             this.Achievement_One_Question_Mark.Name = "Achievement_One_Question_Mark";
             this.Achievement_One_Question_Mark.Size = new System.Drawing.Size(60, 53);
             this.Achievement_One_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

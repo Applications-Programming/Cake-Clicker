@@ -18,7 +18,7 @@ public class Game
     //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
 
     private DatabaseManager _databaseManager;
-    public readonly bool isConnected = false;
+    public readonly bool _offlineMode = false;
 
     ///Enums
     public enum CakeType
@@ -37,7 +37,7 @@ public class Game
         _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
         if(_databaseManager != null)
         {
-            isConnected = true;
+            _offlineMode = false;
         }
 
         achievements = new Achievement();
@@ -131,7 +131,7 @@ public class Game
 
     public void SaveGameToCloud()
     {
-        _databaseManager.SaveToDatabase(_gameInfo);
+       _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
     }
 
     public bool LoadFile()
@@ -153,6 +153,18 @@ public class Game
 
             return false;
         }
+    }
+
+    public bool LoadFromCloud(int id)
+    {
+        GameData gameData = _databaseManager.GetUserInfo(id);
+        if(gameData == null)
+        {
+            return false;
+        }
+
+        _gameInfo = gameData;
+        return true;
     }
 
 
@@ -240,6 +252,11 @@ public class Game
     public string GetPlayerName()
     {
         return _gameInfo.PlayerName;
+    }
+
+    public int GetPlayerId()
+    {
+        return _gameInfo.Id;
     }
 
     

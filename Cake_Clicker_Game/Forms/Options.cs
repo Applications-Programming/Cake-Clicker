@@ -15,6 +15,9 @@ namespace Cake_Clicker_Game.Forms
             InitializeComponent();
             AutoSetLocation();
             _userInterfaceManager = CakeClicker.GetUserInterfaceManager();
+
+            greymodeButton.Checked = true;
+
         }
 
         private void AutoSetLocation()
@@ -50,6 +53,7 @@ namespace Cake_Clicker_Game.Forms
         private void saveButton_Click(object sender, EventArgs e)
         {
             _userInterfaceManager.Save();
+            UUID_Label.Text = "ID:" + _userInterfaceManager.GetGame().GetPlayerId().ToString();
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -118,31 +122,38 @@ namespace Cake_Clicker_Game.Forms
         {
             if (e.KeyChar == '\r')
             {
-                //Checks to make sure username is valid length
-                if (loadGameUserInput.Text.Length < 15 && loadGameUserInput.Text.Length > 0) 
-                {
-                    _userInterfaceManager.loadGame(loadGameUserInput.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Name/UUID");
-                    loadGameUserInput.Text = "";
-                }
+                LoadGame();
             }
         }
 
         private void loadGameButton_Click(object sender, EventArgs e)
         {
+            LoadGame();
+        }
+
+        private void LoadGame()
+        {
             //Checks to make sure username is valid length
             if (loadGameUserInput.Text.Length < 15 && loadGameUserInput.Text.Length > 0)
             {
-                _userInterfaceManager.loadGame(loadGameUserInput.Text);
-            } 
-            else 
+                if (!_userInterfaceManager.loadGame(loadGameUserInput.Text))
+                {
+                    MessageBox.Show("Invalid Name/UUID");
+                    loadGameUserInput.Text = "";
+                    UUID_Label.Text = "ID:" + _userInterfaceManager.GetGame().GetPlayerId().ToString();
+                }
+            }
+            else
             {
                 MessageBox.Show("Invalid Name/UUID");
                 loadGameUserInput.Text = "";
+                UUID_Label.Text = "";
             }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

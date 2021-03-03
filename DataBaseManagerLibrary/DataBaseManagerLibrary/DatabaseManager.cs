@@ -43,8 +43,7 @@ namespace DataBaseManager
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message + "\n");
-                displayError("Couldn't Load Database.\n" +
-                                "Check Log for more info");
+                displayError("Server not detected - enabling offline mode");
                 return null;
             }
             Console.Out.Flush();
@@ -86,7 +85,7 @@ namespace DataBaseManager
         /// <param name="ammountOfCake"></param>
         /// <param name="upgrades"></param>
         /// <param name="newUser">true -> add as new user (regardless of id)</param>
-        /// <returns>the user ID</returns>
+        /// <returns>the user ID/ -1 if connection fails</returns>
         public int SaveToDatabase(int id, string name, int ammountOfCake, int[] upgrades, bool newUser = false)
         {
             try
@@ -113,6 +112,10 @@ namespace DataBaseManager
                         strBuilder.Append(i.ToString() + " ");
                     }
                 }
+                else
+                {
+                    strBuilder.Append("0 0 0 0 0 0 0");
+                }
                 strBuilder.Append("') ");
 
                 string sqlQuery = strBuilder.ToString();
@@ -135,6 +138,10 @@ namespace DataBaseManager
                         strBuilder.Append(i.ToString() + " ");
                     }
                 }
+                else
+                {
+                    strBuilder.Append("0 0 0 0 0 0 0");
+                }
                 strBuilder.Append("'\n" +
                     "WHERE ID = " + id);
 
@@ -152,7 +159,9 @@ namespace DataBaseManager
         /// <summary>
         /// Saves GameData to the database
         /// </summary>
-        /// <param name="game">the game to be saved</param>
+        /// <param name="gameData"></param>
+        /// <param name="newUser"></param>
+        /// <returns>the user ID/ -1 if connection fails</returns>
         public int SaveToDatabase(GameData gameData, bool newUser = false)
         {
             int id = gameData.Id;
@@ -167,7 +176,7 @@ namespace DataBaseManager
         /// Gets the GameData of the specified Id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>null if connection fails</returns>
         public GameData GetUserInfo(int id)
         {
             try
@@ -199,7 +208,7 @@ namespace DataBaseManager
                 if (reader.Read())
                 {
                     game.Id = (int)reader[0];
-                    game.PlayerName = reader[1].ToString();
+                    game.PlayerName = reader[1].ToString().Trim();
                     game.amountOfCake = (int)reader[2];
                     string[] upgrades = reader[3].ToString().Trim().Split(' ');
                     for (int i = 0; i < upgrades.Length; i++)
@@ -211,7 +220,8 @@ namespace DataBaseManager
                 else 
                 { 
                     reader.Close();
-                    Console.WriteLine("\nQuery Executed - UserID: " + id + " " + _connectionInfo._database);
+                    Console.WriteLine("\nQuery Executed - UserID: " + id + " does not exist.");
+                    DisplayError("User does not exist");
                 }
                 
                 
