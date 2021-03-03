@@ -131,7 +131,13 @@ public class Game
 
     public void SaveGameToCloud()
     {
-       _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
+        if(_gameInfo != null) 
+        {
+            _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
+        } else 
+        {
+            return;
+        }
     }
 
     public bool LoadFile()
