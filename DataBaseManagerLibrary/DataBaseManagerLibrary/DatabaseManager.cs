@@ -26,9 +26,13 @@ namespace DataBaseManager
             Console.WriteLine("Getting Database Connection:");
 
             //your connection string 
+
             string connString = @"Data Source=" + connectionInfo._dataSource + ";Initial Catalog="
                         + connectionInfo._database + ";Persist Security Info=True;User ID=" + connectionInfo._userId + ";Password=" + connectionInfo._password;
 
+            /*string connString = @"Data Source=" + connectionInfo._dataSource + ";Initial Catalog="
+                        + connectionInfo._database + ";Persist Security Info=False;User ID=" + connectionInfo._userId + ";Password=" + connectionInfo._password
+                        + "MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";*/
 
             //create instanace of database connection
             SqlConnection connection = new SqlConnection(connString);
