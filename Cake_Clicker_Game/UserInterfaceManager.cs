@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System;
 
 namespace Cake_Clicker_Game
 {
@@ -13,7 +14,11 @@ namespace Cake_Clicker_Game
         GameWindow _gameWindow;
         Forms.Options _options;
 
-
+        //Cheat detection
+        DateTime _currentSecond;
+        int _clicksInSecond;
+        int _maxCPS;
+        bool _autoclickerDetected;
 
         #endregion
 
@@ -37,6 +42,21 @@ namespace Cake_Clicker_Game
 
             _options = new Forms.Options();
 
+            _currentSecond = DateTime.Now;
+            _clicksInSecond = 0;
+            _maxCPS = 0;
+            _autoclickerDetected = false;
+        }
+
+        //returns true if an autoclicker has been detected
+        public bool AutoclickerDetectionStatus()
+        {
+            return _autoclickerDetected;
+        }
+
+        public int MaxCPSDetected()
+        {
+            return _maxCPS;
         }
 
         //Create InitializeGameFromSaveFile
@@ -86,12 +106,12 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OpenOptions()
         {
-            if(!_options.Visible)
+            if (!_options.Visible)
                 _options.Show();
         }
 
         //Gets the bool array of achievement status from the game class
-        public bool[] CheckAcheivements() 
+        public bool[] CheckAcheivements()
         {
             return _game.GetAchivements();
         }
@@ -101,19 +121,22 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OnCakeClick()
         {
-            AddToScore();
+            checkCPS();
+             AddToScore();
+          
         }
 
         //Force updates cake score
-        public void RefreshScore() 
+        public void RefreshScore()
         {
             _gameWindow.UpdateScore();
         }
         public void AddCake(Game.CakeType type)
         {
+            checkCPS();
             _game.AddCakeUpgrade(type);
             _gameWindow.UpdateCakeCounts();
-            _gameWindow.UpdateScore();
+            _gameWindow.UpdateScore(); 
         }
 
         public void Reset()
@@ -145,7 +168,7 @@ namespace Cake_Clicker_Game
         }
 
         //Manually adds cookies to game
-        public void AddCakeManuallyToGame(int amount) 
+        public void AddCakeManuallyToGame(int amount)
         {
             _game.AddCakeManually(amount);
         }
@@ -162,9 +185,31 @@ namespace Cake_Clicker_Game
             return _mainMenu;
         }
 
+        //Autoclicker detection method which returns true if CPS threshhold is passed and false if the CPS is ok 
+        public void checkCPS()
+        {
+            if(DateTime.Now.Second == _currentSecond.Second)
+            {
+                _clicksInSecond++;
+                if(_clicksInSecond > 15)
+                {
+                    _autoclickerDetected = true;
+                }
+            } 
+            else 
+            {
+                if (_maxCPS < _clicksInSecond)
+                {
+                    _maxCPS = _clicksInSecond;
+                }
+                _currentSecond = DateTime.Now;
+                _clicksInSecond = 0;
+            }
+        }
+
+
         #endregion
 
     }
-
 
 }

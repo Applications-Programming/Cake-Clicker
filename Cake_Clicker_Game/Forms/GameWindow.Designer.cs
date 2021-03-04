@@ -92,6 +92,8 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Star = new System.Windows.Forms.PictureBox();
             this.Achievement_One_Question_Mark = new System.Windows.Forms.PictureBox();
             this.Achievement_One_Description = new System.Windows.Forms.Label();
+            this.CheatsDetectedStatus = new System.Windows.Forms.Label();
+            this.MaxCPSStatus = new System.Windows.Forms.Label();
             this.CakeDataBox.SuspendLayout();
             this.cheeseGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -128,10 +130,11 @@ namespace Cake_Clicker_Game
             this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.scoreLabel.Location = new System.Drawing.Point(797, 0);
+            this.scoreLabel.Location = new System.Drawing.Point(1219, 0);
+            this.scoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.scoreLabel.Size = new System.Drawing.Size(687, 63);
+            this.scoreLabel.Size = new System.Drawing.Size(1007, 91);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "9999999999999999999999";
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,9 +152,10 @@ namespace Cake_Clicker_Game
             this.cakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cakeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cakeButton.Image = global::Cake_Clicker_Game.Properties.Resources.Cake;
-            this.cakeButton.Location = new System.Drawing.Point(488, 127);
+            this.cakeButton.Location = new System.Drawing.Point(732, 195);
+            this.cakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cakeButton.Name = "cakeButton";
-            this.cakeButton.Size = new System.Drawing.Size(512, 512);
+            this.cakeButton.Size = new System.Drawing.Size(768, 788);
             this.cakeButton.TabIndex = 0;
             this.cakeButton.UseVisualStyleBackColor = false;
             this.cakeButton.Click += new System.EventHandler(this.cakeButton_Click);
@@ -163,8 +167,9 @@ namespace Cake_Clicker_Game
             this.cakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.cakeLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.cakeLabel.Location = new System.Drawing.Point(0, 0);
+            this.cakeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cakeLabel.Name = "cakeLabel";
-            this.cakeLabel.Size = new System.Drawing.Size(649, 76);
+            this.cakeLabel.Size = new System.Drawing.Size(969, 113);
             this.cakeLabel.TabIndex = 3;
             this.cakeLabel.Text = "[enterName]\'s CAKE";
             // 
@@ -173,9 +178,10 @@ namespace Cake_Clicker_Game
             this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.optionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.optionsButton.Location = new System.Drawing.Point(1368, 645);
+            this.optionsButton.Location = new System.Drawing.Point(2052, 992);
+            this.optionsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.optionsButton.Name = "optionsButton";
-            this.optionsButton.Size = new System.Drawing.Size(104, 59);
+            this.optionsButton.Size = new System.Drawing.Size(156, 91);
             this.optionsButton.TabIndex = 4;
             this.optionsButton.Text = "Settings";
             this.optionsButton.UseVisualStyleBackColor = true;
@@ -192,9 +198,11 @@ namespace Cake_Clicker_Game
             this.CakeDataBox.Controls.Add(this.VanillaCake);
             this.CakeDataBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CakeDataBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.CakeDataBox.Location = new System.Drawing.Point(12, 97);
+            this.CakeDataBox.Location = new System.Drawing.Point(18, 149);
+            this.CakeDataBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CakeDataBox.Name = "CakeDataBox";
-            this.CakeDataBox.Size = new System.Drawing.Size(273, 639);
+            this.CakeDataBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CakeDataBox.Size = new System.Drawing.Size(410, 983);
             this.CakeDataBox.TabIndex = 6;
             this.CakeDataBox.TabStop = false;
             this.CakeDataBox.Text = "Cakes";
@@ -207,18 +215,21 @@ namespace Cake_Clicker_Game
             this.cheeseGroupBox.Controls.Add(this.pictureBox7);
             this.cheeseGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cheeseGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cheeseGroupBox.Location = new System.Drawing.Point(6, 548);
+            this.cheeseGroupBox.Location = new System.Drawing.Point(9, 843);
+            this.cheeseGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cheeseGroupBox.Name = "cheeseGroupBox";
-            this.cheeseGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.cheeseGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cheeseGroupBox.Size = new System.Drawing.Size(392, 128);
             this.cheeseGroupBox.TabIndex = 3;
             this.cheeseGroupBox.TabStop = false;
             this.cheeseGroupBox.Text = "Cheese";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(151, 39);
+            this.label7.Location = new System.Drawing.Point(226, 60);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 23);
+            this.label7.Size = new System.Drawing.Size(87, 35);
             this.label7.TabIndex = 4;
             this.label7.Text = "80000";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,9 +238,10 @@ namespace Cake_Clicker_Game
             // 
             this.addCheeseCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addCheeseCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addCheeseCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addCheeseCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addCheeseCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addCheeseCakeButton.Name = "addCheeseCakeButton";
-            this.addCheeseCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addCheeseCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addCheeseCakeButton.TabIndex = 2;
             this.addCheeseCakeButton.Text = "+";
             this.addCheeseCakeButton.UseVisualStyleBackColor = true;
@@ -237,9 +249,10 @@ namespace Cake_Clicker_Game
             // 
             // cheeseCakeInfoBox
             // 
-            this.cheeseCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.cheeseCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.cheeseCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cheeseCakeInfoBox.Name = "cheeseCakeInfoBox";
-            this.cheeseCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.cheeseCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.cheeseCakeInfoBox.TabIndex = 1;
             this.cheeseCakeInfoBox.Text = "Count: 0";
             // 
@@ -248,9 +261,10 @@ namespace Cake_Clicker_Game
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Cheese_Cake;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox7.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox7.Size = new System.Drawing.Size(80, 91);
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
             // 
@@ -262,18 +276,21 @@ namespace Cake_Clicker_Game
             this.carrotGroupBox.Controls.Add(this.pictureBox6);
             this.carrotGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.carrotGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.carrotGroupBox.Location = new System.Drawing.Point(6, 459);
+            this.carrotGroupBox.Location = new System.Drawing.Point(9, 706);
+            this.carrotGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.carrotGroupBox.Name = "carrotGroupBox";
-            this.carrotGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.carrotGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.carrotGroupBox.Size = new System.Drawing.Size(392, 128);
             this.carrotGroupBox.TabIndex = 3;
             this.carrotGroupBox.TabStop = false;
             this.carrotGroupBox.Text = "Carrot";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(151, 39);
+            this.label6.Location = new System.Drawing.Point(226, 60);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 23);
+            this.label6.Size = new System.Drawing.Size(87, 35);
             this.label6.TabIndex = 4;
             this.label6.Text = "20000";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,9 +299,10 @@ namespace Cake_Clicker_Game
             // 
             this.addCarrotCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addCarrotCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addCarrotCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addCarrotCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addCarrotCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addCarrotCakeButton.Name = "addCarrotCakeButton";
-            this.addCarrotCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addCarrotCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addCarrotCakeButton.TabIndex = 2;
             this.addCarrotCakeButton.Text = "+";
             this.addCarrotCakeButton.UseVisualStyleBackColor = true;
@@ -292,9 +310,10 @@ namespace Cake_Clicker_Game
             // 
             // carrotCakeInfoBox
             // 
-            this.carrotCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.carrotCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.carrotCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.carrotCakeInfoBox.Name = "carrotCakeInfoBox";
-            this.carrotCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.carrotCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.carrotCakeInfoBox.TabIndex = 1;
             this.carrotCakeInfoBox.Text = "Count: 0";
             // 
@@ -303,9 +322,10 @@ namespace Cake_Clicker_Game
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Carrot_Cake;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox6.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox6.Size = new System.Drawing.Size(80, 91);
             this.pictureBox6.TabIndex = 0;
             this.pictureBox6.TabStop = false;
             // 
@@ -317,18 +337,21 @@ namespace Cake_Clicker_Game
             this.RedVelvetGroupBox.Controls.Add(this.pictureBox5);
             this.RedVelvetGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.RedVelvetGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.RedVelvetGroupBox.Location = new System.Drawing.Point(6, 370);
+            this.RedVelvetGroupBox.Location = new System.Drawing.Point(9, 569);
+            this.RedVelvetGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RedVelvetGroupBox.Name = "RedVelvetGroupBox";
-            this.RedVelvetGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.RedVelvetGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RedVelvetGroupBox.Size = new System.Drawing.Size(392, 128);
             this.RedVelvetGroupBox.TabIndex = 3;
             this.RedVelvetGroupBox.TabStop = false;
             this.RedVelvetGroupBox.Text = "Red Velvet";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(151, 39);
+            this.label5.Location = new System.Drawing.Point(226, 60);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 23);
+            this.label5.Size = new System.Drawing.Size(87, 35);
             this.label5.TabIndex = 4;
             this.label5.Text = "4500";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -337,9 +360,10 @@ namespace Cake_Clicker_Game
             // 
             this.addRedVelvetCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addRedVelvetCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addRedVelvetCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addRedVelvetCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addRedVelvetCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addRedVelvetCakeButton.Name = "addRedVelvetCakeButton";
-            this.addRedVelvetCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addRedVelvetCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addRedVelvetCakeButton.TabIndex = 2;
             this.addRedVelvetCakeButton.Text = "+";
             this.addRedVelvetCakeButton.UseVisualStyleBackColor = true;
@@ -347,9 +371,10 @@ namespace Cake_Clicker_Game
             // 
             // redVelvetCakeInfoBox
             // 
-            this.redVelvetCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.redVelvetCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.redVelvetCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.redVelvetCakeInfoBox.Name = "redVelvetCakeInfoBox";
-            this.redVelvetCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.redVelvetCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.redVelvetCakeInfoBox.TabIndex = 1;
             this.redVelvetCakeInfoBox.Text = "Count: 0";
             // 
@@ -358,9 +383,10 @@ namespace Cake_Clicker_Game
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Red_Velvet_Cake;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox5.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox5.Size = new System.Drawing.Size(80, 91);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
@@ -372,18 +398,21 @@ namespace Cake_Clicker_Game
             this.coffeeGroupBox.Controls.Add(this.pictureBox4);
             this.coffeeGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.coffeeGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.coffeeGroupBox.Location = new System.Drawing.Point(6, 281);
+            this.coffeeGroupBox.Location = new System.Drawing.Point(9, 432);
+            this.coffeeGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.coffeeGroupBox.Name = "coffeeGroupBox";
-            this.coffeeGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.coffeeGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.coffeeGroupBox.Size = new System.Drawing.Size(392, 128);
             this.coffeeGroupBox.TabIndex = 3;
             this.coffeeGroupBox.TabStop = false;
             this.coffeeGroupBox.Text = "Coffee";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(151, 39);
+            this.label4.Location = new System.Drawing.Point(226, 60);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 23);
+            this.label4.Size = new System.Drawing.Size(87, 35);
             this.label4.TabIndex = 4;
             this.label4.Text = "1000";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -392,9 +421,10 @@ namespace Cake_Clicker_Game
             // 
             this.addCoffeeCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addCoffeeCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addCoffeeCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addCoffeeCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addCoffeeCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addCoffeeCakeButton.Name = "addCoffeeCakeButton";
-            this.addCoffeeCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addCoffeeCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addCoffeeCakeButton.TabIndex = 2;
             this.addCoffeeCakeButton.Text = "+";
             this.addCoffeeCakeButton.UseVisualStyleBackColor = true;
@@ -402,9 +432,10 @@ namespace Cake_Clicker_Game
             // 
             // CoffeeCakeInfoBox
             // 
-            this.CoffeeCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.CoffeeCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.CoffeeCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CoffeeCakeInfoBox.Name = "CoffeeCakeInfoBox";
-            this.CoffeeCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.CoffeeCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.CoffeeCakeInfoBox.TabIndex = 1;
             this.CoffeeCakeInfoBox.Text = "Count: 0";
             // 
@@ -413,9 +444,10 @@ namespace Cake_Clicker_Game
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Chocolate_Cake;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox4.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox4.Size = new System.Drawing.Size(80, 91);
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             // 
@@ -427,18 +459,21 @@ namespace Cake_Clicker_Game
             this.StrawberryGroupBox.Controls.Add(this.pictureBox3);
             this.StrawberryGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.StrawberryGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.StrawberryGroupBox.Location = new System.Drawing.Point(6, 192);
+            this.StrawberryGroupBox.Location = new System.Drawing.Point(9, 295);
+            this.StrawberryGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StrawberryGroupBox.Name = "StrawberryGroupBox";
-            this.StrawberryGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.StrawberryGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StrawberryGroupBox.Size = new System.Drawing.Size(392, 128);
             this.StrawberryGroupBox.TabIndex = 3;
             this.StrawberryGroupBox.TabStop = false;
             this.StrawberryGroupBox.Text = "Strawberry";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(151, 39);
+            this.label3.Location = new System.Drawing.Point(226, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 23);
+            this.label3.Size = new System.Drawing.Size(87, 35);
             this.label3.TabIndex = 4;
             this.label3.Text = "500";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -447,9 +482,10 @@ namespace Cake_Clicker_Game
             // 
             this.addStrawberryCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addStrawberryCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addStrawberryCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addStrawberryCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addStrawberryCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addStrawberryCakeButton.Name = "addStrawberryCakeButton";
-            this.addStrawberryCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addStrawberryCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addStrawberryCakeButton.TabIndex = 2;
             this.addStrawberryCakeButton.Text = "+";
             this.addStrawberryCakeButton.UseVisualStyleBackColor = true;
@@ -457,9 +493,10 @@ namespace Cake_Clicker_Game
             // 
             // strawberryCakeInfoBox
             // 
-            this.strawberryCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.strawberryCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.strawberryCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.strawberryCakeInfoBox.Name = "strawberryCakeInfoBox";
-            this.strawberryCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.strawberryCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.strawberryCakeInfoBox.TabIndex = 1;
             this.strawberryCakeInfoBox.Text = "Count: 0";
             // 
@@ -468,9 +505,10 @@ namespace Cake_Clicker_Game
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Strawberry_Cake;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox3.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox3.Size = new System.Drawing.Size(80, 91);
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
@@ -482,18 +520,21 @@ namespace Cake_Clicker_Game
             this.ChocolateGroupBox.Controls.Add(this.pictureBox2);
             this.ChocolateGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ChocolateGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ChocolateGroupBox.Location = new System.Drawing.Point(6, 109);
+            this.ChocolateGroupBox.Location = new System.Drawing.Point(9, 168);
+            this.ChocolateGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChocolateGroupBox.Name = "ChocolateGroupBox";
-            this.ChocolateGroupBox.Size = new System.Drawing.Size(261, 83);
+            this.ChocolateGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ChocolateGroupBox.Size = new System.Drawing.Size(392, 128);
             this.ChocolateGroupBox.TabIndex = 3;
             this.ChocolateGroupBox.TabStop = false;
             this.ChocolateGroupBox.Text = "Chocolate";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(151, 39);
+            this.label2.Location = new System.Drawing.Point(226, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 23);
+            this.label2.Size = new System.Drawing.Size(87, 35);
             this.label2.TabIndex = 4;
             this.label2.Text = "250";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -502,9 +543,10 @@ namespace Cake_Clicker_Game
             // 
             this.addChocolateCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addChocolateCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addChocolateCakeButton.Location = new System.Drawing.Point(215, 25);
+            this.addChocolateCakeButton.Location = new System.Drawing.Point(322, 38);
+            this.addChocolateCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addChocolateCakeButton.Name = "addChocolateCakeButton";
-            this.addChocolateCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addChocolateCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addChocolateCakeButton.TabIndex = 2;
             this.addChocolateCakeButton.Text = "+";
             this.addChocolateCakeButton.UseVisualStyleBackColor = true;
@@ -512,9 +554,10 @@ namespace Cake_Clicker_Game
             // 
             // ChocolateCakeInfoBox
             // 
-            this.ChocolateCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.ChocolateCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.ChocolateCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChocolateCakeInfoBox.Name = "ChocolateCakeInfoBox";
-            this.ChocolateCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.ChocolateCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.ChocolateCakeInfoBox.TabIndex = 1;
             this.ChocolateCakeInfoBox.Text = "Count: 0";
             // 
@@ -523,9 +566,10 @@ namespace Cake_Clicker_Game
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Chocolate_Cake;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox2.Size = new System.Drawing.Size(80, 91);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -537,18 +581,21 @@ namespace Cake_Clicker_Game
             this.VanillaCake.Controls.Add(this.pictureBox1);
             this.VanillaCake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.VanillaCake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.VanillaCake.Location = new System.Drawing.Point(6, 26);
+            this.VanillaCake.Location = new System.Drawing.Point(9, 40);
+            this.VanillaCake.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VanillaCake.Name = "VanillaCake";
-            this.VanillaCake.Size = new System.Drawing.Size(261, 83);
+            this.VanillaCake.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.VanillaCake.Size = new System.Drawing.Size(392, 128);
             this.VanillaCake.TabIndex = 0;
             this.VanillaCake.TabStop = false;
             this.VanillaCake.Text = "Vanilla";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(151, 40);
+            this.label1.Location = new System.Drawing.Point(226, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 23);
+            this.label1.Size = new System.Drawing.Size(87, 35);
             this.label1.TabIndex = 3;
             this.label1.Text = "50";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -557,9 +604,10 @@ namespace Cake_Clicker_Game
             // 
             this.addVanillaCakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.addVanillaCakeButton.ForeColor = System.Drawing.Color.Black;
-            this.addVanillaCakeButton.Location = new System.Drawing.Point(215, 30);
+            this.addVanillaCakeButton.Location = new System.Drawing.Point(322, 46);
+            this.addVanillaCakeButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addVanillaCakeButton.Name = "addVanillaCakeButton";
-            this.addVanillaCakeButton.Size = new System.Drawing.Size(40, 40);
+            this.addVanillaCakeButton.Size = new System.Drawing.Size(60, 62);
             this.addVanillaCakeButton.TabIndex = 2;
             this.addVanillaCakeButton.Text = "+";
             this.addVanillaCakeButton.UseVisualStyleBackColor = true;
@@ -567,9 +615,10 @@ namespace Cake_Clicker_Game
             // 
             // vanillaCakeInfoBox
             // 
-            this.vanillaCakeInfoBox.Location = new System.Drawing.Point(65, 37);
+            this.vanillaCakeInfoBox.Location = new System.Drawing.Point(98, 57);
+            this.vanillaCakeInfoBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.vanillaCakeInfoBox.Name = "vanillaCakeInfoBox";
-            this.vanillaCakeInfoBox.Size = new System.Drawing.Size(80, 26);
+            this.vanillaCakeInfoBox.Size = new System.Drawing.Size(118, 35);
             this.vanillaCakeInfoBox.TabIndex = 1;
             this.vanillaCakeInfoBox.Text = "Count: 0";
             // 
@@ -578,9 +627,10 @@ namespace Cake_Clicker_Game
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Cake_Clicker_Game.Properties.Resources.Vanilla_Cake;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 59);
+            this.pictureBox1.Size = new System.Drawing.Size(80, 91);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -588,9 +638,10 @@ namespace Cake_Clicker_Game
             // 
             this.saveAndQuitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveAndQuitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveAndQuitButton.Location = new System.Drawing.Point(1337, 710);
+            this.saveAndQuitButton.Location = new System.Drawing.Point(2006, 1092);
+            this.saveAndQuitButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveAndQuitButton.Name = "saveAndQuitButton";
-            this.saveAndQuitButton.Size = new System.Drawing.Size(135, 63);
+            this.saveAndQuitButton.Size = new System.Drawing.Size(202, 97);
             this.saveAndQuitButton.TabIndex = 7;
             this.saveAndQuitButton.Text = "Save and Quit";
             this.saveAndQuitButton.UseVisualStyleBackColor = true;
@@ -605,12 +656,10 @@ namespace Cake_Clicker_Game
             this.achievementsGroup.Controls.Add(this.Achievement_One_Groupbox);
             this.achievementsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.achievementsGroup.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.achievementsGroup.Location = new System.Drawing.Point(1129, 193);
-            this.achievementsGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.achievementsGroup.Location = new System.Drawing.Point(1694, 297);
             this.achievementsGroup.Name = "achievementsGroup";
-            this.achievementsGroup.Padding = new System.Windows.Forms.Padding(2);
             this.achievementsGroup.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.achievementsGroup.Size = new System.Drawing.Size(343, 385);
+            this.achievementsGroup.Size = new System.Drawing.Size(514, 592);
             this.achievementsGroup.TabIndex = 8;
             this.achievementsGroup.TabStop = false;
             this.achievementsGroup.Text = "Bakers Showcase";
@@ -622,11 +671,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Groupbox.Controls.Add(this.Achievement_Four_Description);
             this.Achievement_Four_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Four_Groupbox.ForeColor = System.Drawing.Color.Gold;
-            this.Achievement_Four_Groupbox.Location = new System.Drawing.Point(20, 292);
-            this.Achievement_Four_Groupbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Four_Groupbox.Location = new System.Drawing.Point(30, 449);
             this.Achievement_Four_Groupbox.Name = "Achievement_Four_Groupbox";
-            this.Achievement_Four_Groupbox.Padding = new System.Windows.Forms.Padding(2);
-            this.Achievement_Four_Groupbox.Size = new System.Drawing.Size(313, 79);
+            this.Achievement_Four_Groupbox.Size = new System.Drawing.Size(470, 122);
             this.Achievement_Four_Groupbox.TabIndex = 4;
             this.Achievement_Four_Groupbox.TabStop = false;
             this.Achievement_Four_Groupbox.Text = "Unknown Achievement";
@@ -636,10 +683,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Four_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.BackgroundImage")));
             this.Achievement_Four_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.Image")));
-            this.Achievement_Four_Star.Location = new System.Drawing.Point(15, 21);
-            this.Achievement_Four_Star.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Four_Star.Location = new System.Drawing.Point(22, 32);
             this.Achievement_Four_Star.Name = "Achievement_Four_Star";
-            this.Achievement_Four_Star.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Four_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Four_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Four_Star.TabIndex = 2;
             this.Achievement_Four_Star.TabStop = false;
@@ -649,10 +695,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Four_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Four_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Question_Mark.Image")));
-            this.Achievement_Four_Question_Mark.Location = new System.Drawing.Point(15, 21);
-            this.Achievement_Four_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Four_Question_Mark.Location = new System.Drawing.Point(22, 32);
             this.Achievement_Four_Question_Mark.Name = "Achievement_Four_Question_Mark";
-            this.Achievement_Four_Question_Mark.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Four_Question_Mark.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Four_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Four_Question_Mark.TabIndex = 1;
             this.Achievement_Four_Question_Mark.TabStop = false;
@@ -661,10 +706,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Four_Description.AutoSize = true;
             this.Achievement_Four_Description.ForeColor = System.Drawing.Color.Brown;
-            this.Achievement_Four_Description.Location = new System.Drawing.Point(79, 34);
-            this.Achievement_Four_Description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Achievement_Four_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Four_Description.Name = "Achievement_Four_Description";
-            this.Achievement_Four_Description.Size = new System.Drawing.Size(227, 20);
+            this.Achievement_Four_Description.Size = new System.Drawing.Size(340, 29);
             this.Achievement_Four_Description.TabIndex = 0;
             this.Achievement_Four_Description.Text = "Achievement_four_Description";
             // 
@@ -675,11 +719,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Groupbox.Controls.Add(this.Achievement_Three_Description);
             this.Achievement_Three_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Three_Groupbox.ForeColor = System.Drawing.Color.Gold;
-            this.Achievement_Three_Groupbox.Location = new System.Drawing.Point(20, 203);
-            this.Achievement_Three_Groupbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Three_Groupbox.Location = new System.Drawing.Point(30, 312);
             this.Achievement_Three_Groupbox.Name = "Achievement_Three_Groupbox";
-            this.Achievement_Three_Groupbox.Padding = new System.Windows.Forms.Padding(2);
-            this.Achievement_Three_Groupbox.Size = new System.Drawing.Size(313, 79);
+            this.Achievement_Three_Groupbox.Size = new System.Drawing.Size(470, 122);
             this.Achievement_Three_Groupbox.TabIndex = 3;
             this.Achievement_Three_Groupbox.TabStop = false;
             this.Achievement_Three_Groupbox.Text = "Unknown Achievement";
@@ -689,10 +731,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Three_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.BackgroundImage")));
             this.Achievement_Three_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.Image")));
-            this.Achievement_Three_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Three_Star.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Three_Star.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Three_Star.Name = "Achievement_Three_Star";
-            this.Achievement_Three_Star.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Three_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Three_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Three_Star.TabIndex = 3;
             this.Achievement_Three_Star.TabStop = false;
@@ -702,10 +743,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Three_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Three_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Question_Mark.Image")));
-            this.Achievement_Three_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Three_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Three_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Three_Question_Mark.Name = "Achievement_Three_Question_Mark";
-            this.Achievement_Three_Question_Mark.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Three_Question_Mark.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Three_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Three_Question_Mark.TabIndex = 1;
             this.Achievement_Three_Question_Mark.TabStop = false;
@@ -714,10 +754,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Three_Description.AutoSize = true;
             this.Achievement_Three_Description.ForeColor = System.Drawing.Color.Brown;
-            this.Achievement_Three_Description.Location = new System.Drawing.Point(79, 34);
-            this.Achievement_Three_Description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Achievement_Three_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Three_Description.Name = "Achievement_Three_Description";
-            this.Achievement_Three_Description.Size = new System.Drawing.Size(208, 20);
+            this.Achievement_Three_Description.Size = new System.Drawing.Size(312, 29);
             this.Achievement_Three_Description.TabIndex = 0;
             this.Achievement_Three_Description.Text = "Achievement_3_Description";
             // 
@@ -728,11 +767,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Groupbox.Controls.Add(this.Achievement_Two_Description);
             this.Achievement_Two_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_Two_Groupbox.ForeColor = System.Drawing.Color.Gold;
-            this.Achievement_Two_Groupbox.Location = new System.Drawing.Point(20, 120);
-            this.Achievement_Two_Groupbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Two_Groupbox.Location = new System.Drawing.Point(30, 185);
             this.Achievement_Two_Groupbox.Name = "Achievement_Two_Groupbox";
-            this.Achievement_Two_Groupbox.Padding = new System.Windows.Forms.Padding(2);
-            this.Achievement_Two_Groupbox.Size = new System.Drawing.Size(313, 79);
+            this.Achievement_Two_Groupbox.Size = new System.Drawing.Size(470, 122);
             this.Achievement_Two_Groupbox.TabIndex = 2;
             this.Achievement_Two_Groupbox.TabStop = false;
             this.Achievement_Two_Groupbox.Text = "Unknown Achievement";
@@ -742,10 +779,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Two_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.BackgroundImage")));
             this.Achievement_Two_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.Image")));
-            this.Achievement_Two_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Two_Star.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Two_Star.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Two_Star.Name = "Achievement_Two_Star";
-            this.Achievement_Two_Star.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Two_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Two_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Two_Star.TabIndex = 9;
             this.Achievement_Two_Star.TabStop = false;
@@ -755,10 +791,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Two_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_Two_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Question_Mark.Image")));
-            this.Achievement_Two_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_Two_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_Two_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Two_Question_Mark.Name = "Achievement_Two_Question_Mark";
-            this.Achievement_Two_Question_Mark.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_Two_Question_Mark.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Two_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_Two_Question_Mark.TabIndex = 1;
             this.Achievement_Two_Question_Mark.TabStop = false;
@@ -767,10 +802,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_Two_Description.AutoSize = true;
             this.Achievement_Two_Description.ForeColor = System.Drawing.Color.Brown;
-            this.Achievement_Two_Description.Location = new System.Drawing.Point(79, 34);
-            this.Achievement_Two_Description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Achievement_Two_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Two_Description.Name = "Achievement_Two_Description";
-            this.Achievement_Two_Description.Size = new System.Drawing.Size(228, 20);
+            this.Achievement_Two_Description.Size = new System.Drawing.Size(347, 29);
             this.Achievement_Two_Description.TabIndex = 0;
             this.Achievement_Two_Description.Text = "Achievement_Two_Description";
             // 
@@ -781,11 +815,9 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Groupbox.Controls.Add(this.Achievement_One_Description);
             this.Achievement_One_Groupbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Achievement_One_Groupbox.ForeColor = System.Drawing.Color.Gold;
-            this.Achievement_One_Groupbox.Location = new System.Drawing.Point(20, 31);
-            this.Achievement_One_Groupbox.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_One_Groupbox.Location = new System.Drawing.Point(30, 48);
             this.Achievement_One_Groupbox.Name = "Achievement_One_Groupbox";
-            this.Achievement_One_Groupbox.Padding = new System.Windows.Forms.Padding(2);
-            this.Achievement_One_Groupbox.Size = new System.Drawing.Size(313, 79);
+            this.Achievement_One_Groupbox.Size = new System.Drawing.Size(470, 122);
             this.Achievement_One_Groupbox.TabIndex = 1;
             this.Achievement_One_Groupbox.TabStop = false;
             this.Achievement_One_Groupbox.Text = "Unknown Achievement";
@@ -795,10 +827,9 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Star.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_One_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.BackgroundImage")));
             this.Achievement_One_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.Image")));
-            this.Achievement_One_Star.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_One_Star.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_One_Star.Location = new System.Drawing.Point(18, 29);
             this.Achievement_One_Star.Name = "Achievement_One_Star";
-            this.Achievement_One_Star.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_One_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_One_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_One_Star.TabIndex = 10;
             this.Achievement_One_Star.TabStop = false;
@@ -808,10 +839,9 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_One_Question_Mark.BackColor = System.Drawing.Color.Transparent;
             this.Achievement_One_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Question_Mark.Image")));
-            this.Achievement_One_Question_Mark.Location = new System.Drawing.Point(12, 19);
-            this.Achievement_One_Question_Mark.Margin = new System.Windows.Forms.Padding(2);
+            this.Achievement_One_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_One_Question_Mark.Name = "Achievement_One_Question_Mark";
-            this.Achievement_One_Question_Mark.Size = new System.Drawing.Size(60, 53);
+            this.Achievement_One_Question_Mark.Size = new System.Drawing.Size(90, 82);
             this.Achievement_One_Question_Mark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Achievement_One_Question_Mark.TabIndex = 1;
             this.Achievement_One_Question_Mark.TabStop = false;
@@ -820,20 +850,42 @@ namespace Cake_Clicker_Game
             // 
             this.Achievement_One_Description.AutoSize = true;
             this.Achievement_One_Description.ForeColor = System.Drawing.Color.Brown;
-            this.Achievement_One_Description.Location = new System.Drawing.Point(79, 34);
-            this.Achievement_One_Description.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Achievement_One_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_One_Description.Name = "Achievement_One_Description";
-            this.Achievement_One_Description.Size = new System.Drawing.Size(229, 20);
+            this.Achievement_One_Description.Size = new System.Drawing.Size(345, 29);
             this.Achievement_One_Description.TabIndex = 0;
             this.Achievement_One_Description.Text = "Achievement_One_Description";
             // 
+            // CheatsDetectedStatus
+            // 
+            this.CheatsDetectedStatus.AutoSize = true;
+            this.CheatsDetectedStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.CheatsDetectedStatus.Location = new System.Drawing.Point(1049, 1002);
+            this.CheatsDetectedStatus.Name = "CheatsDetectedStatus";
+            this.CheatsDetectedStatus.Size = new System.Drawing.Size(154, 20);
+            this.CheatsDetectedStatus.TabIndex = 9;
+            this.CheatsDetectedStatus.Text = "Autoclicker detected";
+            this.CheatsDetectedStatus.Visible = false;
+            // 
+            // MaxCPSStatus
+            // 
+            this.MaxCPSStatus.AutoSize = true;
+            this.MaxCPSStatus.ForeColor = System.Drawing.Color.Lime;
+            this.MaxCPSStatus.Location = new System.Drawing.Point(1053, 1026);
+            this.MaxCPSStatus.Name = "MaxCPSStatus";
+            this.MaxCPSStatus.Size = new System.Drawing.Size(89, 20);
+            this.MaxCPSStatus.TabIndex = 10;
+            this.MaxCPSStatus.Text = "Top CPS: 0";
+            // 
             // GameWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1484, 785);
+            this.ClientSize = new System.Drawing.Size(2226, 1208);
             this.ControlBox = false;
+            this.Controls.Add(this.MaxCPSStatus);
+            this.Controls.Add(this.CheatsDetectedStatus);
             this.Controls.Add(this.achievementsGroup);
             this.Controls.Add(this.saveAndQuitButton);
             this.Controls.Add(this.CakeDataBox);
@@ -842,6 +894,7 @@ namespace Cake_Clicker_Game
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.cakeButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "GameWindow";
             this.Text = "CakeClicker";
@@ -950,6 +1003,8 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.PictureBox Achievement_Three_Star;
         private System.Windows.Forms.PictureBox Achievement_Two_Star;
         private System.Windows.Forms.PictureBox Achievement_One_Star;
+        private System.Windows.Forms.Label CheatsDetectedStatus;
+        private System.Windows.Forms.Label MaxCPSStatus;
     }
 }
 
