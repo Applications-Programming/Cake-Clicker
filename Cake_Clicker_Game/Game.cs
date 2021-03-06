@@ -3,14 +3,14 @@
 //Authored: 2/9/2021
 using System;
 using System.IO;
-using DataBaseManager;
+using DataBaseManagerLibrary;
 using Cake_Clicker_Game;
 
 public class Game
 {
     ///Class Fields
     //GameData object for holding game information
-    private GameData _gameInfo;
+    private UserData _gameInfo;
 
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
@@ -29,13 +29,13 @@ public class Game
     ///Constructor
     public Game()
     {
-        DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
+        ConnectionInfo connectionInfo = new ConnectionInfo(
             "cake-clicker-server.database.windows.net",
             "CakeClicker",
             "DefaultUser",
             "CakeClicker123");
-        _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
-        if(_databaseManager != null)
+        _databaseManager = new DatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
+        if (_databaseManager != null)
         {
             _offlineMode = false;
         }
@@ -47,7 +47,7 @@ public class Game
             temp[i] = 0;
         }
         //GameData object for holding game information
-        _gameInfo = new GameData(-1, "null", 0, temp);
+        _gameInfo = new UserData(-1, "null", 0, temp);
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
     }
@@ -131,11 +131,11 @@ public class Game
 
     public void SaveGameToCloud()
     {
-        if(_databaseManager != null) 
+        if (_databaseManager != null)
         {
             _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
-        } 
-        else 
+        }
+        else
         {
             return;
         }
@@ -164,10 +164,10 @@ public class Game
 
     public bool LoadFromCloud(int id)
     {
-        if(_databaseManager != null)
+        if (_databaseManager != null)
         {
             //online mode is enabled
-            GameData gameData = _databaseManager.GetUserInfo(id);
+            UserData gameData = _databaseManager.GetUserInfo(id);
             if (gameData == null)
             {
                 return false;
@@ -276,61 +276,6 @@ public class Game
         return _gameInfo.Id;
     }
 
-    
-    }
-
-public class Test
-{
-    static void MainTesting()
-    {
-        Console.WriteLine("Testing game clicks, multiplier, and caketype...");
-        Game game = new Game();
-        for (int i = 0; i < 200; i++)
-        {
-            game.AddCake();
-            if (i % 20 == 0)
-            {
-                game.IncrementMultiplier();
-            }
-            //game.ChangeCakeType();
-            //Console.WriteLine("CURRENT CAKE TYPE: " + game.AccessCakeType());
-        }
-        Console.WriteLine("Testing game ToString...");
-        Console.WriteLine(game.ToString());
-
-        Console.WriteLine("Testing Get Methods...");
-        game.GetMultiplier();
-        game.GetAmountOfCake();
-
-        Console.WriteLine("Testing SaveGameToFile...");
-        game.SaveGameToFile();
-        game.ResetGame();
-        Console.WriteLine("Clicks" + game.GetAmountOfCake());
-        game.LoadFile();
-        Console.WriteLine("Clicks Loaded" + game.GetAmountOfCake());
-
-        /**
-         * 
-         * try
-        {
-            File.Exists("CakeGameData.txt");
-            Console.WriteLine("The File Exists IN THIS DIRECTORY");
-        }
-        catch
-        {
-            Console.WriteLine("The File Does NOT exist");
-        }
-         */
-
-        Console.WriteLine("Testing Game Reset...");
-        game.ResetGame();
-        //****Changed this test case, please double check****
-        if (game.GetAmountOfCake() == 0)
-        {
-            Console.WriteLine("All tests passed!");
-        }
-
-    }
 
 }
 

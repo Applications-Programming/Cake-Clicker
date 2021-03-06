@@ -1,4 +1,4 @@
-﻿using DataBaseManager;
+﻿using DataBaseManagerLibrary;
 
 namespace Cake_Clicker_Game
 {
@@ -28,7 +28,7 @@ namespace Cake_Clicker_Game
             achievements[3].Active = false;
         }
 
-        public void GetGameData(GameData data)
+        public void GetGameData(UserData data)
         {
             if (data.amountOfCake >= 100)
             {

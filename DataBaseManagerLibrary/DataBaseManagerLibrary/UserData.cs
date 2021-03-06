@@ -3,9 +3,9 @@ using System.Text;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataBaseManager
+namespace DataBaseManagerLibrary
 {
-    public class GameData
+    public class UserData
     {
         //the UUID of the user. -1 infers that the person has no Id
         public int Id;
@@ -13,13 +13,13 @@ namespace DataBaseManager
         public int amountOfCake;
         public int[] upgradeCount;
 
-        public GameData()
+        public UserData()
         {
             Id = -1;
             upgradeCount = new int[7];
         }
 
-        public GameData(int id, string playerName, int amountOfCake, int[] upgradeCount)
+        public UserData(int id, string playerName, int amountOfCake, int[] upgradeCount)
         {
             Id = id;
             PlayerName = playerName;
