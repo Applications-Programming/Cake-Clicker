@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Achievment.cs" />
+    <Compile Include="ClickAnalytics.cs" />
     <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
     </Compile>

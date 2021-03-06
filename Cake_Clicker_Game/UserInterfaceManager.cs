@@ -14,11 +14,8 @@ namespace Cake_Clicker_Game
         GameWindow _gameWindow;
         Forms.Options _options;
 
-        //Cheat detection
-        DateTime _currentSecond;
-        int _clicksInSecond;
-        int _maxCPS;
-        bool _autoclickerDetected;
+        //Cheat detection & Click Analytics
+        ClickAnalytics _clickData;
 
         #endregion
 
@@ -33,7 +30,7 @@ namespace Cake_Clicker_Game
         {
             _game = new Game();
             _game.SetPlayerName(playerName);
-
+            _clickData = new ClickAnalytics();
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
             _gameWindow.UpdateCakeCounts();
@@ -41,22 +38,17 @@ namespace Cake_Clicker_Game
 
 
             _options = new Forms.Options();
-
-            _currentSecond = DateTime.Now;
-            _clicksInSecond = 0;
-            _maxCPS = 0;
-            _autoclickerDetected = false;
         }
 
         //returns true if an autoclicker has been detected
         public bool AutoclickerDetectionStatus()
         {
-            return _autoclickerDetected;
+            return _clickData.GetCheatStatus();
         }
 
         public int MaxCPSDetected()
         {
-            return _maxCPS;
+            return _clickData.GetMaxCPS();
         }
 
         //Create InitializeGameFromSaveFile
@@ -121,7 +113,7 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OnCakeClick()
         {
-            checkCPS();
+            _clickData.AddUserClick();
              AddToScore();
           
         }
@@ -133,7 +125,7 @@ namespace Cake_Clicker_Game
         }
         public void AddCake(Game.CakeType type)
         {
-            checkCPS();
+            _clickData.AddUserClick();
             _game.AddCakeUpgrade(type);
             _gameWindow.UpdateCakeCounts();
             _gameWindow.UpdateScore(); 
@@ -184,30 +176,6 @@ namespace Cake_Clicker_Game
             }
             return _mainMenu;
         }
-
-        //Autoclicker detection method which returns true if CPS threshhold is passed and false if the CPS is ok 
-        public void checkCPS()
-        {
-            if(DateTime.Now.Second == _currentSecond.Second)
-            {
-                _clicksInSecond++;
-                if(_clicksInSecond > 15)
-                {
-                    _autoclickerDetected = true;
-                }
-            } 
-            else 
-            {
-                if (_maxCPS < _clicksInSecond)
-                {
-                    _maxCPS = _clicksInSecond;
-                }
-                _currentSecond = DateTime.Now;
-                _clicksInSecond = 0;
-            }
-        }
-
-
         #endregion
 
     }
