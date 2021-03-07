@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -238,23 +239,166 @@ namespace DataBaseManager
 
         //Database Clear should be done manually
 
-        public struct ConnectionInfo
-        {
-            public string _dataSource;
-            public string _database;
-            public string _userId;
-            public string _password;
+        
 
-            public ConnectionInfo(string dataSource, string database, string userId, string password)
+        public List<GameData> GetScoresAbove(int score)
+        {
+            try
             {
-                _dataSource = dataSource;
-                _database = database;
-                _userId = userId;
-                _password = password;
+                _connection.Open();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message + "\n");
+                DisplayError("Couldn't Load Database.\n" +
+                                "Check Log for more info");
+                return null;
+            }
+
+            List<GameData> users = new List<GameData>();
+            SqlDataReader reader;
+
+            StringBuilder strBuilder = new StringBuilder();
+            strBuilder.Append("SELECT * FROM dbo.ScoreBoard\n");
+            strBuilder.Append("WHERE CakeScore >=" + score);
+
+
+            string sqlQuery = strBuilder.ToString();
+            using (SqlCommand command = new SqlCommand(sqlQuery, _connection))
+            {
+                command.ExecuteNonQuery();
+                reader = command.ExecuteReader();
+
+                int index = 0;
+                while (reader.Read())
+                {
+                    users[index] = new GameData();
+
+                    users[index].Id = (int)reader[0];
+                    users[index].PlayerName = reader[1].ToString().Trim();
+                    users[index].amountOfCake = (int)reader[2];
+                    string[] upgrades = reader[3].ToString().Trim().Split(' ');
+                    for (int i = 0; i < upgrades.Length; i++)
+                    {
+                        users[index].upgradeCount[i] = int.Parse(upgrades[i]);
+                    }
+                    Console.WriteLine("\nQuery Executed - Retrieved User" + _connectionInfo._database);
+
+                    index++;
+                }
+            }
+            _connection.Close();
+            return users;
         }
 
+        public List<GameData> GetHighScores(int count)
+        {
+            try
+            {
+                _connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message + "\n");
+                DisplayError("Couldn't Load Database.\n" +
+                                "Check Log for more info");
+                return null;
+            }
 
+            List<GameData> users = new List<GameData>();
+            SqlDataReader reader;
+
+            StringBuilder strBuilder = new StringBuilder();
+            strBuilder.Append("SELECT * FROM dbo.Users\n");
+            strBuilder.Append("ORDER BY CakeAmount DESC, ID;");
+
+
+            string sqlQuery = strBuilder.ToString();
+            using (SqlCommand command = new SqlCommand(sqlQuery, _connection))
+            {
+                //command.ExecuteNonQuery();
+                reader = command.ExecuteReader();
+
+                int index = 0;
+                while (reader.Read())
+                {
+                    if (index >= count)
+                        break;
+
+                    GameData user = new GameData();
+
+                    user.Id = (int)reader[0];
+                    user.PlayerName = reader[1].ToString().Trim();
+                    user.amountOfCake = (int)reader[2];
+                    string[] upgrades = reader[3].ToString().Trim().Split(' ');
+                    for (int i = 0; i < upgrades.Length; i++)
+                    {
+                        user.upgradeCount[i] = int.Parse(upgrades[i]);
+                    }
+                    users.Add(user);
+                    Console.WriteLine("\nQuery Executed - Retrieved User" + _connectionInfo._database);
+
+                    index++;
+                }
+            }
+            _connection.Close();
+            return users;
+        }
+
+        public void InsertIntoScoreboard(int id, GameData userInfo)
+        {
+            try
+            {
+                _connection.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message + "\n");
+                DisplayError("Couldn't Load Database.\n" +
+                                "Check Log for more info");
+                return;
+            }
+
+            if (userInfo.Id == -1)
+            {
+                StringBuilder strBuilder = new StringBuilder();
+                strBuilder.Append("INSERT INTO ScoreBoard (ID, CakeScore)\n");
+                strBuilder.Append("VALUES (N'" + id + "', N'" + userInfo.amountOfCake + "') ");
+
+                string sqlQuery = strBuilder.ToString();
+                using (SqlCommand command = new SqlCommand(sqlQuery, _connection))
+                {
+
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("\nQuery Executed - Saved score to " + _connectionInfo._database);
+                }
+            }
+            else
+            {
+
+            }
+
+
+            _connection.Close(); ;
+        }
+
+        
+    }
+
+    public struct ConnectionInfo
+    {
+        public string _dataSource;
+        public string _database;
+        public string _userId;
+        public string _password;
+
+        public ConnectionInfo(string dataSource, string database, string userId, string password)
+        {
+            _dataSource = dataSource;
+            _database = database;
+            _userId = userId;
+            _password = password;
+        }
     }
 }
 

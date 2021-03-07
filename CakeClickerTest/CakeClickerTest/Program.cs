@@ -1,5 +1,6 @@
 ﻿using DataBaseManager;
 using System;
+using System.Collections.Generic;
 
 namespace CakeClickerTest
 {
@@ -7,7 +8,7 @@ namespace CakeClickerTest
     {
         static void Main(string[] args)
         {
-            DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
+            ConnectionInfo connectionInfo = new ConnectionInfo(
                 "cake-clicker-server.database.windows.net",
                 "CakeClicker",
                 "DefaultUser",
@@ -15,9 +16,12 @@ namespace CakeClickerTest
 
             DatabaseManager database = DatabaseManager.CreateDatabaseManager(connectionInfo, Console.WriteLine);
 
-            int id = database.SaveToDatabase(new GameData(2, "Yarra", 2000, null));
+            List<GameData> gameData = database.GetHighScores(10);
 
-            Console.WriteLine(id);
+            foreach(GameData game in gameData)
+            {
+                game.Print(Console.WriteLine);
+            }
 
             Console.ReadLine();
         }

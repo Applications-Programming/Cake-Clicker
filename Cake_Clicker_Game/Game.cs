@@ -29,7 +29,7 @@ public class Game
     ///Constructor
     public Game()
     {
-        DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
+        ConnectionInfo connectionInfo = new ConnectionInfo(
             "cake-clicker-server.database.windows.net",
             "CakeClicker",
             "DefaultUser",
