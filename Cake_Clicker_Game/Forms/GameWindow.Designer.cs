@@ -133,7 +133,7 @@ namespace Cake_Clicker_Game
             this.scoreLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.scoreLabel.Location = new System.Drawing.Point(989, 35);
+            this.scoreLabel.Location = new System.Drawing.Point(989, 33);
             this.scoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -152,7 +152,7 @@ namespace Cake_Clicker_Game
             this.cakeLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.cakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.cakeLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.cakeLabel.Location = new System.Drawing.Point(0, 35);
+            this.cakeLabel.Location = new System.Drawing.Point(0, 33);
             this.cakeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cakeLabel.Name = "cakeLabel";
             this.cakeLabel.Size = new System.Drawing.Size(969, 113);
@@ -814,7 +814,7 @@ namespace Cake_Clicker_Game
             this.saveToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1776, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1776, 33);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
