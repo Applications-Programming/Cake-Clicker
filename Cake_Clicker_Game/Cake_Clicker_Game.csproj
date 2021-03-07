@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	<Compile Include="Forms\Achievements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Achievements.Designer.cs">
+      <DependentUpon>Achievements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ColorPicker.Designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Achievment.cs" />
 
     <Compile Include="Forms\Options.cs">
@@ -80,6 +92,7 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="CakeClicker.cs" />
+<Compile Include="ClickAnalytics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterfaceManager.cs" />
     <EmbeddedResource Include="Forms\Achievements.resx">
