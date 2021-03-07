@@ -53,18 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Achievment.cs" />
-    <Compile Include="Forms\Achievements.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Achievements.Designer.cs">
-      <DependentUpon>Achievements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ColorPicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ColorPicker.Designer.cs">
-      <DependentUpon>ColorPicker.cs</DependentUpon>
-    </Compile>
+
     <Compile Include="Forms\Options.cs">
       <SubType>Form</SubType>
     </Compile>
