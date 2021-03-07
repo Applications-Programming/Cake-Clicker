@@ -31,7 +31,6 @@ namespace Cake_Clicker_Game
         /// <param name="score">The new score</param>
         public void UpdateScore()
         {
-            UpdateCheatStatus();
             int score = _userInterfaceManager.GetGame().GetAmountOfCake();
             scoreLabel.Text = score + " Cake";
         }
@@ -39,7 +38,6 @@ namespace Cake_Clicker_Game
         public void UpdateCakeCounts()
         {
             int[] cakeCounts = _userInterfaceManager.GetGame().GetUpgradeCount();
-            UpdateCheatStatus();
             vanillaCakeInfoBox.Text = "Count: " + cakeCounts[0].ToString();
             ChocolateCakeInfoBox.Text = "Count: " + cakeCounts[1].ToString();
             strawberryCakeInfoBox.Text = "Count: " + cakeCounts[2].ToString();
@@ -47,34 +45,6 @@ namespace Cake_Clicker_Game
             redVelvetCakeInfoBox.Text = "Count: " + cakeCounts[4].ToString();
             carrotCakeInfoBox.Text = "Count: " + cakeCounts[5].ToString();
             cheeseCakeInfoBox.Text = "Count: " + cakeCounts[6].ToString();
-
-        }
-
-        public void UpdateCheatStatus()
-        {
-            bool autoclickerStatus = _userInterfaceManager.AutoclickerDetectionStatus();
-            if (autoclickerStatus == true)
-            {
-                CheatsDetectedStatus.Text = "An autoclicker has been detected";
-                CheatsDetectedStatus.Visible = true;
-            }
-
-            int maxCPS = _userInterfaceManager.MaxCPSDetected();
-            if (maxCPS < 8)
-            {
-                MaxCPSStatus.ForeColor = Color.Green;
-                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            }
-            else if (maxCPS < 15)
-            {
-                MaxCPSStatus.ForeColor = Color.Yellow;
-                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            }
-            else
-            {
-                MaxCPSStatus.ForeColor = Color.Red;
-                MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            }
 
         }
         public void UpdateGameInfo()
@@ -163,7 +133,6 @@ namespace Cake_Clicker_Game
         {
             //Calls game class method to get the array of achievement status's
             bool[] values = _userInterfaceManager.CheckAchievements();
-            UpdateCheatStatus();
             //If an achievement is true then it makes the achievement known to the user
             if (values[0] == true)
             {
