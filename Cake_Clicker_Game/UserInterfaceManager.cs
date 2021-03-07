@@ -43,13 +43,7 @@ namespace Cake_Clicker_Game
 
 
             _options = new Forms.Options();
-            _achievements = new Forms.Achievements();
-            _colorPicker = new Forms.ColorPicker();
-
-            _currentSecond = DateTime.Now;
-            _clicksInSecond = 0;
-            _maxCPS = 0;
-            _autoclickerDetected = false;
+           
         }
 
         //returns true if an autoclicker has been detected
