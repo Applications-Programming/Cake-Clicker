@@ -19,14 +19,10 @@ namespace Cake_Clicker_Game
             cakeLabel.Text = playerName + "'s Bakery";
             //refreshTimer.Interval = 100;
             //refreshTimer.Start();
+            Size = new Size(1200, 800);
+            cakeButton.Size = new Size(512, 512);
             cakeButton.MouseDown += new MouseEventHandler(Shrink);
             cakeButton.MouseUp += new MouseEventHandler(Grow);
-
-            //Mask the Achievement descriptions
-            Achievement_One_Description.Text = "????????????????";
-            Achievement_Two_Description.Text = "????????????????";
-            Achievement_Three_Description.Text = "????????????????";
-            Achievement_Four_Description.Text = "????????????????";
         }
 
         /// <summary>
@@ -57,21 +53,24 @@ namespace Cake_Clicker_Game
         public void UpdateCheatStatus()
         {
             bool autoclickerStatus = _userInterfaceManager.AutoclickerDetectionStatus();
-            if(autoclickerStatus == true)
+            if (autoclickerStatus == true)
             {
                 CheatsDetectedStatus.Text = "An autoclicker has been detected";
                 CheatsDetectedStatus.Visible = true;
             }
 
             int maxCPS = _userInterfaceManager.MaxCPSDetected();
-            if(maxCPS < 8) 
+            if (maxCPS < 8)
             {
                 MaxCPSStatus.ForeColor = Color.Green;
                 MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            } else if (maxCPS < 15){
+            }
+            else if (maxCPS < 15)
+            {
                 MaxCPSStatus.ForeColor = Color.Yellow;
                 MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
-            } else
+            }
+            else
             {
                 MaxCPSStatus.ForeColor = Color.Red;
                 MaxCPSStatus.Text = "Max CPS: " + maxCPS + " per second";
@@ -94,6 +93,7 @@ namespace Cake_Clicker_Game
             //addPointsTimer.Start();
         }
 
+        #region ButtonAnimation
         private void Shrink(object sender, MouseEventArgs e)
         {
             cakeButton.Size = new Size(500, 500);
@@ -105,15 +105,11 @@ namespace Cake_Clicker_Game
             cakeButton.Size = new Size(512, 512);
             cakeButton.Location = new Point(cakeButton.Location.X - 6, cakeButton.Location.Y - 6);
         }
+        #endregion
 
         //Timer for adding points to the game
         private void AddPointsTimer_Tick(object sender, EventArgs e)
         {
-        }
-
-        private void optionsButton_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.OpenOptions();
         }
 
         #region AddCakeTypeButtons
@@ -161,28 +157,22 @@ namespace Cake_Clicker_Game
 
         #endregion
 
-        private void SaveAndQuitButton_Click(object sender, EventArgs e)
-        {
-            _userInterfaceManager.Save();
-            Application.Exit();
-        }
-
         //This method is called when an achievement has the potential of being unlocked
         //For example, when the user buys an upgrade or clicks to get more cake
-        private void CheckAchievements() 
+        private void CheckAchievements()
         {
             //Calls game class method to get the array of achievement status's
-            bool[] values = _userInterfaceManager.CheckAcheivements();
+            bool[] values = _userInterfaceManager.CheckAchievements();
             UpdateCheatStatus();
             //If an achievement is true then it makes the achievement known to the user
-            if (values[0] == true) 
+            if (values[0] == true)
             {
                 Achievement_One_Groupbox.Text = "Cake Novice";
                 Achievement_One_Description.Text = "Reached 100 Cakes!";
                 Achievement_One_Description.ForeColor = Color.Gold;
                 Achievement_One_Question_Mark.Visible = false;
                 Achievement_One_Star.Visible = true;
-            } 
+            }
             if (values[1] == true)
             {
                 Achievement_Two_Groupbox.Text = "Cake Master";
@@ -209,5 +199,32 @@ namespace Cake_Clicker_Game
             }
         }
 
+        #region MenuBar
+        private void analyticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void achievementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.OpenAchievements();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.Save();
+            Application.Exit();
+        }
+        #endregion
+
+        private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.OpenOptions();
+        }
+
+        private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _userInterfaceManager.OpenColorPicker();
+        }
     }
 }
