@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cake_Clicker_Game.Forms
 {
-    public partial class ColorPicker: Form
+    public partial class Analytics : Form
     {
-        public ColorPicker()
+        public Analytics()
         {
             InitializeComponent();
         }

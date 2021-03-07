@@ -1,6 +1,7 @@
-﻿namespace Cake_Clicker_Game.Forms
+﻿
+namespace Cake_Clicker_Game.Forms
 {
-    partial class ColorPicker
+    partial class Analytics
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +32,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ColorPicker";
+            this.Text = "Analytics";
         }
 
         #endregion

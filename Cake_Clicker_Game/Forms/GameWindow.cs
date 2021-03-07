@@ -202,7 +202,7 @@ namespace Cake_Clicker_Game
         #region MenuBar
         private void analyticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            _userInterfaceManager.OpenAnalytics();
         }
 
         private void achievementsToolStripMenuItem_Click(object sender, EventArgs e)

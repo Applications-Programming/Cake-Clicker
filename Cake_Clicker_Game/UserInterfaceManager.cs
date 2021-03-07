@@ -15,6 +15,7 @@ namespace Cake_Clicker_Game
         Forms.Options _options;
         Forms.Achievements _achievements;
         Forms.ColorPicker _colorPicker;
+        Forms.Analytics _analytics;
 
         //Cheat detection & Click Analytics
         ClickAnalytics _clickData;
@@ -40,7 +41,9 @@ namespace Cake_Clicker_Game
 
 
             _options = new Forms.Options();
-          
+            _colorPicker = new Forms.ColorPicker();
+            _achievements = new Forms.Achievements();
+            _analytics = new Forms.Analytics();
         }
 
         //returns true if an autoclicker has been detected
@@ -96,6 +99,7 @@ namespace Cake_Clicker_Game
 
         }
 
+        #region Menu Bar
         /// <summary>
         /// Opens the options menu
         /// </summary>
@@ -125,6 +129,16 @@ namespace Cake_Clicker_Game
             if (!_colorPicker.Visible)
                 _colorPicker.Show();
         }
+
+        /// <summary>
+        /// Opens the analytics section
+        /// </summary>
+        public void OpenAnalytics()
+        {
+            if (!_analytics.Visible)
+                _analytics.Show();
+        }
+        #endregion
 
         //Gets the bool array of achievement status from the game class
         public bool[] CheckAchievements()
