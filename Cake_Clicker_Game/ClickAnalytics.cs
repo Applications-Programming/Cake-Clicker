@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Cake_Clicker_Game
 {
     //Class that handles cheat detection and Clicking Analytics
-    class ClickAnalytics
+    public class ClickAnalytics
     {
 
         //Private Fields
@@ -28,26 +28,25 @@ namespace Cake_Clicker_Game
         {
             //Last element in the list
             int index = CPSData.Count - 1;
+            CPSData[index].IncrementClicks();
 
             //Checks if the timestamp is the same as the current time, if so then we need to increment the clicks and check if an autoclicker is active
-            if (DateTime.Now == CPSData[index].GetTimestamp())
+            if (DateTime.Now.Second != CPSData[index].GetTimestamp().Second)
             {
-                CPSData[index].IncrementClicks();
                 if (CPSData[index].GetClicks() > 15)
                 {
                     _autoclickerDetected = true;
                 }
-            }
-            else
-            {
                 if (_maxCPS < CPSData[index].GetClicks())
                 {
-                    _maxCPS = CPSData[index].GetClicks();
+                    //_maxCPS = CPSData[index].GetClicks();
                 }
-
                 //Since timestamp is different, is so we make a new ClickData element and add to the back of the list
                 CPSData.Add(new ClickData(DateTime.Now, 0));
             }
+
+            //This is run but for some reason isn't saved
+            _maxCPS = 50;
         }
 
         //This method returns true if an autoclicker has been detected
@@ -62,7 +61,7 @@ namespace Cake_Clicker_Game
         {
             // currently always returning 0 which is incorrect
             //Dummy variable in here for testing other features
-            return 28;
+            return 8;
         }
 
         //Get average CPS
@@ -80,7 +79,7 @@ namespace Cake_Clicker_Game
 
             //totalClicks / totalClickSaves - currently always returning 0 which is incorrect
             //Dummy variable in here for testing other features
-            return 7;
+            return 5;
         }
 
 

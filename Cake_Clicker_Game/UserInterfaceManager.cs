@@ -155,6 +155,7 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OnCakeClick()
         {
+             _game.AddUserClick();
              AddToScore();
           
         }
@@ -162,12 +163,14 @@ namespace Cake_Clicker_Game
         //Force updates cake score
         public void RefreshScore()
         {
+            _game.AddUserClick();
             _gameWindow.UpdateScore();
         }
 
         //Calls on the game object by adding cake also this method updates the scoreboards
         public void AddCake(Game.CakeType type)
         {
+            _game.AddUserClick();
             _game.AddCakeUpgrade(type);
             _gameWindow.UpdateCakeCounts();
             _gameWindow.UpdateScore(); 

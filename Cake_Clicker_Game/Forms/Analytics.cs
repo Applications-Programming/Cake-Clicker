@@ -50,16 +50,8 @@ namespace Cake_Clicker_Game.Forms
         //loads the Max CPS bar
         public void generateMaxCPSBar()
         {
-            int maxCPS = _userInterfaceManager.MaxCPSDetected();
+            int maxCPS = _userInterfaceManager.GetGame().GetMaxCPS();
             maxCPSLabel.Text = "Max CPS Reached (" + maxCPS + "):";
-
-            if (maxCPS < 7) {
-                maxCPSBar.BackColor = Color.DarkGreen;
-            } else if (maxCPS < 16) {
-                maxCPSBar.BackColor = Color.Yellow;
-            } else {
-                maxCPSBar.BackColor = Color.DarkRed;
-            }
 
             //Progress bar doesn't break if someone has an insane autoclicker lol
             if(maxCPS > 30)
@@ -71,7 +63,7 @@ namespace Cake_Clicker_Game.Forms
             double maxCPSCast = maxCPS * 1.0;
 
             //Progress bar range is (0,100)
-            maxCPSBar.Value = Convert.ToInt32((maxCPSCast/30.0)*100);
+            maxCPSBar.Value = Convert.ToInt32((maxCPSCast/16.0)*100);
         }
 
         //loads the Average CPS bar
@@ -79,19 +71,6 @@ namespace Cake_Clicker_Game.Forms
         {
             double averageCPS = _userInterfaceManager.AverageCPSDetected();
             averageCPSLabel.Text = "Average CPS (" + averageCPS + "):";
-
-            if (averageCPS < 7)
-            {
-                averageCPSBar.ForeColor = Color.DarkGreen;
-            }
-            else if (averageCPS < 16)
-            {
-                averageCPSBar.ForeColor = Color.Yellow;
-            }
-            else
-            {
-                averageCPSBar.ForeColor = Color.DarkRed;
-            }
 
             //Progress bar doesn't break if someone has an insane autoclicker lol
             if (averageCPS > 30)
@@ -103,7 +82,7 @@ namespace Cake_Clicker_Game.Forms
             double averageCPSCast = averageCPS * 1.0;
 
             //Progress bar range is (0,100)
-            averageCPSBar.Value = Convert.ToInt32((averageCPSCast / 30.0) * 100);
+            averageCPSBar.Value = Convert.ToInt32((averageCPSCast / 16.0) * 100);
         }
 
         private void closeTabButton_Click(object sender, EventArgs e)

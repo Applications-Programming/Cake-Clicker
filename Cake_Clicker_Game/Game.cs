@@ -21,7 +21,7 @@ public class Game
     public readonly bool _offlineMode = false;
 
     //Cheat Detection & Click Analytics
-    private ClickAnalytics _clickData;
+    internal ClickAnalytics _clickData;
 
     ///Enums
     public enum CakeType
@@ -60,6 +60,13 @@ public class Game
     }
 
 
+    //Allows the UserInterface class to say a click was detected
+    public void AddUserClick()
+    {
+        _clickData.AddUserClick();
+    }
+
+
     /// <summary>
     /// Game Methods
     /// </summary>
@@ -67,10 +74,6 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
-        //Logs a cake click
-        _clickData.AddUserClick();
-        Console.WriteLine(_clickData.GetMaxCPS());
-
         //Computes and adds the amount of cake to the game
         _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
         achievements.GetGameData(_gameInfo);
@@ -82,8 +85,6 @@ public class Game
         _gameInfo.amountOfCake += cakeAmount;
         achievements.GetGameData(_gameInfo);
 
-        //Logs a cake click
-        _clickData.AddUserClick();
     }
 
     //This method returns the amount of cake stored in _amountOfCake
@@ -208,8 +209,6 @@ public class Game
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
     public bool AddCakeUpgrade(CakeType addedCake)
     {
-        //Logs a cake click
-        _clickData.AddUserClick();
         //adds the upgrade to the game based off the cake type passed in
         if (addedCake == CakeType.Vanilla && _gameInfo.amountOfCake >= 50)
         {
