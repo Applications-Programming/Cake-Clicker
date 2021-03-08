@@ -17,8 +17,6 @@ namespace Cake_Clicker_Game
         Forms.ColorPicker _colorPicker;
         Forms.Analytics _analytics;
 
-        //Cheat detection & Click Analytics
-        ClickAnalytics _clickData;
 
         #endregion
 
@@ -33,7 +31,6 @@ namespace Cake_Clicker_Game
         {
             _game = new Game();
             _game.SetPlayerName(playerName);
-            _clickData = new ClickAnalytics();
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
             _gameWindow.UpdateCakeCounts();
@@ -46,15 +43,23 @@ namespace Cake_Clicker_Game
             _analytics = new Forms.Analytics();
         }
 
+
         //returns true if an autoclicker has been detected
         public bool AutoclickerDetectionStatus()
         {
-            return _clickData.GetCheatStatus();
+            return _game.GetCheatStatus();
         }
 
+        //Gets the max cps detected so far from the game class
         public int MaxCPSDetected()
         {
-            return _clickData.GetMaxCPS();
+            return _game.GetMaxCPS();
+        }
+
+        //Gets the average cps detected so far from the game class
+        public double AverageCPSDetected()
+        {
+            return _game.GetAverageCPS();
         }
 
         //Create InitializeGameFromSaveFile
@@ -135,12 +140,11 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OpenAnalytics()
         {
+
             if (!_analytics.Visible)
                 _analytics.Show();
         }
         #endregion
-
-        //Gets the bool array of achievement status from the game class
         public bool[] CheckAchievements()
         {
             return _game.GetAchivements();
@@ -151,7 +155,6 @@ namespace Cake_Clicker_Game
         /// </summary>
         public void OnCakeClick()
         {
-            _clickData.AddUserClick();
              AddToScore();
           
         }
@@ -161,14 +164,16 @@ namespace Cake_Clicker_Game
         {
             _gameWindow.UpdateScore();
         }
+
+        //Calls on the game object by adding cake also this method updates the scoreboards
         public void AddCake(Game.CakeType type)
         {
-            _clickData.AddUserClick();
             _game.AddCakeUpgrade(type);
             _gameWindow.UpdateCakeCounts();
             _gameWindow.UpdateScore(); 
         }
 
+        //This method resets all game states
         public void Reset()
         {
             _game.ResetGame();

@@ -30,7 +30,7 @@ namespace Cake_Clicker_Game
             int index = CPSData.Count - 1;
 
             //Checks if the timestamp is the same as the current time, if so then we need to increment the clicks and check if an autoclicker is active
-            if (DateTime.Now.Second == CPSData[index].GetTimestamp().Second)
+            if (DateTime.Now == CPSData[index].GetTimestamp())
             {
                 CPSData[index].IncrementClicks();
                 if (CPSData[index].GetClicks() > 15)
@@ -60,7 +60,9 @@ namespace Cake_Clicker_Game
         //If the user hasn't clicked yet then the method will return 0
         public int GetMaxCPS()
         {
-            return _maxCPS;
+            // currently always returning 0 which is incorrect
+            //Dummy variable in here for testing other features
+            return 28;
         }
 
         //Get average CPS
@@ -76,7 +78,9 @@ namespace Cake_Clicker_Game
 
             double totalClickSaves = (double) CPSData.Count;
 
-            return totalClicks / totalClickSaves;
+            //totalClicks / totalClickSaves - currently always returning 0 which is incorrect
+            //Dummy variable in here for testing other features
+            return 7;
         }
 
 

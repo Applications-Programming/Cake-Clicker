@@ -103,6 +103,9 @@
     <EmbeddedResource Include="Forms\Achievements.resx">
       <DependentUpon>Achievements.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Analytics.resx">
+      <DependentUpon>Analytics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ColorPicker.resx">
       <DependentUpon>ColorPicker.cs</DependentUpon>
     </EmbeddedResource>

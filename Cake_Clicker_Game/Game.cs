@@ -20,6 +20,9 @@ public class Game
     private DatabaseManager _databaseManager;
     public readonly bool _offlineMode = false;
 
+    //Cheat Detection & Click Analytics
+    private ClickAnalytics _clickData;
+
     ///Enums
     public enum CakeType
     {
@@ -46,11 +49,16 @@ public class Game
         {
             temp[i] = 0;
         }
+
         //GameData object for holding game information
         _gameInfo = new GameData(-1, "null", 0, temp);
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
+
+        //Click Analytics & Cheat detection
+        _clickData = new ClickAnalytics();
     }
+
 
     /// <summary>
     /// Game Methods
@@ -59,6 +67,11 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
+        //Logs a cake click
+        _clickData.AddUserClick();
+        Console.WriteLine(_clickData.GetMaxCPS());
+
+        //Computes and adds the amount of cake to the game
         _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
         achievements.GetGameData(_gameInfo);
     }
@@ -68,6 +81,9 @@ public class Game
     {
         _gameInfo.amountOfCake += cakeAmount;
         achievements.GetGameData(_gameInfo);
+
+        //Logs a cake click
+        _clickData.AddUserClick();
     }
 
     //This method returns the amount of cake stored in _amountOfCake
@@ -106,6 +122,9 @@ public class Game
         _gameInfo.amountOfCake = 0;
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
+
+        //Resets analytics
+        _clickData = new ClickAnalytics();
 
         int[] temp = new int[7];
 
@@ -189,7 +208,9 @@ public class Game
     //Returns true if the cake was successfully added and returns false if the player doesn't have enough cake for the transaction
     public bool AddCakeUpgrade(CakeType addedCake)
     {
-
+        //Logs a cake click
+        _clickData.AddUserClick();
+        //adds the upgrade to the game based off the cake type passed in
         if (addedCake == CakeType.Vanilla && _gameInfo.amountOfCake >= 50)
         {
             _cakePerClick += 5;
@@ -247,6 +268,24 @@ public class Game
             return true;
         }
         return false;
+    }
+    
+    //Gets the max cps from the click analytics object
+    public int GetMaxCPS()
+    {
+        return _clickData.GetMaxCPS();
+    }
+
+    //Gets the average cps from the click analytics object
+    public double GetAverageCPS()
+    {
+        return _clickData.AverageCPS();
+    }
+
+    //Returns a bool that shows where the player is cheating or not
+    public bool GetCheatStatus()
+    {
+        return _clickData.GetCheatStatus();
     }
 
     public void CheckAchivements()
