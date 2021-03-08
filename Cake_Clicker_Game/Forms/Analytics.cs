@@ -21,7 +21,6 @@ namespace Cake_Clicker_Game.Forms
 
             //Profile name and UUID
             profileLabel.Text = "Profile: " + _userInterfaceManager.GetGame().GetPlayerName();
-            uuidLabel.Text = "Profile UUID: " + _userInterfaceManager.GetGame().GetPlayerId();
 
             //Autoclicker detection status
             if (_userInterfaceManager.AutoclickerDetectionStatus()){
