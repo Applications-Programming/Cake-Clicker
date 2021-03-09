@@ -92,7 +92,7 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
-        if(_gameMode == 0 || (_gameMode == 1 && _gameInfo.amountOfCake != 1000000))
+        if(_gameMode == 0 || (_gameMode == 1 && _gameInfo.amountOfCake <= 1000000))
         {
             bool result = GoldenCakeRandomizer();
             _isMostRecentGold = result; 
