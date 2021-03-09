@@ -408,7 +408,7 @@ public class Test
     static void MainTesting()
     {
         Console.WriteLine("Testing game clicks, multiplier, and caketype...");
-        Game game = new Game(1);
+        Game game = new Game("null", 1);
         for (int i = 0; i < 200; i++)
         {
             game.AddCake();

@@ -39,7 +39,7 @@ namespace Cake_Clicker_Game
         //returns whether the last cake earned included a golden cake
         public bool LastCakeGoldCake()
         {
-            return false;
+            return _game.GetIsMostRecentGold();
         }
 
         /// <summary>
