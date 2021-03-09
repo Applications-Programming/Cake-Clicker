@@ -75,7 +75,7 @@ namespace Cake_Clicker_Game
 
             if(_userInterfaceManager.GetCakeTotal() >= 1000000 && _userInterfaceManager.GetGamemode() == 1)
             {
-                cakeJustEarnedLabel.Text = _userInterfaceManager.GetFinaleString();
+                cakeJustEarnedLabel.Text = "Journey to 1,000,000 cake completed in: " + _userInterfaceManager.GetFinaleString();
             } else
             {
                 if (_userInterfaceManager.LastCakeGoldCake() == true)
