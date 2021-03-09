@@ -23,12 +23,32 @@ namespace Cake_Clicker_Game
 
         #region Methods
 
+        //Gets the active gamemode
+        public int GetGamemode()
+        {
+            return 0;
+        }
+
+        //Gets the amount of cake earned
+        public int GetLastCakeEarned()
+        {
+            return 0;
+        }
+
+
+        //returns whether the last cake earned included a golden cake
+        public bool LastCakeGoldCake()
+        {
+            return false;
+        }
+
         /// <summary>
         /// Initializes the game startpoint. 
         /// </summary>
         /// <param name="playerName"></param>
-        public void IntitializeGame(string playerName)
+        public void IntitializeGame(string playerName, int gamemode)
         {
+            //_game = new Game(playerName, gamemode);
             _game = new Game();
             _game.SetPlayerName(playerName);
             _gameWindow = new GameWindow(playerName);
@@ -42,7 +62,6 @@ namespace Cake_Clicker_Game
             _achievements = new Forms.Achievements();
             _analytics = new Forms.Analytics();
         }
-
 
         //returns true if an autoclicker has been detected
         public bool AutoclickerDetectionStatus()

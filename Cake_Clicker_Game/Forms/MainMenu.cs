@@ -16,19 +16,19 @@ namespace Cake_Clicker_Game
             this.Update();
             if (NameTextBox.Text.Length == 0)
             {
-                CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex");
+                CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex", 0);
             }
             else
             {
                 //Prevents excessively user input
                 if (NameTextBox.Text.Length < 15)
                 {
-                    CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text, 0);
 
                 }
                 else
                 {
-                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex");
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex", 0);
                 }
 
             }
@@ -48,19 +48,19 @@ namespace Cake_Clicker_Game
                 this.Update();
                 if (NameTextBox.Text.Length == 0)
                 {
-                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny", 0);
                 }
                 else
                 {
                     //Prevents excessively user input
                     if (NameTextBox.Text.Length < 15)
                     {
-                        CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text);
+                        CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text, 0);
 
                     }
                     else
                     {
-                        CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny");
+                        CakeClicker.GetUserInterfaceManager().IntitializeGame("Johny", 0);
                     }
 
                 }
@@ -69,6 +69,34 @@ namespace Cake_Clicker_Game
                 CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
                 this.Dispose();
             }
+        }
+
+        private void MasterMode_Click(object sender, EventArgs e)
+        {
+            masterModeStartButton.Text = "Loading...";
+            this.Update();
+            if (NameTextBox.Text.Length == 0)
+            {
+                CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex", 1);
+            }
+            else
+            {
+                //Prevents excessively user input
+                if (NameTextBox.Text.Length < 15)
+                {
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame(NameTextBox.Text, 1);
+
+                }
+                else
+                {
+                    CakeClicker.GetUserInterfaceManager().IntitializeGame("Alex", 1);
+                }
+
+            }
+
+            Hide();
+            CakeClicker.GetUserInterfaceManager().OpenNewWindow(CakeClicker.GetUserInterfaceManager().GetGameWindow());
+            this.Dispose();
         }
     }
 }

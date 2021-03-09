@@ -33,6 +33,7 @@ namespace Cake_Clicker_Game
             this.startButton = new System.Windows.Forms.Button();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.enterNameLabel = new System.Windows.Forms.Label();
+            this.masterModeStartButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -41,9 +42,10 @@ namespace Cake_Clicker_Game
             | System.Windows.Forms.AnchorStyles.Right)));
             this.welcomeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.welcomeLabel.Location = new System.Drawing.Point(12, 56);
+            this.welcomeLabel.Location = new System.Drawing.Point(18, 86);
+            this.welcomeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(960, 188);
+            this.welcomeLabel.Size = new System.Drawing.Size(1440, 289);
             this.welcomeLabel.TabIndex = 0;
             this.welcomeLabel.Text = "Welcome to \r\nCakeClicker!!!";
             this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -52,21 +54,23 @@ namespace Cake_Clicker_Game
             // 
             this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.startButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.startButton.Location = new System.Drawing.Point(768, 378);
+            this.startButton.Location = new System.Drawing.Point(1101, 467);
+            this.startButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(204, 71);
+            this.startButton.Size = new System.Drawing.Size(306, 109);
             this.startButton.TabIndex = 1;
-            this.startButton.Text = "START";
+            this.startButton.Text = "START (Normal Mode)";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(17, 396);
+            this.NameTextBox.Location = new System.Drawing.Point(26, 609);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(317, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(474, 26);
             this.NameTextBox.TabIndex = 2;
             this.NameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextBox_KeyPress);
             // 
@@ -75,22 +79,40 @@ namespace Cake_Clicker_Game
             this.enterNameLabel.AutoSize = true;
             this.enterNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.enterNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterNameLabel.Location = new System.Drawing.Point(12, 367);
+            this.enterNameLabel.Location = new System.Drawing.Point(18, 565);
+            this.enterNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enterNameLabel.Name = "enterNameLabel";
-            this.enterNameLabel.Size = new System.Drawing.Size(129, 26);
+            this.enterNameLabel.Size = new System.Drawing.Size(188, 37);
             this.enterNameLabel.TabIndex = 3;
             this.enterNameLabel.Text = "Enter Name";
             // 
+            // masterModeStartButton
+            // 
+            this.masterModeStartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.masterModeStartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.masterModeStartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.masterModeStartButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.masterModeStartButton.Location = new System.Drawing.Point(1101, 586);
+            this.masterModeStartButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.masterModeStartButton.Name = "masterModeStartButton";
+            this.masterModeStartButton.Size = new System.Drawing.Size(306, 109);
+            this.masterModeStartButton.TabIndex = 4;
+            this.masterModeStartButton.Text = "START (Master Mode)";
+            this.masterModeStartButton.UseVisualStyleBackColor = false;
+            this.masterModeStartButton.Click += new System.EventHandler(this.MasterMode_Click);
+            // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(1476, 709);
+            this.Controls.Add(this.masterModeStartButton);
             this.Controls.Add(this.enterNameLabel);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.welcomeLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.ResumeLayout(false);
@@ -104,5 +126,6 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label enterNameLabel;
+        private System.Windows.Forms.Button masterModeStartButton;
     }
 }

@@ -23,6 +23,16 @@ namespace Cake_Clicker_Game
             cakeButton.Size = new Size(512, 512);
             cakeButton.MouseDown += new MouseEventHandler(Shrink);
             cakeButton.MouseUp += new MouseEventHandler(Grow);
+
+            if (_userInterfaceManager.GetGamemode() == 0)
+            {
+                currentGamemode.Text = "Current Gamemode is Normal Mode";
+            }
+
+            if (_userInterfaceManager.GetGamemode() == 1)
+            {
+                currentGamemode.Text = "Current Gamemode is Master Mode";
+            }
         }
 
         /// <summary>
@@ -59,6 +69,19 @@ namespace Cake_Clicker_Game
         {
             _userInterfaceManager.OnCakeClick();
             CheckAchievements();
+
+            //Updates cake labels
+            int cakeEarned = _userInterfaceManager.GetLastCakeEarned();
+            if(_userInterfaceManager.LastCakeGoldCake() == true)
+            {
+                cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake (Last cake was golden!) Epic!";
+            }
+            else
+            {
+                cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake!";
+            }
+
+
             //addPointsTimer.Interval = 1000;
             //addPointsTimer.Start();
         }

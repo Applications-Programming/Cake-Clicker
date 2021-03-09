@@ -96,6 +96,8 @@ namespace Cake_Clicker_Game
             this.achievementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cakeButton = new System.Windows.Forms.Button();
+            this.cakeJustEarnedLabel = new System.Windows.Forms.Label();
+            this.currentGamemode = new System.Windows.Forms.Label();
             this.CakeDataBox.SuspendLayout();
             this.cheeseGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -879,6 +881,28 @@ namespace Cake_Clicker_Game
             this.cakeButton.UseVisualStyleBackColor = false;
             this.cakeButton.Click += new System.EventHandler(this.cakeButton_Click);
             // 
+            // cakeJustEarnedLabel
+            // 
+            this.cakeJustEarnedLabel.AutoSize = true;
+            this.cakeJustEarnedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cakeJustEarnedLabel.ForeColor = System.Drawing.Color.Gold;
+            this.cakeJustEarnedLabel.Location = new System.Drawing.Point(600, 992);
+            this.cakeJustEarnedLabel.Name = "cakeJustEarnedLabel";
+            this.cakeJustEarnedLabel.Size = new System.Drawing.Size(717, 37);
+            this.cakeJustEarnedLabel.TabIndex = 12;
+            this.cakeJustEarnedLabel.Text = "Last click earned a total of  <insert cake amount>";
+            // 
+            // currentGamemode
+            // 
+            this.currentGamemode.AutoSize = true;
+            this.currentGamemode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentGamemode.ForeColor = System.Drawing.Color.Gold;
+            this.currentGamemode.Location = new System.Drawing.Point(600, 1030);
+            this.currentGamemode.Name = "currentGamemode";
+            this.currentGamemode.Size = new System.Drawing.Size(475, 37);
+            this.currentGamemode.TabIndex = 13;
+            this.currentGamemode.Text = "Currently Playing: <gamemode>";
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -886,6 +910,8 @@ namespace Cake_Clicker_Game
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1776, 1171);
             this.ControlBox = false;
+            this.Controls.Add(this.currentGamemode);
+            this.Controls.Add(this.cakeJustEarnedLabel);
             this.Controls.Add(this.achievementsGroup);
             this.Controls.Add(this.CakeDataBox);
             this.Controls.Add(this.cakeLabel);
@@ -1010,6 +1036,8 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.Label cakeJustEarnedLabel;
+        private System.Windows.Forms.Label currentGamemode;
     }
 }
 
