@@ -23,6 +23,7 @@ public class Game
     public readonly bool _offlineMode = false;
     private int _gameMode;
     private string _stopWatchToString;
+    private bool _isMostRecentGold;
     Stopwatch _stopwatch = new Stopwatch();
 
 
@@ -65,6 +66,7 @@ public class Game
         _mostRecentClickEarnings = 0;
         _gameMode = gameMode;
         _stopWatchToString = "null";
+        _isMostRecentGold = false;
 
         if (_gameMode == 1)
         {
@@ -93,6 +95,7 @@ public class Game
         if(_gameMode == 0 || (_gameMode == 1 && _gameInfo.amountOfCake != 1000000))
         {
             bool result = GoldenCakeRandomizer();
+            _isMostRecentGold = result; 
 
             if (result == true)
             {
@@ -124,6 +127,11 @@ public class Game
     public int GetAmountOfCake()
     {
         return _gameInfo.amountOfCake;
+    }
+
+    public bool GetIsMostRecentGold()
+    {
+        return _isMostRecentGold;
     }
 
     public int GetGamemode()
