@@ -100,15 +100,28 @@ public class Game
             if (result == true)
             {
                 _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+                if(_gameInfo.amountOfCake >= 1000000)
+                {
+                    MillionCakesStopWatch();
+                }
                 _gameInfo.amountOfCake += 500;
+                if (_gameInfo.amountOfCake >= 1000000)
+                {
+                    MillionCakesStopWatch();
+                }
                 _mostRecentClickEarnings = 500 + (int)(_cakePerClick * _multiplierOnCakeClick);
             }
             else
             {
                 _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+                if (_gameInfo.amountOfCake >= 1000000)
+                {
+                    MillionCakesStopWatch();
+                }
                 _mostRecentClickEarnings = (int)(_cakePerClick * _multiplierOnCakeClick);
             }
             achievements.GetGameData(_gameInfo, _goldenCakes);
+           
         }
         else
         {
