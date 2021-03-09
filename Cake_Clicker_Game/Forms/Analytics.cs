@@ -44,11 +44,11 @@ namespace Cake_Clicker_Game.Forms
 
             if(_userInterfaceManager.GetGamemode() == 0) 
             {
-                gameStateBox.Text = "Gamemode: Normal";
+                gamemodeType.Text = "Gamemode: Normal";
             }
             if (_userInterfaceManager.GetGamemode() == 1)
             {
-                gameStateBox.Text = "Gamemode: Master";
+                gamemodeType.Text = "Gamemode: Master";
             }
 
             //Progress bars

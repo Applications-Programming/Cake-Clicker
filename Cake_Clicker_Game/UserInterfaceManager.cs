@@ -26,20 +26,20 @@ namespace Cake_Clicker_Game
         //Gets the active gamemode
         public int GetGamemode()
         {
-            return 0;
+            return _game.GetGamemode();
         }
 
         //Gets the amount of cake earned
         public int GetLastCakeEarned()
         {
-            return 0;
+            return _game.GetMostRecentEarnings();
         }
 
 
         //returns whether the last cake earned included a golden cake
         public bool LastCakeGoldCake()
         {
-            return false;
+            return _game.GetIsMostRecentGold();
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Cake_Clicker_Game
         public void IntitializeGame(string playerName, int gamemode)
         {
             //_game = new Game(playerName, gamemode);
-            _game = new Game();
+            _game = new Game(playerName, gamemode);
             _game.SetPlayerName(playerName);
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
