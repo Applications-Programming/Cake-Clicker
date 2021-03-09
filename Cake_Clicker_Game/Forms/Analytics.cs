@@ -42,6 +42,15 @@ namespace Cake_Clicker_Game.Forms
                 offlineModeLabel.Text = "Database Mode: Online";
             }
 
+            if(_userInterfaceManager.GetGamemode() == 0) 
+            {
+                gameStateBox.Text = "Gamemode: Normal";
+            }
+            if (_userInterfaceManager.GetGamemode() == 1)
+            {
+                gameStateBox.Text = "Gamemode: Master";
+            }
+
             //Progress bars
             generateMaxCPSBar();
             generateAverageCPSBar();
