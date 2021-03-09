@@ -3,6 +3,8 @@
 //Authored: 2/9/2021
 using System;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
 using DataBaseManager;
 using Cake_Clicker_Game;
 
@@ -15,22 +17,27 @@ public class Game
     private int _cakePerClick;
     private double _multiplierOnCakeClick;
     private Achievement achievements;
-    //[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
-
+    private int _goldenCakes;
+    private int _mostRecentClickEarnings;
     private DatabaseManager _databaseManager;
     public readonly bool _offlineMode = false;
+    private int _gameMode;
+    private string _stopWatchToString;
+    Stopwatch _stopwatch = new Stopwatch();
+
 
     //Cheat Detection & Click Analytics
     internal ClickAnalytics _clickData;
 
     ///Enums
+    ///[0] == Vanilla , [1] == Choclate, [2] == Strawberry, [3] == Coffee, [4] == Red_Velvet, [5] == Carrot, [6] == Cheese
     public enum CakeType
     {
         Vanilla = 0, Chocolate = 1, Strawberry = 2, Coffee = 3, Red_Velvet = 4, Carrot = 5, Cheese = 6
     }
 
     ///Constructor
-    public Game()
+    public Game(int gameMode)
     {
         DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
             "cake-clicker-server.database.windows.net",
@@ -38,7 +45,7 @@ public class Game
             "DefaultUser",
             "CakeClicker123");
         _databaseManager = DatabaseManager.CreateDatabaseManager(connectionInfo, CakeClicker.GetUserInterfaceManager().SendUserMessage);
-        if(_databaseManager != null)
+        if (_databaseManager != null)
         {
             _offlineMode = false;
         }
@@ -54,6 +61,15 @@ public class Game
         _gameInfo = new GameData(-1, "null", 0, temp);
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
+        _goldenCakes = 0;
+        _mostRecentClickEarnings = 0;
+        _gameMode = gameMode;
+        _stopWatchToString = "null";
+
+        if (_gameMode == 1)
+        {
+            _stopwatch.Start();
+        }
 
         //Click Analytics & Cheat detection
         _clickData = new ClickAnalytics();
@@ -74,17 +90,34 @@ public class Game
     //This method is for adding cake to the total amount of cake based on the values held in the cake multiplier and cakePerClick 
     public void AddCake()
     {
-        //Computes and adds the amount of cake to the game
-        _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
-        achievements.GetGameData(_gameInfo);
+        if(_gameMode == 0 || (_gameMode == 1 && _gameInfo.amountOfCake != 1000000))
+        {
+            bool result = GoldenCakeRandomizer();
+
+            if (result == true)
+            {
+                _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+                _gameInfo.amountOfCake += 500;
+                _mostRecentClickEarnings = 500 + (int)(_cakePerClick * _multiplierOnCakeClick);
+            }
+            else
+            {
+                _gameInfo.amountOfCake += (int)(_cakePerClick * _multiplierOnCakeClick);
+                _mostRecentClickEarnings = (int)(_cakePerClick * _multiplierOnCakeClick);
+            }
+            achievements.GetGameData(_gameInfo, _goldenCakes);
+        }
+        else
+        {
+            MillionCakesStopWatch();
+        }
     }
 
     //This method adds a specified amount of cake manually
     public void AddCakeManually(int cakeAmount)
     {
         _gameInfo.amountOfCake += cakeAmount;
-        achievements.GetGameData(_gameInfo);
-
+        achievements.GetGameData(_gameInfo, _goldenCakes);
     }
 
     //This method returns the amount of cake stored in _amountOfCake
@@ -93,9 +126,58 @@ public class Game
         return _gameInfo.amountOfCake;
     }
 
+    public int GetGamemode()
+    {
+        return _gameMode;
+    }
     public int[] GetUpgradeCount()
     {
         return _gameInfo.upgradeCount;
+    }
+
+    //This method returns the current multiplier as a double
+    public double GetMultiplier()
+    {
+        return _multiplierOnCakeClick;
+    }
+
+    public int GetMostRecentEarnings()
+    {
+        return _mostRecentClickEarnings;
+    }
+
+    public int GetGoldenCakeCount()
+    {
+        return _goldenCakes;
+    }
+
+    public string GetStopWatchToString()
+    {
+        return _stopWatchToString;
+    }
+    public bool GoldenCakeRandomizer()
+    {
+        Random random = new System.Random();
+        int value = random.Next(0, 1000); //returns integer of 0-100
+        if (value == 500)
+        {
+            _goldenCakes += 1;
+            return true;
+        }
+        return false;
+    }
+
+    public string MillionCakesStopWatch()
+    {
+        if (_gameInfo.amountOfCake == 1000000)
+        {
+            _stopwatch.Stop();
+            TimeSpan ts = _stopwatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            _stopWatchToString = elapsedTime;
+            return elapsedTime;
+        }
+        return "null";
     }
 
     //This method increments the multiplier to the next tier
@@ -104,11 +186,6 @@ public class Game
         _multiplierOnCakeClick += 0.25;
     }
 
-    //This method returns the current multiplier as a double
-    public double GetMultiplier()
-    {
-        return _multiplierOnCakeClick;
-    }
 
     //This is a ToString override which returns the name of the game
     public override String ToString()
@@ -151,11 +228,11 @@ public class Game
 
     public void SaveGameToCloud()
     {
-        if(_databaseManager != null) 
+        if (_databaseManager != null)
         {
             _gameInfo.Id = _databaseManager.SaveToDatabase(_gameInfo);
-        } 
-        else 
+        }
+        else
         {
             return;
         }
@@ -184,7 +261,7 @@ public class Game
 
     public bool LoadFromCloud(int id)
     {
-        if(_databaseManager != null)
+        if (_databaseManager != null)
         {
             //online mode is enabled
             GameData gameData = _databaseManager.GetUserInfo(id);
@@ -215,7 +292,7 @@ public class Game
             _cakePerClick += 5;
             _gameInfo.amountOfCake -= 50;
             _gameInfo.upgradeCount[0] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Chocolate && _gameInfo.amountOfCake >= 250)
@@ -223,7 +300,7 @@ public class Game
             _cakePerClick += 10;
             _gameInfo.amountOfCake -= 250;
             _gameInfo.upgradeCount[1] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Strawberry && _gameInfo.amountOfCake >= 500)
@@ -231,7 +308,7 @@ public class Game
             _cakePerClick += 25;
             _gameInfo.amountOfCake -= 500;
             _gameInfo.upgradeCount[2] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Coffee && _gameInfo.amountOfCake >= 1000)
@@ -239,7 +316,7 @@ public class Game
             _cakePerClick += 50;
             _gameInfo.amountOfCake -= 1000;
             _gameInfo.upgradeCount[3] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Red_Velvet && _gameInfo.amountOfCake >= 4500)
@@ -247,7 +324,7 @@ public class Game
             _cakePerClick += 150;
             _gameInfo.amountOfCake -= 4500;
             _gameInfo.upgradeCount[4] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Carrot && _gameInfo.amountOfCake >= 20000)
@@ -255,7 +332,7 @@ public class Game
             _cakePerClick += 250;
             _gameInfo.amountOfCake -= 20000;
             _gameInfo.upgradeCount[5] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         else if (addedCake == CakeType.Cheese && _gameInfo.amountOfCake >= 80000)
@@ -263,12 +340,12 @@ public class Game
             _cakePerClick += 400;
             _gameInfo.amountOfCake -= 80000;
             _gameInfo.upgradeCount[6] += 1;
-            achievements.GetGameData(_gameInfo);
+            achievements.GetGameData(_gameInfo, _goldenCakes);
             return true;
         }
         return false;
     }
-    
+
     //Gets the max cps from the click analytics object
     public int GetMaxCPS()
     {
@@ -289,7 +366,7 @@ public class Game
 
     public void CheckAchivements()
     {
-        achievements.GetGameData(_gameInfo);
+        achievements.GetGameData(_gameInfo, _goldenCakes);
     }
 
     public bool[] GetAchivements()
@@ -314,15 +391,16 @@ public class Game
         return _gameInfo.Id;
     }
 
-    
-    }
+
+}
+
 
 public class Test
 {
     static void MainTesting()
     {
         Console.WriteLine("Testing game clicks, multiplier, and caketype...");
-        Game game = new Game();
+        Game game = new Game(1);
         for (int i = 0; i < 200; i++)
         {
             game.AddCake();
