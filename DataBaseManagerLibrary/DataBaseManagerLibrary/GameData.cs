@@ -12,6 +12,7 @@ namespace DataBaseManager
         public string PlayerName;
         public int amountOfCake;
         public int[] upgradeCount;
+        public int goldenCakesCount;
 
         public GameData()
         {
@@ -31,7 +32,7 @@ namespace DataBaseManager
         {
             writer(Id + "\n" + PlayerName + "\n" + amountOfCake);
             StringBuilder upgrades = new StringBuilder();
-            foreach(int i in upgradeCount)
+            foreach (int i in upgradeCount)
             {
                 upgrades.Append(i.ToString() + " ");
             }

@@ -10,7 +10,7 @@ namespace Cake_Clicker_Game
             public bool Active;
         }
 
-        static private int achievementCount = 4;
+        static private int achievementCount = 6;
         public AchievementInfo[] achievements = new AchievementInfo[achievementCount];
 
         public Achievement()
@@ -26,9 +26,15 @@ namespace Cake_Clicker_Game
 
             achievements[3].Name = "Recipe Book";
             achievements[3].Active = false;
+
+            achievements[4].Name = "Millions On My Mind";
+            achievements[4].Active = false;
+
+            achievements[5].Name = "You Are Gold";
+            achievements[5].Active = false;
         }
 
-        public void GetGameData(GameData data)
+        public void GetGameData(GameData data, int goldCakesCount)
         {
             if (data.amountOfCake >= 100)
             {
@@ -55,6 +61,17 @@ namespace Cake_Clicker_Game
                         break;
                     }
                     achievements[3].Active = true;
+                }
+            }
+            if (data.amountOfCake >= 1000000)
+            {
+                achievements[4].Active = true;
+            }
+            if (achievements[5].Active == false)
+            {
+                if (goldCakesCount > 0)
+                {
+                    achievements[5].Active = true;
                 }
             }
         }
@@ -89,7 +106,7 @@ namespace Cake_Clicker_Game
 
         public bool[] GetAchivementsInfo()
         {
-            bool[] achivementsStatus = new bool[4];
+            bool[] achivementsStatus = new bool[achievementCount];
             for (int i = 0; i < 4; ++i)
             {
                 achivementsStatus[i] = achievements[i].Active;
