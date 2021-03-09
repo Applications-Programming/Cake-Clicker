@@ -72,15 +72,21 @@ namespace Cake_Clicker_Game
 
             //Updates cake labels
             int cakeEarned = _userInterfaceManager.GetLastCakeEarned();
-            if(_userInterfaceManager.LastCakeGoldCake() == true)
-            {
-                cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake (Last cake was golden!) Epic!";
-            }
-            else
-            {
-                cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake!";
-            }
 
+            if(_userInterfaceManager.GetCakeTotal() >= 1000000 && _userInterfaceManager.GetGamemode() == 1)
+            {
+                cakeJustEarnedLabel.Text = _userInterfaceManager.GetFinaleString();
+            } else
+            {
+                if (_userInterfaceManager.LastCakeGoldCake() == true)
+                {
+                    cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake (Last cake was golden!) Epic!";
+                }
+                else
+                {
+                    cakeJustEarnedLabel.Text = "Last click earned a total of " + cakeEarned + " Cake!";
+                }
+            }
 
             //addPointsTimer.Interval = 1000;
             //addPointsTimer.Start();

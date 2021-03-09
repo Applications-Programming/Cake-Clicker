@@ -890,7 +890,7 @@ namespace Cake_Clicker_Game
             this.cakeJustEarnedLabel.Name = "cakeJustEarnedLabel";
             this.cakeJustEarnedLabel.Size = new System.Drawing.Size(717, 37);
             this.cakeJustEarnedLabel.TabIndex = 12;
-            this.cakeJustEarnedLabel.Text = "Last click earned a total of  <insert cake amount>";
+            this.cakeJustEarnedLabel.Text = "Last click earned a total of  0 cake";
             // 
             // currentGamemode
             // 

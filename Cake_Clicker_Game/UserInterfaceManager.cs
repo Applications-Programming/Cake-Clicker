@@ -35,6 +35,17 @@ namespace Cake_Clicker_Game
             return _game.GetMostRecentEarnings();
         }
 
+        //Gets total cake amount
+        public int GetCakeTotal()
+        {
+            return _game.GetAmountOfCake();
+        }
+
+        //Gets string of time it took to get 1 mil cake
+        public string GetFinaleString()
+        {
+            return _game.GetStopWatchToString();
+        }
 
         //returns whether the last cake earned included a golden cake
         public bool LastCakeGoldCake()
