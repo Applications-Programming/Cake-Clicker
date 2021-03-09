@@ -37,7 +37,7 @@ public class Game
     }
 
     ///Constructor
-    public Game(int gameMode)
+    public Game(string playerName, int gameMode)
     {
         DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
             "cake-clicker-server.database.windows.net",
@@ -58,7 +58,7 @@ public class Game
         }
 
         //GameData object for holding game information
-        _gameInfo = new GameData(-1, "null", 0, temp);
+        _gameInfo = new GameData(-1, playerName, 0, temp);
         _cakePerClick = 1;
         _multiplierOnCakeClick = 1.0;
         _goldenCakes = 0;
