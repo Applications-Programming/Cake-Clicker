@@ -23,6 +23,7 @@ namespace Cake_Clicker_Game
             cakeButton.Size = new Size(512, 512);
             cakeButton.MouseDown += new MouseEventHandler(Shrink);
             cakeButton.MouseUp += new MouseEventHandler(Grow);
+            this.BackColor = _userInterfaceManager.bgColor;
 
             if (_userInterfaceManager.GetGamemode() == 0)
             {

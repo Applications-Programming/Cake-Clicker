@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System;
+using System.Drawing;
 
 namespace Cake_Clicker_Game
 {
@@ -16,6 +17,7 @@ namespace Cake_Clicker_Game
         Forms.Achievements _achievements;
         Forms.ColorPicker _colorPicker;
         Forms.Analytics _analytics;
+        public Color bgColor;
 
 
         #endregion
@@ -65,13 +67,15 @@ namespace Cake_Clicker_Game
             _gameWindow = new GameWindow(playerName);
             _gameWindow.UpdateScore();
             _gameWindow.UpdateCakeCounts();
-            _gameWindow.BackColor = System.Drawing.Color.Gray;
-
+            bgColor = Color.FromArgb(100,100,100);
+            
 
             _options = new Forms.Options();
             _colorPicker = new Forms.ColorPicker();
-            _achievements = new Forms.Achievements();
+            //_achievements = new Forms.Achievements();
             _analytics = new Forms.Analytics();
+
+            ChangeBG();
         }
 
         //returns true if an autoclicker has been detected
@@ -178,6 +182,14 @@ namespace Cake_Clicker_Game
         public bool[] CheckAchievements()
         {
             return _game.GetAchivements();
+        }
+
+        public void ChangeBG()
+        {
+            _options.BackColor = bgColor;
+            _colorPicker.BackColor = bgColor;
+            _gameWindow.BackColor = bgColor;
+            _analytics.BackColor = bgColor;
         }
 
         /// <summary>

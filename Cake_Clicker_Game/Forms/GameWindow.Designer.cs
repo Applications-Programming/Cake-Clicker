@@ -32,6 +32,7 @@ namespace Cake_Clicker_Game
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.scoreLabel = new System.Windows.Forms.Label();
             this.addPointsTimer = new System.Windows.Forms.Timer(this.components);
             this.cakeLabel = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@ namespace Cake_Clicker_Game
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.achievementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cakeButton = new System.Windows.Forms.Button();
             this.cakeJustEarnedLabel = new System.Windows.Forms.Label();
@@ -642,6 +642,7 @@ namespace Cake_Clicker_Game
             // Achievement_Four_Star
             // 
             this.Achievement_Four_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Four_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Star.Image")));
             this.Achievement_Four_Star.Location = new System.Drawing.Point(22, 32);
             this.Achievement_Four_Star.Name = "Achievement_Four_Star";
             this.Achievement_Four_Star.Size = new System.Drawing.Size(90, 82);
@@ -653,6 +654,7 @@ namespace Cake_Clicker_Game
             // Achievement_Four_Question_Mark
             // 
             this.Achievement_Four_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Four_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Four_Question_Mark.Image")));
             this.Achievement_Four_Question_Mark.Location = new System.Drawing.Point(22, 32);
             this.Achievement_Four_Question_Mark.Name = "Achievement_Four_Question_Mark";
             this.Achievement_Four_Question_Mark.Size = new System.Drawing.Size(90, 82);
@@ -666,9 +668,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Four_Description.ForeColor = System.Drawing.Color.Brown;
             this.Achievement_Four_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Four_Description.Name = "Achievement_Four_Description";
-            this.Achievement_Four_Description.Size = new System.Drawing.Size(340, 29);
+            this.Achievement_Four_Description.Size = new System.Drawing.Size(253, 29);
             this.Achievement_Four_Description.TabIndex = 0;
-            this.Achievement_Four_Description.Text = "Achievement_four_Description";
+            this.Achievement_Four_Description.Text = "????????????????????";
             // 
             // Achievement_Three_Groupbox
             // 
@@ -687,6 +689,7 @@ namespace Cake_Clicker_Game
             // Achievement_Three_Star
             // 
             this.Achievement_Three_Star.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Three_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Star.Image")));
             this.Achievement_Three_Star.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Three_Star.Name = "Achievement_Three_Star";
             this.Achievement_Three_Star.Size = new System.Drawing.Size(90, 82);
@@ -698,6 +701,7 @@ namespace Cake_Clicker_Game
             // Achievement_Three_Question_Mark
             // 
             this.Achievement_Three_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Three_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Three_Question_Mark.Image")));
             this.Achievement_Three_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Three_Question_Mark.Name = "Achievement_Three_Question_Mark";
             this.Achievement_Three_Question_Mark.Size = new System.Drawing.Size(90, 82);
@@ -711,9 +715,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Three_Description.ForeColor = System.Drawing.Color.Brown;
             this.Achievement_Three_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Three_Description.Name = "Achievement_Three_Description";
-            this.Achievement_Three_Description.Size = new System.Drawing.Size(312, 29);
+            this.Achievement_Three_Description.Size = new System.Drawing.Size(253, 29);
             this.Achievement_Three_Description.TabIndex = 0;
-            this.Achievement_Three_Description.Text = "Achievement_3_Description";
+            this.Achievement_Three_Description.Text = "????????????????????";
             // 
             // Achievement_Two_Groupbox
             // 
@@ -732,7 +736,8 @@ namespace Cake_Clicker_Game
             // Achievement_Two_Star
             // 
             this.Achievement_Two_Star.BackColor = System.Drawing.Color.Transparent;
-            this.Achievement_Two_Star.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_Two_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Star.Image")));
+            this.Achievement_Two_Star.Location = new System.Drawing.Point(22, 29);
             this.Achievement_Two_Star.Name = "Achievement_Two_Star";
             this.Achievement_Two_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_Two_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -743,6 +748,7 @@ namespace Cake_Clicker_Game
             // Achievement_Two_Question_Mark
             // 
             this.Achievement_Two_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_Two_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_Two_Question_Mark.Image")));
             this.Achievement_Two_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_Two_Question_Mark.Name = "Achievement_Two_Question_Mark";
             this.Achievement_Two_Question_Mark.Size = new System.Drawing.Size(90, 82);
@@ -756,9 +762,9 @@ namespace Cake_Clicker_Game
             this.Achievement_Two_Description.ForeColor = System.Drawing.Color.Brown;
             this.Achievement_Two_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_Two_Description.Name = "Achievement_Two_Description";
-            this.Achievement_Two_Description.Size = new System.Drawing.Size(347, 29);
+            this.Achievement_Two_Description.Size = new System.Drawing.Size(253, 29);
             this.Achievement_Two_Description.TabIndex = 0;
-            this.Achievement_Two_Description.Text = "Achievement_Two_Description";
+            this.Achievement_Two_Description.Text = "????????????????????";
             // 
             // Achievement_One_Groupbox
             // 
@@ -777,7 +783,9 @@ namespace Cake_Clicker_Game
             // Achievement_One_Star
             // 
             this.Achievement_One_Star.BackColor = System.Drawing.Color.Transparent;
-            this.Achievement_One_Star.Location = new System.Drawing.Point(18, 29);
+            this.Achievement_One_Star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.BackgroundImage")));
+            this.Achievement_One_Star.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Star.Image")));
+            this.Achievement_One_Star.Location = new System.Drawing.Point(22, 29);
             this.Achievement_One_Star.Name = "Achievement_One_Star";
             this.Achievement_One_Star.Size = new System.Drawing.Size(90, 82);
             this.Achievement_One_Star.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -788,6 +796,7 @@ namespace Cake_Clicker_Game
             // Achievement_One_Question_Mark
             // 
             this.Achievement_One_Question_Mark.BackColor = System.Drawing.Color.Transparent;
+            this.Achievement_One_Question_Mark.Image = ((System.Drawing.Image)(resources.GetObject("Achievement_One_Question_Mark.Image")));
             this.Achievement_One_Question_Mark.Location = new System.Drawing.Point(18, 29);
             this.Achievement_One_Question_Mark.Name = "Achievement_One_Question_Mark";
             this.Achievement_One_Question_Mark.Size = new System.Drawing.Size(90, 82);
@@ -801,9 +810,9 @@ namespace Cake_Clicker_Game
             this.Achievement_One_Description.ForeColor = System.Drawing.Color.Brown;
             this.Achievement_One_Description.Location = new System.Drawing.Point(118, 52);
             this.Achievement_One_Description.Name = "Achievement_One_Description";
-            this.Achievement_One_Description.Size = new System.Drawing.Size(345, 29);
+            this.Achievement_One_Description.Size = new System.Drawing.Size(253, 29);
             this.Achievement_One_Description.TabIndex = 0;
-            this.Achievement_One_Description.Text = "Achievement_One_Description";
+            this.Achievement_One_Description.Text = "????????????????????";
             // 
             // menuStrip1
             // 
@@ -812,10 +821,10 @@ namespace Cake_Clicker_Game
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.analyticsToolStripMenuItem,
-            this.achievementsToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1776, 33);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
@@ -850,13 +859,6 @@ namespace Cake_Clicker_Game
             this.analyticsToolStripMenuItem.Text = "Analytics";
             this.analyticsToolStripMenuItem.Click += new System.EventHandler(this.analyticsToolStripMenuItem_Click);
             // 
-            // achievementsToolStripMenuItem
-            // 
-            this.achievementsToolStripMenuItem.Name = "achievementsToolStripMenuItem";
-            this.achievementsToolStripMenuItem.Size = new System.Drawing.Size(138, 29);
-            this.achievementsToolStripMenuItem.Text = "Achievements";
-            this.achievementsToolStripMenuItem.Click += new System.EventHandler(this.achievementsToolStripMenuItem_Click);
-            // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
@@ -888,7 +890,7 @@ namespace Cake_Clicker_Game
             this.cakeJustEarnedLabel.ForeColor = System.Drawing.Color.Gold;
             this.cakeJustEarnedLabel.Location = new System.Drawing.Point(600, 992);
             this.cakeJustEarnedLabel.Name = "cakeJustEarnedLabel";
-            this.cakeJustEarnedLabel.Size = new System.Drawing.Size(717, 37);
+            this.cakeJustEarnedLabel.Size = new System.Drawing.Size(502, 37);
             this.cakeJustEarnedLabel.TabIndex = 12;
             this.cakeJustEarnedLabel.Text = "Last click earned a total of  0 cake";
             // 
@@ -897,7 +899,7 @@ namespace Cake_Clicker_Game
             this.currentGamemode.AutoSize = true;
             this.currentGamemode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentGamemode.ForeColor = System.Drawing.Color.Gold;
-            this.currentGamemode.Location = new System.Drawing.Point(600, 1030);
+            this.currentGamemode.Location = new System.Drawing.Point(600, 1029);
             this.currentGamemode.Name = "currentGamemode";
             this.currentGamemode.Size = new System.Drawing.Size(475, 37);
             this.currentGamemode.TabIndex = 13;
@@ -908,7 +910,7 @@ namespace Cake_Clicker_Game
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1776, 1171);
+            this.ClientSize = new System.Drawing.Size(1776, 1062);
             this.ControlBox = false;
             this.Controls.Add(this.currentGamemode);
             this.Controls.Add(this.cakeJustEarnedLabel);
@@ -1032,7 +1034,6 @@ namespace Cake_Clicker_Game
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analyticsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem achievementsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
