@@ -15,8 +15,6 @@ namespace Cake_Clicker_Game.Forms
             InitializeComponent();
             AutoSetLocation();
             _userInterfaceManager = CakeClicker.GetUserInterfaceManager();
-
-            greymodeButton.Checked = true;
         }
 
         private void AutoSetLocation()
@@ -31,22 +29,7 @@ namespace Cake_Clicker_Game.Forms
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-        }
-
-        private void lightmodeButton_CheckedChanged(object sender, EventArgs e)
-        {
-            _userInterfaceManager.GetGameWindow().BackColor = Color.LightGray;
-        }
-
-        private void darkmodeButton_CheckedChanged(object sender, EventArgs e)
-        {
-            _userInterfaceManager.GetGameWindow().BackColor = Color.Black;
-        }
-
-        private void greymodeButton_CheckedChanged(object sender, EventArgs e)
-        {
-            _userInterfaceManager.GetGameWindow().BackColor = Color.Gray;
+            this.Hide();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
