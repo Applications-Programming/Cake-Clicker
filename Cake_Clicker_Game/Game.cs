@@ -40,6 +40,11 @@ public class Game
     ///Constructor
     public Game(string playerName, int gameMode)
     {
+
+        System.Media.SoundPlayer musicPlayer = new System.Media.SoundPlayer();
+        musicPlayer.SoundLocation = @"C:\Development\ApplicationsProgramming\Cake-Clicker\Cake_Clicker_Game\Assets\CakeClickerTheme.wav";
+        musicPlayer.PlayLooping();
+
         DatabaseManager.ConnectionInfo connectionInfo = new DatabaseManager.ConnectionInfo(
             "cake-clicker-server.database.windows.net",
             "CakeClicker",

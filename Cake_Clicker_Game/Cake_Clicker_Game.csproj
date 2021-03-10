@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Cake.png" />
+    <Content Include="Assets\CakeClickerTheme.wav" />
     <Content Include="CakeIcon.ico" />
     <None Include="Assets\Vanilla_Cake.png" />
     <None Include="Assets\Strawberry_Cake.png" />
